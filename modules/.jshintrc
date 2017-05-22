@@ -1,0 +1,12 @@
+{
+  "browser": true,
+  "unused": true,
+  "undef": true,
+  "globals": {
+    "filterBind": false,
+    "Episcroll": false,
+    "EpiscrollDocs": true,
+    "matchesSelector": false,
+    "utils": true
+  }
+}

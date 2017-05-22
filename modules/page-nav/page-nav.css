@@ -21,10 +21,12 @@
 @media screen and ( min-width: 1220px ) {
   .page-nav {
     position: absolute;
-    right: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     width: 200px;
-    padding-top: 20px;
+    margin: 0;
+    padding: 20px;
+    list-style: none;
   }
 
   /* activate sticky */

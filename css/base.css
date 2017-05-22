@@ -18,12 +18,12 @@ html { font-size: 17px; }
 html.export { font-size: 15px; }
 
 a {
-  color: #6A6;
+  color: #19F;
   text-decoration: none;
 }
 
 a:hover {
-  color: #E90;
+  color: #C25;
 }
 
 h1, h2, h3 {
@@ -83,13 +83,6 @@ tr:nth-child(2) td {
 
 .main {
   position: relative; /* for page-nav */
-}
-
-/* ---- content ---- */
-
-.container {
-  max-width: 1000px;
-  padding: 0 10px;
 }
 
 /* ---- page-title ---- */

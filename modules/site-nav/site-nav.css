@@ -2,7 +2,17 @@
 ------------------------- */
 
 .site-nav {
-  background: #8C8;
+  background: #19F;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* clearfix */
+.site-nav:after {
+  content: '';
+  clear: both;
+  display: block;
 }
 
 /* bottom nav */
@@ -10,18 +20,6 @@
   position: relative;
   margin-top: 80px;
   z-index: 2; /* on top of page-nav */
-}
-
-.site-nav__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.site-nav__list:after {
-  content: '';
-  clear: both;
-  display: block;
 }
 
 .site-nav__item {
@@ -45,7 +43,7 @@
 }
 
 .site-nav__item a:hover {
-  background: #E5A;
+  background: #C25;
   color: white;
 }
 
@@ -61,8 +59,8 @@
 .page--events .site-nav__item--events a,
 .page--extras .site-nav__item--extras a,
 .page--license .site-nav__item--license a {
-  background: #ED2;
-  color: white;
+  background: #FFF;
+  color: #19F;
 }
 
 /* size at which it can fit */
@@ -79,7 +77,8 @@
   }
 
   .site-nav__item--homepage {
-    font-size: 26px;
+    font-size: 1.6rem;
+    width: 200px;
   }
 
 }
