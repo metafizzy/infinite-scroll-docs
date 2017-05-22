@@ -26,9 +26,6 @@
 
 <div class="main">
   <div class="container">
-    {{#if page.title}}
-      <h1 class="page-title">{{page.title}}</h1>
-    {{/if}}
 
     {{#if page.is_homepage}}
       {{! big-links}}
@@ -36,11 +33,21 @@
 
     <ul class="page-nav" data-js="page-nav"></ul>
 
+    <div class="main__page">
+      {{#if page.title}}
+        <h1 class="page-title">{{page.title}}</h1>
+      {{/if}}
+
 {{! no leading whitespace because handlebars preserves it, messes with code blocks
 https://github.com/wycats/handlebars.js/issues/858 }}
 {{#block "main"}}{{/block}}
-  </div>
-</div>
+    </div> {{! main__page }}
+  </div> {{! container }}
+</div> {{! main }}
+
+{{#unless page.is_404}}
+  {{> site-scroll}}
+{{/unless}}
 
 {{> site-nav}}
 
