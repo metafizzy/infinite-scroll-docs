@@ -10,21 +10,110 @@ title: Options
 
 <h3>path</h3>
 
+<p>Determines the URL for the next page. <strong>Required</strong>.</p>
+
+<p>Set to a selector string of the to the next page to use its <code>href</code> value.</p>
+
+``` html
+<a class="pagination__next" href="/page/2">Next</a>
+```
+
+``` js
+path: '.pagination__next',
+// parse href of element
+// => /page/2, /page/3, page/4 ...
+```
+
+<p>Set to a string with <code>\{{#}}</code> for the incremental page number.</p>
+
+``` js
+path: 'news/blog-p\{{#}}.html',
+// replace \{{#}} with page number
+// => news/blog-p2.html, news/blog-p3.html, news/blog-p4 ...
+```
+
+<p>Set to a function that returns the URL for page URLs that do not use incremental numbers. For example, A List Apart articles increment by 10. Use <a href="api.html#pageindex"><code>pageIndex</code></a> and <a href="api.html#loadcount">loadCount</a> properties to calculate the URL.</p>
+
+``` js
+path: function() {
+  var pageNumber = ( this.loadCount + 1 ) * 10;
+  return '/articles/P' + pageNumber;
+},
+// => /articles/P10, /articles/P20, /articles/P30 ...
+```
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>append</h3>
+
+<p>Appends selected elements from loaded page to the container.</p>
+
+``` js
+append: '.post',
+// append .post elements from next page to container
+```
+
+Disable appending with <code>append: <span class="literal">false</span></code>, for loading JSON or adding your own append behavior like with <a href="extras.html#metafizzy-layout-libraries">Masonry or Isotope</a>.
+
+``` js
+append: false,
+// do not append any content on page load
+```
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>checkLastPage</h3>
 
+<p>Checks if page has <code>path</code> selector element. This prevents Episcroll from requesting a non-existant page. Requires <code>append</code> enabled and <a href="#path"><code>path</code></a> to be set to a selector.</p>
+
+{{! TODO checkLastPage enabled demo }}
+
+``` js
+// checkLastPage: true,
+// enabled by default
+```
+
+{{! TODO checklastPage disabled }}
+
+
+``` js
+checkLastPage: false,
+// disabled
+```
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>prefill</h3>
 
+<p>Loads and appends pages on intialization until scroll requirement is met.</p>
+
+{{! TODO prefill demo }}
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>responseType</h3>
+
+<p>Sets the type of response returned by the page request. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">MDN docs XMLHttpRequest.responseType</a>.</p>
+
+``` js
+// responseType: 'document',
+// default, return next page's DOM
+```
+
+<p>Set <code>responseType: <span class="string">'text'</span></code> to return flat text for loading JSON.</p>
+
+``` js
+$container.episcroll({
+  path: '/api/page\{{#}}',
+  append: false,
+  responseType: 'text',
+});
+
+$container.on( 'load.episcroll', function( event, response ) {
+  // parse JSON
+  var data = JSON.parse( response );
+});
+```
 
 {{! ----------------------------------------------------------------- }}
 
@@ -32,7 +121,7 @@ title: Options
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>loadOnScroll</h3>
+<h3>scrollThreshold</h3>
 
 {{! ----------------------------------------------------------------- }}
 
@@ -40,7 +129,30 @@ title: Options
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>scrollThreshold</h3>
+<h3>loadOnScroll</h3>
+
+<p>Loads next page when scroll is at bottom, passing <a href="#scrollthreshold"><code>scrollThreshold</code></a>.</p>
+
+``` js
+// loadOnScroll: true,
+// enabled by default
+```
+
+<p>Disable <code>loadOnScroll</code> if you do not want to load pages on scroll, but still want the <a href="events.html#atbottom"><code>atBottom</code> event</a> triggered.</p>
+
+``` js
+loadOnScroll: false,
+// disable loading pages on scroll
+// atBottom event still triggered
+```
+
+<p>Otherwise, you can disable both loading on scroll and <code>atBottom</code> event by disabling <code>scrollThreshold</code>.</p>
+
+``` js
+scrollThreshold: false,
+// disable loading pages on scroll
+// and atBottom event
+```
 
 {{! ----------------------------------------------------------------- }}
 

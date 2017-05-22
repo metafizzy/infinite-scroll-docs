@@ -29,7 +29,7 @@ EpiscrollDocs['site-scroll'] = function( elem ) {
   function onButtonClick() {
     infScroll = new Episcroll( '.main .container', {
       path: function() {
-        var nextIndex = pageIndex + this.loadCount + 1;
+        var nextIndex = pageIndex + this.loadCount;
         return pages[ nextIndex ];
       },
       append: '.main__page',
