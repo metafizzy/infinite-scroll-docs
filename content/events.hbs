@@ -1,0 +1,84 @@
+---
+title: Events
+---
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>Event binding</h2>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>jQuery event binding</h3>
+
+<p>Bind events with jQuery with standard jQuery event methods <code>.on()</code>, <code>.off()</code>, and <code>.one()</code>. Event names are namespaced with <code>.episcroll</code>.</p>
+
+``` js
+// jQuery
+function listener(/* parameters */) {
+  console.log('eventName happened');
+}
+// bind event listener
+$container.on( 'eventName.episcroll', listener );
+// unbind event listener
+$container.off( 'eventName.episcroll', listener );
+// bind event listener to trigger once. note ONE not ON
+$container.one( 'eventName.episcroll', function() {
+  console.log('eventName happened just once');
+});
+```
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Vanilla JS event binding</h3>
+
+<p>Bind events with vanilla JS with <code>.on()</code>, <code>.off()</code>, and <code>.once()</code> methods.</p>
+
+``` js
+// vanilla JS
+function listener(/* parameters */) {
+  console.log('eventName happened');
+}
+// bind event listener
+infScroll.on( 'eventName', listener );
+// unbind event listener
+infScroll.off( 'eventName', listener );
+// bind event listener to trigger once. note ONCE not ONE or ON
+infScroll.once( 'eventName', function() {
+  console.log('eventName happened just once');
+});
+```
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>Episcroll events</h2>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>atBottom</h3>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>request</h3>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>load</h3>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>append</h3>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>error</h3>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>last</h3>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>history</h3>
+
+{{! ----------------------------------------------------------------- }}
+

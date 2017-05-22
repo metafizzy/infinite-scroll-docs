@@ -1,0 +1,166 @@
+---
+is_homepage: true
+---
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Install</h3>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Download</h3>
+
+<ul>
+  <li><a href="{{sourceUrlPath}}episcroll.pkgd.min.js">episcroll.pkgd.min.js</a> minified, or</li>
+  <li><a href="{{sourceUrlPath}}episcroll.pkgd.js">episcroll.pkgd.js</a> un-minified</li>
+</ul>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>CDN</h3>
+
+<p>Link directly to Episcroll files on <a href="https://unpkg.com/">unpkg</a>.</p>
+
+``` html
+<script src="https://unpkg.com/episcroll@1/dist/episcroll.pkgd.min.js"></script>
+<!-- or -->
+<script src="https://unpkg.com/episcroll@1/dist/episcroll.pkgd.js"></script>
+```
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Package managers</h3>
+
+<p>Install with npm: <code>npm install episcroll</code></p>
+
+<p>Install with yarn: <code>yarn add episcroll</code></p>
+
+<p>Install with Bower: <code>bower install episcroll --save</code></p>
+
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>License</h2>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Commercial license</h3>
+
+<p>If you want to use Episcroll to develop commercial sites, themes, projects, and applications, the Commercial license is the appropriate license. With this option, your source code is kept proprietary. <a href="license.html">Read more about Episcroll commercial licensing</a>.</p>
+
+<p>Once purchased, you&rsquo;ll receive a commercial license PDF and be all set to use Episcroll in your commercial applications.</p>
+
+<div class="buy-button-trio">
+  {{#licenses.developer}}
+    {{> buy-button}}
+  {{/licenses.developer}}
+
+  {{#licenses.team}}
+    {{> buy-button}}
+  {{/licenses.team}}
+
+  {{#licenses.organization}}
+    {{> buy-button}}
+  {{/licenses.organization}}
+</div>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Open source license</h3>
+
+<p>If you are creating an open source application under a license compatible with the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL license v3</a>, you may use Episcroll under the terms of the GPLv3. <a href="license.html">Read more about Episcroll open source licensing</a>.</p>
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>Getting started</h2>
+
+<p>Include the Episcroll <code>.js</code> file in your site.</p>
+
+``` html
+<script src="/path/to/episcroll.pkgd.min.js"></script>
+```
+
+<p>Episcroll works on a container element with a group of item elements.</p>
+
+``` html
+<div class="container">
+  <div class="post">...</div>
+  <div class="post">...</div>
+  <div class="post">...</div>
+  ...
+</div>
+```
+
+<p>There are several ways to initialize Episcroll.</p>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Initialize with jQuery</h3>
+
+<p>You can use Episcroll as a jQuery plugin: <code>$(<span class="string">'selector'</span>).episcroll()</code>.</p>
+
+``` js
+$('.container').episcroll({
+  // options
+  path: '.pagination__next',
+  append: '.post',
+  history: false,
+});
+```
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Initialize with vanilla JavaScript</h3>
+
+<p>You can use Episcroll with vanilla JS: <code><span class="keyword">new</span> Episcroll( elem )</code>. The <code>Episcroll()</code> constructor accepts two arguments: the container element and an options object.</p>
+
+``` js
+var elem = document.querySelector('.container');
+var infScroll = new Episcroll( elem, {
+  // options
+  path: '.pagination__next',
+  append: '.post',
+  history: false,
+});
+
+// element argument can be a selector string
+//   for an individual element
+var infScroll = new Episcroll( '.container', {
+  // options
+});
+```
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Initialize with HTML</h3>
+
+<p>You can initialize Episcroll in HTML, without writing any JavaScript. Add <code>data-episcroll</code> attribute to the carousel element. <a href="options.html">Options</a> can be set in its value.</p>
+
+
+``` html
+<div class="container"
+  data-episcroll='{ "path": ".pagination__next", "append": ".post", "history": false }'>
+```
+
+<div class="call-out">
+  <p>Options set in HTML must be valid JSON. Keys need to be quoted, for example <code>"path":</code>. Note that the attribute value uses single quotes <code>'</code>, but the JSON entities use double-quotes <code>"</code>.</p>
+</div>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Next</h3>
+
+<ul>
+  <li><a href="options.html">Options</a></li>
+  <li><a href="api.html">API</a></li>
+</ul>
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>Feature showcase</h2>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3><a href="options.html">View all options</a></h3>
+
+{{! ----------------------------------------------------------------- }}

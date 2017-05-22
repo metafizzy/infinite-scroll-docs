@@ -1,0 +1,22 @@
+{
+  "name": "episcroll-docs",
+  "authors": [
+    "David DeSandro <desandrocodes@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "episcroll": "../episcroll#master",
+    "fizzy-docs-modules": "metafizzy/fizzy-docs-modules",
+    "normalize-css": "normalize.css#^7.0.0"
+  },
+  "license": "BY-CC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

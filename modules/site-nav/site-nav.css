@@ -1,0 +1,85 @@
+/* site nav
+------------------------- */
+
+.site-nav {
+  background: #8C8;
+}
+
+/* bottom nav */
+.main ~ .site-nav {
+  position: relative;
+  margin-top: 80px;
+  z-index: 2; /* on top of page-nav */
+}
+
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__list:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.site-nav__item {
+  width: 33.333%;
+  float: left;
+  line-height: 28px;
+}
+
+.site-nav__item a {
+  display: block;
+  color: white;
+  padding: 5px
+}
+
+.site-nav__item--homepage {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.site-nav__item--homepage a {
+}
+
+.site-nav__item a:hover {
+  background: #E5A;
+  color: white;
+}
+
+.site-nav__item a:active {
+  background: white;
+  color: #8C8;
+}
+
+/* selected */
+.page--style .site-nav__item--style a,
+.page--options .site-nav__item--options a,
+.page--api .site-nav__item--api a,
+.page--events .site-nav__item--events a,
+.page--extras .site-nav__item--extras a,
+.page--license .site-nav__item--license a {
+  background: #ED2;
+  color: white;
+}
+
+/* size at which it can fit */
+@media screen and ( min-width: 768px ) {
+
+  .site-nav__item {
+    width: auto;
+    font-size: 21px;
+    line-height: 70px;
+  }
+
+  .site-nav__item a {
+    padding: 0px 25px;
+  }
+
+  .site-nav__item--homepage {
+    font-size: 26px;
+  }
+
+}

@@ -1,0 +1,27 @@
+{
+  "name": "episcroll-docs",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "glob": "^4.5.3",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-filter": "^2.0.2",
+    "gulp-front-matter": "^1.3.0",
+    "gulp-hb": "^5.1.4",
+    "gulp-jshint": "^1.12.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4",
+    "handlebars-layouts": "^3.1.4",
+    "highlight.js": "^8.9.1",
+    "transfob": "^1.0.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "BY-CC"
+}

@@ -1,0 +1,12 @@
+{
+  "browser": true,
+  "devel": true,
+  "unused": true,
+  "undef": true,
+  "globals": {
+    "FizzyDocs": false,
+    "fizzyUIUtils": false,
+    "EpiscrollDocs": true,
+    "matchesSelector": false
+  }
+}
