@@ -3,7 +3,7 @@
 
 .scroller {
   height: 400px;
-  padding: 10px;
+  padding: 10px 10px 100px;
   overflow-y: scroll;
   border: 1px solid #DDD;
   border-radius: 5px;

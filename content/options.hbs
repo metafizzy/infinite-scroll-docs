@@ -143,10 +143,17 @@ $container.on( 'load.episcroll', function( event, response ) {
 
 <p>Sets the distance between the viewport to scroll area for <code>atBottom</code> event to be triggered. Default: <code><span class="comment">scrollThreshold: 400</span></code>.</p>
 
-``` js
-scrollThresold: 200
-// trigger atBottom event when viewport is >200px from bottom of scroll area
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    scrollThresold: 100
+    // trigger atBottom event when viewport is <100px from bottom of scroll area
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> scroll-threshold-option}}
+  </div>
+</div>
 
 <p>Disable loading on scroll and the <code>atBottom</code> event with <code>scrollThreshold: false</code>. This is useful if loading via button.</p>
 
@@ -164,54 +171,73 @@ scrollThreshold: false,
 
 <p>I recommend disabling <a href="#history"><code>history</code></a> with <code>elementScroll</code>.</p>
 
-<p>Set <code>elementScroll: <span class="literal">true</span></code> to use the container element.</p>
+<p>Set <code>elementScroll</code> to a selector string or element to use a different parent element. This is useful if a <a href="#status">status element</a> or <a href="#button">button</a> is at the bottom of the scroll area.</p>
 
-``` html
-<!-- .container is scrollable and has scroll content -->
-<div class="container">
-  <div class="post">...</div>
-  <div class="post">...</div>
-  ...
-</div>
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <!-- .sidebar is scrollable -->
+    <div class="sidebar">
+      <!-- .container has scroll content -->
+      <div class="container">
+        <div class="post">...</div>
+        <div class="post">...</div>
+        ...
+      </div>
+      <!-- status is at bottom of scroll -->
+      <div class="scroller-status">
+        <p class="episcroll-request">Loading...</p>
+        ...
+      </div>
+    </div>
+    ```
 
-``` js
-// content will be appended to .container
-$('.container').episcroll({
-  // options...
-  elementScroll: true,
-  // use .container overflow element scrolling
-});
-```
-
-<p>Set <code>elementScroll</code> to a selector string to use a different parent element.</p>
-
-``` html
-<!-- .sidebar is scrollable -->
-<div class="sidebar">
-  <!-- .container has scroll content -->
-  <div class="container">
-    <div class="post">...</div>
-    <div class="post">...</div>
-    ...
+    ``` js
+    // content will be appended to .container
+    $('.container').episcroll({
+      // options...
+      elementScroll: '.sidebar',
+      // use .sidebar overflow element scrolling
+    });
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> append}}
   </div>
 </div>
-```
 
-``` js
-// content will be appended to .container
-$('.container').episcroll({
-  // options...
-  elementScroll: '.sidebar',
-  // use .sidebar overflow element scrolling
-});
-```
+<p>Set <code>elementScroll: <span class="literal">true</span></code> to use the container element.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <!-- .container is scrollable and has scroll content -->
+    <div class="container">
+      <div class="post">...</div>
+      <div class="post">...</div>
+      ...
+    </div>
+    ```
+
+    ``` js
+    // content will be appended to .container
+    $('.container').episcroll({
+      // options...
+      elementScroll: true,
+      // use .container overflow element scrolling
+    });
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> element-scroll-container}}
+  </div>
+</div>
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>loadOnScroll</h3>
 
-<p>Loads next page when scroll is at bottom, passing <a href="#scrollthreshold"><code>scrollThreshold</code></a>. Enabled by default <code><span class="comment">loadOnScroll: true</span></code>.</p>
+<p>Loads next page when scroll crosses over <a href="#scrollthreshold"><code>scrollThreshold</code></a>. Enabled by default <code><span class="comment">loadOnScroll: true</span></code>.</p>
 
 <p>Disable <code>loadOnScroll</code> if you do not want to load pages on scroll, but still want the <a href="events.html#atbottom"><code>atBottom</code> event</a> triggered.</p>
 
@@ -239,15 +265,11 @@ scrollThreshold: false,
 
 <p>Changes the browser history and URL.</p>
 
-<p>When enabled with <a href=#append><code>append</code></a> enabled, history will be changed when the appended page is scrolled into view. Users may scroll up and down, and history will reflect the URL of the content in the view.</p> {{! demo }}
-
-<p>When enabled with <code>append</code> disabled, history will be changed only when a page is loaded.</p> {{! demo }}
-
-<p>Enabled by default <code><span class="comment">history: 'replace'</span></code> will use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method"><code>history.replaceState()</code></a> to change the current history entry. Going Back in the browser will return the user to previous site.</p>
+<p>Enabled by default <code><span class="comment">history: 'replace'</span></code> will use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method"><code>history.replaceState()</code></a> to change the current history entry. Going back in the browser will return the user to previous site.</p>
 
 {{! basic full demo }}
 
-<p>Set <code>history: <span class="string">'push'</span></code> to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method"><code>history.pushState()</code></a> to create new history entries for each page change. Going Back in the browser will load the previous page.</p>
+<p>Set <code>history: <span class="string">'push'</span></code> to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method"><code>history.pushState()</code></a> to create new history entries for each page change. Going back in the browser will load the previous page.</p>
 
 
 ``` js
@@ -257,6 +279,9 @@ history: 'push',
 
 {{! history push demo }}
 
+<p>When enabled with <a href=#append><code>append</code></a> enabled, history will be changed when the appended page is scrolled into view. Users may scroll up and down, and history will reflect the URL of the content in the view.</p> {{! demo }}
+
+<p>When enabled with <code>append</code> disabled, history will be changed only when a page is loaded.</p> {{! demo }}
 
 {{! ----------------------------------------------------------------- }}
 
@@ -280,9 +305,10 @@ historyTitle: false,
 <p>Hides navigation element.</p>
 
 ``` html
-<!-- page nav is confusing if infinite scroll -->
+<!-- hide pagination with infinite scroll enabled -->
 <div class="pagination">
-  <a href="/page/2">Page 2</a>
+  <span class="pagination__current">Page 1</span>
+  <a class="pagination__next" href="/page/2">Next</a>
 </div>
 ```
 
@@ -307,24 +333,64 @@ hideNav: '.pagination',
 
 <p>The selected element will be hidden on <a href="events.html#load"><code>load</code></a>.</p>
 
-``` html
-<div class="page-load-status">
-  <p class="episcroll-request">Loading...</p>
-  <p class="episcroll-last">End of content</p>
-  <p class="episcroll-error">No more pages to load</p>
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="page-load-status">
+      <p class="episcroll-request">Loading...</p>
+      <p class="episcroll-last">End of content</p>
+      <p class="episcroll-error">No more pages to load</p>
+    </div>
+    ```
+
+    ``` js
+    status: '.page-load-status',
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> status}}
+  </div>
 </div>
-```
-
-{{! basic element demo }}
-
-``` js
-status: '.page-load-status',
-```
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>button</h3>
 
+<p>Enables a button to load pages on click. The button will state will be hooked in to Episcroll events:</p>
+
+<ul>
+  <li>Disabled while loading on <a href="events.html#request"><code>request</code></a></li>
+  <li>Re-enabled after page is loaded on <a href="events.html#load"><code>load</code></a></li>
+  <li>Hidden when no more pages to load on <a href="events.html#error"><code>error</code></a> and <a href="events.html#last"><code>last</code></a></li>
+</ul>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    button: '.load-next-button',
+    // load pages on button click
+    scrollThreshold: false,
+    // disable loading on scroll
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> button-option}}
+  </div>
+</div>
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>log</h3>
+
+<p>Logs events and state changes to the console.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    log: true,
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> log}}
+  </div>
+</div>

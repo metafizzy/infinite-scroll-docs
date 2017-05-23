@@ -65,6 +65,14 @@ button {
   font: inherit;
 }
 
+/* ---- hr ---- */
+
+hr {
+  border: none;
+  border-top: 1px solid #DDD;
+  margin: 40px 0;
+}
+
 /* ---- table ---- */
 
 th, td {
@@ -89,6 +97,12 @@ tr:nth-child(2) td {
 
 .main {
   position: relative; /* for page-nav */
+}
+
+.main__page {
+  padding-bottom: 40px;
+  border-bottom: 20px solid #19F;
+  margin-bottom: 40px;
 }
 
 /* ---- page-title ---- */
