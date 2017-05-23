@@ -2,7 +2,7 @@
 ------------------------- */
 
 .post {
-  min-height: 200px;
+  height: 200px;
   margin-bottom: 10px;
   padding: 20px;
   background: #19F;
@@ -19,3 +19,9 @@
 .post--red { background: #E21; }
 .post--gold { background: #EA0; }
 .post--green { background: #6C6; }
+
+/* ---- prefill ---- */
+
+.scroller--prefill .post,
+.scroller--prefill .post--height2,
+.scroller--prefill .post--height3 { height: 80px; }

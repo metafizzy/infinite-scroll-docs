@@ -23,3 +23,7 @@
   text-align: center;
   color: #777;
 }
+
+/* ---- prefill ---- */
+
+.scroller--prefill { height: 500px; }

@@ -59,6 +59,12 @@ pre code {
   border: none;
 }
 
+/* ---- button ---- */
+
+button {
+  font: inherit;
+}
+
 /* ---- table ---- */
 
 th, td {

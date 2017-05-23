@@ -48,9 +48,6 @@ path: function() {
 
 <p>Appends selected elements from loaded page to the container.</p>
 
-
-
-
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
@@ -98,7 +95,17 @@ checkLastPage: false,
 
 <p>Loads and appends pages on intialization until scroll requirement is met.</p>
 
-{{! TODO prefill demo }}
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    prefill: true,
+    // load pages on init until user can scroll
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> prefill}}
+  </div>
+</div>
 
 {{! ----------------------------------------------------------------- }}
 
