@@ -48,12 +48,23 @@ path: function() {
 
 <p>Appends selected elements from loaded page to the container.</p>
 
-``` js
-append: '.post',
-// append .post elements from next page to container
-```
+
+
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    append: '.post',
+    // append .post elements from next page to container
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> append}}
+  </div>
+</div>
 
 Disable appending with <code>append: <span class="literal">false</span></code>, for loading JSON or adding your own append behavior like with <a href="extras.html#metafizzy-layout-libraries">Masonry or Isotope</a>.
+
 
 ``` js
 append: false,
@@ -64,7 +75,7 @@ append: false,
 
 <h3>checkLastPage</h3>
 
-<p>Checks if page has <code>path</code> selector element. This prevents Episcroll from requesting a non-existant page. Requires <code>append</code> enabled and <a href="#path"><code>path</code></a> to be set to a selector.</p>
+<p>Checks if page has <code>path</code> selector element. This prevents Episcroll from requesting a non-existant page. Requires <code>append</code> enabled and <a href="#path"><code>path</code></a> to be set to a selector. Enabled by default <code><span class="comment">checkLastPage: true</span></code></p>
 
 {{! TODO checkLastPage enabled demo }}
 
@@ -104,7 +115,7 @@ checkLastPage: false,
 
 ``` js
 $container.episcroll({
-  path: '/api/page\{{#}}',
+  path: '/api/page\{{#}}.json',
   append: false,
   responseType: 'text',
 });
@@ -123,20 +134,77 @@ $container.on( 'load.episcroll', function( event, response ) {
 
 <h3>scrollThreshold</h3>
 
+<p>Sets the distance between the viewport to scroll area for <code>atBottom</code> event to be triggered. Default: <code><span class="comment">scrollThreshold: 400</span></code>.</p>
+
+``` js
+scrollThresold: 200
+// trigger atBottom event when viewport is >200px from bottom of scroll area
+```
+
+<p>Disable loading on scroll and the <code>atBottom</code> event with <code>scrollThreshold: false</code>. This is useful if loading via button.</p>
+
+``` js
+scrollThreshold: false,
+// disable loading on scroll
+// and atBottom event from triggering
+```
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>elementScroll</h3>
+
+<p>Sets scroller to an element for overflow element scrolling. Disabled by default, <code>window</code> is used to scroll.</p>
+
+<p>I recommend disabling <a href="#history"><code>history</code></a> with <code>elementScroll</code>.</p>
+
+<p>Set <code>elementScroll: <span class="literal">true</span></code> to use the container element.</p>
+
+``` html
+<!-- .container is scrollable and has scroll content -->
+<div class="container">
+  <div class="post">...</div>
+  <div class="post">...</div>
+  ...
+</div>
+```
+
+``` js
+// content will be appended to .container
+$('.container').episcroll({
+  // options...
+  elementScroll: true,
+  // use .container overflow element scrolling
+});
+```
+
+<p>Set <code>elementScroll</code> to a selector string to use a different parent element.</p>
+
+``` html
+<!-- .sidebar is scrollable -->
+<div class="sidebar">
+  <!-- .container has scroll content -->
+  <div class="container">
+    <div class="post">...</div>
+    <div class="post">...</div>
+    ...
+  </div>
+</div>
+```
+
+``` js
+// content will be appended to .container
+$('.container').episcroll({
+  // options...
+  elementScroll: '.sidebar',
+  // use .sidebar overflow element scrolling
+});
+```
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>loadOnScroll</h3>
 
-<p>Loads next page when scroll is at bottom, passing <a href="#scrollthreshold"><code>scrollThreshold</code></a>.</p>
-
-``` js
-// loadOnScroll: true,
-// enabled by default
-```
+<p>Loads next page when scroll is at bottom, passing <a href="#scrollthreshold"><code>scrollThreshold</code></a>. Enabled by default <code><span class="comment">loadOnScroll: true</span></code>.</p>
 
 <p>Disable <code>loadOnScroll</code> if you do not want to load pages on scroll, but still want the <a href="events.html#atbottom"><code>atBottom</code> event</a> triggered.</p>
 
@@ -162,9 +230,37 @@ scrollThreshold: false,
 
 <h3>history</h3>
 
+<p>Changes the browser history and URL.</p>
+
+<p>When enabled with <a href=#append><code>append</code></a> enabled, history will be changed when the appended page is scrolled into view. Users may scroll up and down, and history will reflect the URL of the content in the view.</p> {{! demo }}
+
+<p>When enabled with <code>append</code> disabled, history will be changed only when a page is loaded.</p> {{! demo }}
+
+<p>Enabled by default <code><span class="comment">history: 'replace'</span></code> will use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method"><code>history.replaceState()</code></a> to change the current history entry. Going Back in the browser will return the user to previous site.</p>
+
+{{! basic full demo }}
+
+<p>Set <code>history: <span class="string">'push'</span></code> to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method"><code>history.pushState()</code></a> to create new history entries for each page change. Going Back in the browser will load the previous page.</p>
+
+
+``` js
+history: 'push',
+// create new history entry for each page
+```
+
+{{! history push demo }}
+
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>historyTitle</h3>
+
+<p>Updates the window title. Requires <code>history</code> enabled. Enabled by default <code><span class="comment">historyTitle: true</span></code>.</p>
+
+``` js
+historyTitle: false,
+// do not change window title when history changes
+```
 
 {{! ----------------------------------------------------------------- }}
 
@@ -172,11 +268,51 @@ scrollThreshold: false,
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>status</h3>
+<h3>hideNav</h3>
+
+<p>Hides navigation element.</p>
+
+``` html
+<!-- page nav is confusing if infinite scroll -->
+<div class="pagination">
+  <a href="/page/2">Page 2</a>
+</div>
+```
+
+``` js
+hideNav: '.pagination',
+```
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>hideNav</h3>
+<h3>status</h3>
+
+<p>Displays status elements indicating state of page loading. Within the selected element:</p>
+
+<ul>
+  <li><code>.episcroll-request</code> element will be displayed on
+    <a href="events.html#request"><code>request</code></a></li>
+  <li><code>.episcroll-last</code> element will be displayed on
+    <a href="events.html#last"><code>last</code></a></li>
+  <li><code>.episcroll-error</code> element will be displayed on
+    <a href="events.html#error"><code>error</code></a></li>
+</ul>
+
+<p>The selected element will be hidden on <a href="events.html#load"><code>load</code></a>.</p>
+
+``` html
+<div class="page-load-status">
+  <p class="episcroll-request">Loading...</p>
+  <p class="episcroll-last">End of content</p>
+  <p class="episcroll-error">No more pages to load</p>
+</div>
+```
+
+{{! basic element demo }}
+
+``` js
+status: '.page-load-status',
+```
 
 {{! ----------------------------------------------------------------- }}
 

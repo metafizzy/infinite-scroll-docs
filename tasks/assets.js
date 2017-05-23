@@ -10,7 +10,16 @@ gulp.task( 'assets', function() {
     .pipe( gulp.dest('build') );
 });
 
-// copy prod assets
-gulp.task( 'prod-assets', [ 'fonts', 'assets' ] );
+var demoSrc = 'demo/**/*.*';
 
-module.exports = function() {};
+gulp.task( 'demo', function() {
+  return gulp.src( demoSrc )
+    .pipe( gulp.dest('build/demo') );
+});
+
+// copy prod assets
+gulp.task( 'prod-assets', [ 'fonts', 'assets', 'demo' ] );
+
+module.exports = function( site ) {
+  site.watch( demoSrc, [ 'demo' ] );
+};

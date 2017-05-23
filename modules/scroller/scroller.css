@@ -1,0 +1,25 @@
+/* scroller
+------------------------- */
+
+.scroller {
+  height: 400px;
+  padding: 10px;
+  overflow-y: scroll;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+}
+
+.scroller__content {
+}
+
+/* ---- scroller__status ---- */
+
+.scroller__status {
+  display: none;
+  padding: 20px 0;
+}
+
+.scroller__status__message {
+  text-align: center;
+  color: #777;
+}
