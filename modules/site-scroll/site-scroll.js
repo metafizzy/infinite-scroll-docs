@@ -36,10 +36,18 @@ EpiscrollDocs['site-scroll'] = function( elem ) {
       log: true,
     });
 
+    infScroll.on( 'append', onAppend );
+
     infScroll.loadNextPage();
 
     button.style.display = 'none';
     button.removeEventListener( 'click', onButtonClick );
+  }
+
+  function onAppend( response, path, items ) {
+    for ( var i=0; i < items.length; i++ ) {
+      EpiscrollDocs.initElementJS( items[i] );
+    }
   }
 
 };

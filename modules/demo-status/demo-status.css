@@ -1,0 +1,11 @@
+/* demo-status
+------------------------- */
+
+.demo-status {
+  font-size: 1.2rem;
+  background: #FAFAFA;
+  border: 1px solid #DDD;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 14px; /* hack */
+}

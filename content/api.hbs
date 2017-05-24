@@ -6,22 +6,315 @@ title: API
 
 <h2>Methods</h2>
 
+<p>Methods are actions done by Episcroll instances.</p>
+
+<p>With jQuery, methods follow the jQuery UI pattern
+  <code>$container.episcroll( <span class="string">'methodName'</span> <span class="comment">/*, arguments */</span> )</code>.</p>
+
+``` js
+var $container = $('.container').episcroll({ /* options... */ })
+  .episcroll('loadNextPage');
+```
+
+<div class="call-out">
+  <p>jQuery chaining is broken by methods that return values like <a href="#getcellelements"><code>loadNextPage</code></a>.</p>
+</div>
+
+<p>Vanilla JavaScript methods look like
+  <code>episcroll.methodName( <span class="comment">/* arguments */</span> )</code>. Unlike jQuery methods, they cannot be chained together.</p>
+
+``` js
+// vanilla JS
+var infScroll = new Episcroll('.container', {
+  // options...
+});
+infScroll.loadNextPage();
+```
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>loadNextPage</h3>
+
+<p>Load the next page.</p>
+
+``` js
+// jQuery
+var promise = $container.episcroll('loadNextPage')
+// vanilla JS
+var promise = infScroll.loadNextPage()
+```
+
+<p class="argument">
+  <code class="argument__code">promise</code>
+  <span class="argument__type"><i>Promise</i></span>
+</p>
+
+<code>loadNextPage</code> returns a <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promise</a>.
+
+``` js
+var promise = $container.episcroll('loadNextPage')
+
+promise.then( function( response ) {
+  // fulfill callback
+  console.log('page has been loaded');
+}, function( error ) {
+  // error callback
+  console.error( error );
+});
+```
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>appendItems</h3>
 
+<p>Append items to the container.</p>
+
+<p><code>appendItems</code> will load <code>&lt;script/&gt;</code> within item elements. This is useful for loading embed scripts.</p>
+
+``` js
+// jQuery
+$container.episcroll( 'appendItems', items )
+// vanilla JS
+infScroll.appendItems( items )
+```
+
+<p class="argument">
+  <code class="argument__code">items</code>
+  <span class="argument__type"><i>jQuery</i> object, <i>NodeList</i>, or <i>Array</i> of <i>Element</i>s</span>
+</p>
+
+<p>Use <code>appendItems</code> to manually append items on <a href="events.html#load"><code>load</code></a>, like with Masonry, Isotope, and Packery.</p>
+
+``` js
+var $container = $('.container').episcroll({
+  append: false, // disable automatic appending
+});
+
+$container.on( 'load.episcroll', function( response ) {
+  // get posts from response
+  var $posts = $( response ).find('.post');
+  // append posts after images loaded
+  $posts.imagesLoaded( function() {
+    $container.episcroll( 'appendItems', $posts );
+  });
+});
+```
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>getPath</h3>
+
+<p>Get the path URL for the next page.</p>
+
+``` js
+// jQuery
+var path = $container.episcroll('getPath')
+// vanilla JS
+var path = infScroll.getPath()
+```
+
+<p class="argument">
+  <code class="argument__code">path</code>
+  <span class="argument__type"><i>String</i></span>
+</p>
+
+``` js
+var $container = $('.container').episcroll({
+  path: '/page/\{{#}}',
+  // options...
+});
+
+$container.episcroll('getPath');
+// => '/page/2'
+```
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>getAbsolutePath</h3>
+
+<p>Get the absolute path URL for the next page, including the protocol and top-level domain.</p>
+
+``` js
+// jQuery
+var path = $container.episcroll('getAbsolutePath')
+// vanilla JS
+var path = infScroll.getAbsolutePath()
+```
+
+<p class="argument">
+  <code class="argument__code">path</code>
+  <span class="argument__type"><i>String</i></span>
+</p>
+
+``` js
+var $container = $('.container').episcroll({
+  path: '/page/\{{#}}',
+  // options...
+});
+
+$container.episcroll('getPath');
+// => 'http://example.com/page/2'
+```
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>destroy</h3>
+
+<p>Remove Episcroll functionality completely.</p>
+
+``` js
+// jQuery
+$container.episcroll('destroy')
+// vanilla JS
+infScroll.destroy()
+```
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>Utilities</h2>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>jQuery.fn.data('episcroll')</h3>
+
+<p>Get the Episcroll instance from a jQuery object. Episcroll instances are useful to access Episcroll properties.</p>
+
+``` js
+var infScroll = $('.container').data('episcroll');
+// access Episcroll properties
+console.log( 'Infinite scroll at page' + infScroll.pageIndex );
+```
+
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Episcroll.data()</h3>
+
+<p>Get the Episcroll instance via its element. <code>Episcroll.data()</code> is useful for getting the Episcroll instance in JavaScript, after it has been initalized in HTML.</p>
+
+``` js
+var infScroll = Episcroll.data( element )
+```
+
+<p class="argument">
+  <code class="argument__code">element</code>
+  <span class="argument__type"><i>Element</i> or Selector <i>String</i></span>
+</p>
+<p class="argument">
+  <code class="argument__code">infScroll</code>
+  <span class="argument__type"><i>Episcroll</i></span>
+</p>
+
+<div class="example">
+  <div class="example__code">
+    ``` html
+    <!-- init Episcroll in HTML -->
+    <div class="container" data-episcroll='{...}'>...</div>
+    ```
+
+    ``` js
+    // jQuery
+    // pass in the element, $element[0], not the jQuery object
+    var infScroll = Episcroll.data( $('.container')[0] )
+
+    // vanilla JS
+    var container = document.querySelector('.container')
+    var infScroll = Episcroll.data( container )
+
+    // using a selector string
+    var infScroll = Episcroll.data('.container')
+    ```
+  </div>
+</div>
+
 {{! ----------------------------------------------------------------- }}
 
 <h2>Properties</h2>
+
+<div class="call-out">
+  <p>Properties are accessed only on Episcroll instances. If you initialized Episcroll with jQuery, use <code>.data(<span class="string">'episcroll'</span>)</code> to get the instance.</p>
+
+  ``` js
+  // init Flickity with jQuery
+  var $container = $('.container').episcroll({...});
+  // get instance
+  var infScroll = $container.data('episcroll');
+  // access properties
+  console.log( infScroll.pageIndex );
+  ```
+</div>
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>pageIndex</h3>
 
+<p>The number of the current loaded page. <code>pageIndex</code> increments by 1 on each <a href="events.html#load"><code>load</code></a>.</p>
+
+``` js
+infScroll.pageIndex
+// => 1
+```
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var infScroll = $container.data('episcroll');
+
+    $container.on( 'load.episcroll', function() {
+      $demoStatus.text( 'Loaded page: ' +
+        infScroll.pageIndex );
+    });
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> page-index}}
+  </div>
+</div>
+
+<p>Episcroll will determine the initial <code>pageIndex</code> on initialization. If <a href="options.html#path"><code>path</code></a> is set to a next link element, Episcroll will determine <code>pageIndex</code> from the link's <code>href</code> value.</p>
+
+``` html
+<a class="pagination__next" href="/page/4">Next</a>
+```
+
+``` js
+path: '.pagination__next',
+// next page is 4, pageIndex = 3
+```
+
+<p>If <code>path</code> is set to a string with <code>\{{#}}</code>, Episcroll will determine <code>pageIndex</code> from the window URL.</p>
+
+``` js
+// URL: http://example.com/blog/9.html
+path: '/blog/\{{#}}.html',
+// pageIndex = 9
+```
+
+<p>Otherwise, initial <code>pageIndex</code> defaults to <code>1</code>.</p>
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>loadCount</h3>
+
+<p>The number of pages loaded. <code>loadCount</code> increments by 1 on each <a href="events.html#load"><code>load</code></a>.</p>
+
+``` js
+infScroll.loadCount
+// => 0
+```
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var infScroll = $container.data('episcroll');
+
+    $container.on( 'load.episcroll', function() {
+      $demoStatus.text( infScroll.loadCount +
+        'pages loaded' );
+    });
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> load-count}}
+  </div>
+</div>
