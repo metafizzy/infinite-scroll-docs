@@ -54,31 +54,213 @@ infScroll.once( 'eventName', function() {
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>atBottom</h3>
+<h3>scrollThreshold</h3>
+
+<p>Triggered when scroll position is less than <a href="options.html#scrollthreshold"><code>scrollThreshold</code> option</a> distance.</p>
+
+``` js
+// jQuery
+$container.on( 'scrollThreshold.episcroll', function( event ) {
+  console.log('Scroll at bottom');
+});
+
+// vanilla JS
+infScroll.on( 'scrollThreshold', function() {...});
+```
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>request</h3>
 
+<p>Triggered when Episcroll makes the request for the next page to be loaded.</p>
+
+``` js
+// jQuery
+$container.on( 'request.episcroll', function( event, promise, path ) {
+  console.log( 'Loading page: ' + path );
+});
+
+// vanilla JS
+infScroll.on( 'request', function( promise, path ) {...})
+```
+
+<p class="argument">
+  <code class="argument__code">promise</code>
+  <span class="argument__type"><i>Promise</i></span>
+</p>
+<p class="argument">
+  <code class="argument__code">path</code>
+  <span class="argument__type"><i>String</i></span>
+  <span class="argument__description">Requested page URL path</span>
+</p>
+
+``` js
+// Using promise
+$container.on( 'request.episcroll', function( event, promise, path ) {
+  promise.then( function( response ) {
+    // fulfill callback
+    console.log( path + ' has been loaded');
+  }, function( error ) {
+    // error callback
+    console.error( error );
+  });
+});
+```
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>load</h3>
+
+<p>Triggered when the next page has been successfully loaded, but not yet added to the container.</p>
+
+``` js
+// jQuery
+$container.on( 'load.episcroll', function( event, response, path ) {
+  console.log( 'Loaded: ' + path );
+});
+
+// vanilla JS
+infScroll.on( 'load', function( response, path ) {...});
+```
+
+<p class="argument">
+  <code class="argument__code">response</code>
+  <span class="argument__type"><i>Document</i> or <i>String</i></span>
+  <span class="argument__description">Response body of the loaded request. You can change the type of response with <a href="options.html#responsetype"><code>responseType</code></a></span>
+</p>
+<p class="argument">
+  <code class="argument__code">path</code>
+  <span class="argument__type"><i>String</i></span>
+  <span class="argument__description">Loaded page URL path</span>
+</p>
+
+``` js
+var infScroll = $container.data('episcroll');
+
+$container.on( 'load.episcroll', function( event, response, path ) {
+  console.log( 'Loaded: ' + path,
+    'Current page: ' + infScroll.pageIndex,
+    infScroll.loadCount + ' pages loaded'
+  );
+});
+```
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>append</h3>
 
+<p>Triggered after item elements have been appended to the container.</p>
+
+``` js
+// jQuery
+$container.on( 'append.episcroll', function( event, response, path, items ) {
+  console.log( 'Loaded: ' + path );
+});
+
+// vanilla JS
+infScroll.on( 'append', function( response, path, items ) {...});
+```
+
+<p class="argument">
+  <code class="argument__code">response</code>
+  <span class="argument__type"><i>Document</i> or <i>String</i></span>
+  <span class="argument__description">Response body of the loaded request</span>
+</p>
+<p class="argument">
+  <code class="argument__code">path</code>
+  <span class="argument__type"><i>String</i></span>
+  <span class="argument__description">Loaded page URL path</span>
+</p>
+<p class="argument">
+  <code class="argument__code">items</code>
+  <span class="argument__type"><i>NodeList</i></span>
+  <span class="argument__description">Appended item elements</span>
+</p>
+
+``` js
+$container.on( 'append.episcroll', function( event, response, path, items ) {
+  console.log( items.length + ' items appended' );
+});
+```
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>error</h3>
+
+<p>Triggered when the next page could not be loaded.</p>
+
+``` js
+// jQuery
+$container.on( 'error.episcroll', function( event, error, path ) {
+  console.log( 'Could not load: ' + path )
+})
+
+// vanilla JS
+infScroll.on( 'error', function( error, path ) {...})
+```
+
+<p class="argument">
+  <code class="argument__code">error</code>
+  <span class="argument__type"><i>Error</i> or <i>String</i></span>
+</p>
+<p class="argument">
+  <code class="argument__code">path</code>
+  <span class="argument__type"><i>String</i></span>
+  <span class="argument__type">Requested page URL path</span>
+</p>
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>last</h3>
 
+<p>Triggered when the last page has been loaded.</p>
+
+<p>Requires <a href="options.html#checklastpage"><code>checkLastPage</code></a> enabled, and <a href="options.html#path"><code>path</code></a> to be set to a next link.</p>
+
+``` js
+// jQuery
+$container.on( 'last.episcroll', function( event, response, path ) {
+  console.log( 'Loaded: ' + path );
+});
+
+// vanilla JS
+infScroll.on( 'last', function( response, path ) {...});
+```
+
+<p class="argument">
+  <code class="argument__code">response</code>
+  <span class="argument__type"><i>Document</i> or <i>String</i></span>
+  <span class="argument__description">Response body of the loaded request</span>
+</p>
+<p class="argument">
+  <code class="argument__code">path</code>
+  <span class="argument__type"><i>String</i></span>
+  <span class="argument__description">Loaded page URL path</span>
+</p>
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>history</h3>
 
-{{! ----------------------------------------------------------------- }}
+<p>Triggered when the history and URL have been changed.</p>
 
+``` js
+// jQuery
+$container.on( 'history.episcroll', function( event, title, path ) {
+  console.log( 'History changed to: ' + path );
+});
+
+// vanilla JS
+infScroll.on( 'history', function( title, path ) {...});
+```
+
+<p class="argument">
+  <code class="argument__code">title</code>
+  <span class="argument__type"><i>String</i></span>
+  <span class="argument__description">Page title, if present</span>
+</p>
+<p class="argument">
+  <code class="argument__code">path</code>
+  <span class="argument__type"><i>String</i></span>
+  <span class="argument__description">Page URL path</span>
+</p>
