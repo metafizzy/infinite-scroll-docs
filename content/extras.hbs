@@ -10,25 +10,185 @@ title: Extras
 
 <h3>Webpack</h3>
 
+<p>Install Episcroll with npm or Yarn.</p>
+
+``` bash
+npm install episcroll
+# or
+yarn add episcroll
+```
+
+<p>You can then <code><span class="built_in">require</span>(<span class="string">'episcroll'</span>)</code>.</p>
+
+``` js
+// main.js
+var Episcroll = require('episcroll');
+
+var infScroll = new Episcroll( '.container', {
+  // options...
+});
+```
+
+<p>Run webpack.</p>
+
+``` bash
+webpack main.js bundle.js
+```
+
+<p>To use Episcroll as a jQuery plugin with Browserify, you need to call <a href="https://www.npmjs.com/package/jquery-bridget">jQuery Bridget</a>.</p>
+
+``` bash
+npm install jquery-bridget
+# or
+yarn add jquery-bridget
+```
+
+``` js
+// main.js
+var $ = require('jquery');
+var jQueryBridget = require('jquery-bridget');
+var Episcroll = require('episcroll');
+
+// make Episcroll a jQuery plugin
+jQueryBridget( 'episcroll', Episcroll, $ );
+// now you can use $().episcroll()
+$('.container').episcroll({...});
+```
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>Requirejs</h3>
 
+<p>Episcroll supports <a href="http://requirejs.org/">RequireJS</a>.</p>
+
+<p>You can require episcroll.pkgd.js.</p>
+
+``` js
+requirejs( [
+  'path/to/episcroll.pkgd.js',
+], function( Episcroll ) {
+  var episcroll = new Episcroll( '.carousel', {...});
+});
+```
+
+<p>To use Episcroll as a jQuery plugin with RequireJS and episcroll.pkgd.js, you need to call <a href="https://github.com/desandro/jquery-bridget">jQuery Bridget</a>.</p>
+
+``` js
+// require the require function
+requirejs( [ 'require', 'jquery', 'path/to/episcroll.pkgd.js' ],
+  function( require, $, Episcroll ) {
+    // require jquery-bridget, it's included in episcroll.pkgd.js
+    require( [ 'jquery-bridget/jquery-bridget' ],
+    function( jQueryBridget ) {
+      // make Episcroll a jQuery plugin
+      jQueryBridget( 'episcroll', Episcroll, $ );
+      // now you can use $().episcroll()
+      $('.container').episcroll({...});
+    }
+  );
+});
+```
+
+<p>Or, you can require Episcroll's index.js by using a package manager: npm, Bower, or Yarn. Set <code>baseUrl</code> to the package install path and set a config path for all your application code.</p>
+
+``` js
+requirejs.config({
+  baseUrl: 'node_modules/', // npm install path
+  paths: {
+    app: '../'
+  }
+});
+
+requirejs( [
+  'episcroll/js/index',
+  'app/my-component.js',
+], function( Episcroll, myComp ) {
+  var infScroll = new Episcroll( '.container', {...});
+});
+```
+
+<p>You can require dependencies and use Episcroll as a jQuery plugin with jQuery Bridget.</p>
+
+``` js
+requirejs.config({
+  baseUrl: 'node_modules/',
+  paths: {
+    jquery: 'jquery/jquery'
+  }
+});
+
+requirejs( [
+    'jquery',
+    'episcroll/js/index',
+    'jquery-bridget/jquery-bridget'
+  ],
+  function( $, Episcroll ) {
+    // make Episcroll a jQuery plugin
+    $.bridget( 'episcroll', Episcroll, $ );
+    // now you can use $().episcroll()
+    $('.container').episcroll({...});
+});
+```
+
 {{! ----------------------------------------------------------------- }}
 
-<h2>Metafizzy layout libraries</h2>
+<h2>Layout libraries</h2>
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>Masonry</h3>
 
-{{! ----------------------------------------------------------------- }}
+<p>When using Episcroll with <a href="https://masonry.desandro.com">Masonry</a>, use <a href="https://imagesloaded.desandro.com">imagesLoaded</a> to append items on <a href="events.html#load"><code>load</code></a> after images have been loaded.</p>
 
-<h3>Isotope</h3>
+``` js
+// jQuery
+// init Masonry
+var $grid = $('.grid').masonry({
+  // Masonry options...
+});
+// init Episcroll
+$grid.episcroll({
+  // Episcroll options...
+  // do not set append
+});
 
-{{! ----------------------------------------------------------------- }}
+// append items on load
+$grid.on( 'load.episcroll', function( event, response ) {
+  // get items from response
+  var $items = $( response ).find('.grid-item');
+  // append items after images loaded
+  $items.imagesLoaded( function() {
+    $grid.episcroll( 'appendItems', $items )
+      .masonry( 'appended', $items );
+  });
+});
+```
 
-<h3>Packery</h3>
+``` js
+// vanilla JS
+// init Masonry
+var msnry = new Masonry( '.grid', {
+  // Masonry options
+});
+// init Episcroll
+var infScroll = new Episcroll( '.grid', {
+  // Episcroll options...
+  // do not set append
+});
+
+// append items on load
+infScroll.on( 'load', function( response ) {
+  // get items from response
+  var items = response.querySelectorAll('.grid-item');
+  // append items after images loaded
+  imagesLoaded( items, function() {
+    infScroll.appendItems( items );
+    msnry.appended( items );
+  });
+});
+```
+
+<p>The same code can be used for <a href="https://isotope.metafizzy.co">Isotope</a> and <a href="https://packery.metafizzy.co">Packery</a>, changing <code>.masonry</code> and <code>Masonry</code> respectively.</p>
 
 {{! ----------------------------------------------------------------- }}
 
@@ -48,7 +208,7 @@ title: Extras
 
 <p>Creating a reduced test case is the best way to debug problems and report issues. Read <a href="http://css-tricks.com/reduced-test-cases/">CSS Tricks</a> on why they&rsquo;re so great.</p>
 
-<p>Create a reduced test case for Flickity by forking any one of the <a href="http://codepen.io/desandro/tag/episcroll-docs">CodePen demos</a> from these docs.</p>
+<p>Create a reduced test case for Episcroll by forking any one of the <a href="http://codepen.io/desandro/tag/episcroll-docs">CodePen demos</a> from these docs.</p>
 
 <ul>
   <li>A reduced test case clearly demonstrates the bug or issue.</li>
