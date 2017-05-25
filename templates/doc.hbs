@@ -1,53 +1,35 @@
-<!doctype html>
-<html lang="en" class="{{#if isExport}}export{{/if}}">
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="Infinite scroll, back-button friendly" />
-  <meta name="viewport" content="width=device-width" />
+{{> html-head}}
 
-  <title>Episcroll{{#unless page.is_homepage}} &middot; {{page.title}}{{/unless}}</title>
-
-  {{#if isDev}}
-    {{#each css_paths}}
-      <link rel="stylesheet" href="../{{this}}" />
-    {{/each}}
-  {{else}}
-    <link rel="stylesheet" href="{{#if page.is_404}}/{{/if}}css/episcroll-docs.css" media="screen" />
-  {{/if}}
-
-</head>
 <body class="page--{{@file.basename}}" data-basename="{{@file.basename}}">
 
 {{> site-nav}}
 
-{{#if page.is_homepage}}
+{{#if page.isHomepage}}
   {{> hero}}
 {{/if}}
 
 <div class="main">
   <div class="container">
 
-    {{#if page.is_homepage}}
+    {{#if page.isHomepage}}
       {{! big-links}}
     {{/if}}
-
 
     <div class="main__page">
       {{#if page.title}}
         <h1 class="page-title">{{page.title}}</h1>
       {{/if}}
 
-
       <ul class="page-nav" data-js="page-nav"></ul>
 
-{{! no leading whitespace because handlebars preserves it, messes with code blocks
-https://github.com/wycats/handlebars.js/issues/858 }}
+{{! no leading whitespace }}
 {{#block "main"}}{{/block}}
     </div> {{! main__page }}
+
   </div> {{! container }}
 </div> {{! main }}
 
-{{#unless page.is_404}}
+{{#unless page.is404}}
   {{> site-scroll}}
 {{/unless}}
 
@@ -55,21 +37,4 @@ https://github.com/wycats/handlebars.js/issues/858 }}
 
 {{> site-footer episcroll=true}}
 
-{{#if isDev}}
-  {{#each js_paths}}
-    <script src="../{{this}}"></script>
-  {{/each}}
-{{else}}
-  <script src="{{#if page.is_404}}/{{/if}}js/episcroll-docs.min.js"></script>
-{{/if}}
-
-{{#unless isExport}}
-  <!-- <script>
-    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-    ga('create','UA-58739927-1','auto');ga('send','pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script> -->
-{{/unless}}
-
-</body>
-</html>
+{{> html-foot}}

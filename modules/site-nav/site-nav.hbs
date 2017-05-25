@@ -1,20 +1,20 @@
 <ol class="site-nav">
   <li class="site-nav__item site-nav__item--homepage">
-    <a href="{{#if page.is_404}}/{{/if}}.">Episcroll</a>
+    <a href="{{@file.rootPath}}.">Episcroll</a>
   </li>
   <li class="site-nav__item site-nav__item--options">
-    <a href="{{#if page.is_404}}/{{/if}}options.html">Options</a>
+    <a href="{{@file.rootPath}}options.html">Options</a>
   </li>
   <li class="site-nav__item site-nav__item--api">
-    <a href="{{#if page.is_404}}/{{/if}}api.html">API</a>
+    <a href="{{@file.rootPath}}api.html">API</a>
   </li>
   <li class="site-nav__item site-nav__item--events">
-    <a href="{{#if page.is_404}}/{{/if}}events.html">Events</a>
+    <a href="{{@file.rootPath}}events.html">Events</a>
   </li>
   <li class="site-nav__item site-nav__item--extras">
-    <a href="{{#if page.is_404}}/{{/if}}extras.html">Extras</a>
+    <a href="{{@file.rootPath}}extras.html">Extras</a>
   </li>
   <li class="site-nav__item site-nav__item--license">
-    <a href="license.html">License</a>
+    <a href="{{@file.rootPath}}license.html">License</a>
   </li>
 </ol>

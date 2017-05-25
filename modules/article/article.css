@@ -1,0 +1,11 @@
+/* article
+------------------------- */
+
+.article {
+  margin-bottom: 80px;
+}
+
+.article img {
+  display: block;
+  max-width: 100%;
+}

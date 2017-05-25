@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" class="{{#if isExport}}export{{/if}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Infinite scroll, back-button friendly" />
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Episcroll{{#unless page.isHomepage}} &middot; {{page.title}}{{/unless}}</title>
+
+  {{#if isDev}}
+    {{#each css_paths}}
+      <link rel="stylesheet" href="../{{@file.rootPath}}{{this}}" />
+    {{/each}}
+  {{else}}
+    <link rel="stylesheet" href="{{@file.rootPath}}css/episcroll-docs.css" media="screen" />
+  {{/if}}
+
+</head>

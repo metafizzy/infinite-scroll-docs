@@ -1,0 +1,30 @@
+{{> html-head}}
+
+<body class="page--{{@file.basename}}" data-basename="{{@file.basename}}">
+
+{{> site-nav}}
+
+<div class="main">
+  <div class="container">
+
+    {{#if page.title}}
+      <h1 class="page-title">{{page.title}}</h1>
+    {{/if}}
+
+    <div class="article-feed" {{#if page.next}}data-episcroll='{ "path": ".pagination__next", "append": ".article", "status": ".scroller__status", "hideNav": ".pagination" }'{{/if}}>
+{{! no leading whitespace }}
+{{#block "main"}}{{/block}}
+    </div>
+
+    {{> scroller-status}}
+
+    {{#if page.next}}
+      <p class="pagination">
+        <a class="pagination__next" href="{{page.next}}">Next page</a>
+      </p>
+    {{/if}}
+
+  </div> {{! container }}
+</div> {{! main }}
+
+{{> html-foot}}

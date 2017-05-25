@@ -1,0 +1,61 @@
+---
+title: Full page demo
+layout: full-page-demo
+next: page2.html
+---
+
+<article class="article">
+  <h2 class="article__title">1a - Episcroll full page demo</h2>
+
+  <p><b>Hi!</b> This demo will show off several key features of Episcroll.</p>
+
+  <ul>
+    <li>Full page scrolling</li>
+    <li>Changing browser history and URL. Try refreshing when a new page is scrolled in.</li>
+  </ul>
+
+  <p>The code looks like this:</p>
+
+  ``` html
+  <div class="article-feed">
+    <!-- .articles will be added to .article-feed -->
+    <article class="article">...</article>
+    <article class="article">...</article>
+    ...
+  </div>
+
+  <!-- status elements -->
+  <div class="scroller__status">
+    <div class="episcroll-request loader-ellips">
+      ...
+    </div>
+    <p class="episcroll-last">End of content</p>
+    <p class="episcroll-error">No more pages to load</p>
+  </div>
+
+  <!-- pagination has path -->
+  <p class="pagination">
+    <a class="pagination__next" href="page2.html">Next page</a>
+  </p>
+  ```
+
+  ``` js
+  // init Episcroll
+  $('.article-feed').episcroll({
+    path: '.pagination__next',
+    append: '.article',
+    status: '.scroller__status',
+    hideNav: '.pagination',
+  });
+  ```
+
+</article>
+
+<article class="article">
+  <h2 class="article__title">1b - RGB Schemes logo in Computer Arts</h2>
+
+  <p>As part of their March 2017 issue on VR, <a href="http://www.creativebloq.com/computer-arts-magazine">Computer Arts</a> featured the <a href="/blog/rgb-schemes-logo">RGB Schemes logo</a> in a five page spread. I got to share the nitty gritty of how the project came together, working through the brief, and all the stuff that didn&#39;t make the cut. <a href="https://www.myfavouritemagazines.co.uk/design/computer-arts-magazine-back-issues/computer-arts-march-2017-issue-263/">You can still grab a back issue online</a>.</p>
+  <p><img src="https://i.imgur.com/Z7CCiYI.jpg" alt="Computer Arts RGB Schemes logo article"></p>
+  <p><img src="https://i.imgur.com/G74MTbS.jpg" alt="Computer Arts RGB Schemes logo article"></p>
+
+</article>
