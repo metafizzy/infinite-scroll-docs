@@ -4,25 +4,16 @@ EpiscrollDocs['site-scroll'] = function( elem ) {
   var infScroll;
 
   var pages = [
-    '.',
-    'options.html',
-    'api.html',
-    'events.html',
-    'extras.html',
-    'license.html',
+    'index',
+    'options',
+    'api',
+    'events',
+    'extras',
+    'license',
   ];
 
-  // TODO handle index.html in URL
-  var pageIndex = ( function() {
-    var link = document.createElement('a');
-    for ( var i=0; i < pages.length; i++ ) {
-      var page = pages[i];
-      link.href = page;
-      if ( link.href == location.href ) {
-        return i + 1;
-      }
-    }
-  })();
+  var basename = document.body.getAttribute('data-basename');
+  var pageIndex = pages.indexOf( basename ) + 1;
 
   button.addEventListener( 'click', onButtonClick );
 
@@ -33,7 +24,7 @@ EpiscrollDocs['site-scroll'] = function( elem ) {
         return pages[ nextIndex ];
       },
       append: '.main__page',
-      log: true,
+      // log: true,
     });
 
     infScroll.on( 'append', onAppend );

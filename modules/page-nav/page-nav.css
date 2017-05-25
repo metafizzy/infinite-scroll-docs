@@ -18,7 +18,7 @@
   padding-left: 15px;
 }
 
-@media screen and ( min-width: 1220px ) {
+@media screen and ( min-width: 960px ) {
   .page-nav {
     position: absolute;
     left: 0;

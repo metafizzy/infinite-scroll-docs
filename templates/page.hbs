@@ -16,7 +16,7 @@
   {{/if}}
 
 </head>
-<body class="page--{{@file.basename}}">
+<body class="page--{{@file.basename}}" data-basename="{{@file.basename}}">
 
 {{> site-nav}}
 
@@ -31,12 +31,14 @@
       {{! big-links}}
     {{/if}}
 
-    <ul class="page-nav" data-js="page-nav"></ul>
 
     <div class="main__page">
       {{#if page.title}}
         <h1 class="page-title">{{page.title}}</h1>
       {{/if}}
+
+
+      <ul class="page-nav" data-js="page-nav"></ul>
 
 {{! no leading whitespace because handlebars preserves it, messes with code blocks
 https://github.com/wycats/handlebars.js/issues/858 }}
