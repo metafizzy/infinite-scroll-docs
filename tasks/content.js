@@ -3,12 +3,12 @@ var rename = require('gulp-rename');
 var filter = require('gulp-filter');
 var frontMatter = require('gulp-front-matter');
 var path = require('path');
-var transfob = require('transfob');
 var pageNav = require('./utils/page-nav');
 var highlightCodeBlock = require('./utils/highlight-code-block');
 var hb = require('gulp-hb');
 var hbLayouts = require('handlebars-layouts');
-var extendPageLayout = require('./utils/extend-page-layout');
+var extendLayout = require('./utils/extend-layout');
+var addFileProperties = require('./utils/add-file-properties');
 
 // sources
 var contentSrc = 'content/**/*.hbs';
@@ -51,12 +51,8 @@ module.exports = function( site ) {
         property: 'data.page',
         remove: true
       }) )
-      .pipe( extendPageLayout() )
-      // add basename
-      .pipe( transfob( function( file, enc, next ) {
-        file.basename = path.basename( file.path, '.hbs' );
-        next( null, file );
-      }))
+      .pipe( extendLayout() )
+      .pipe( addFileProperties() )
       .pipe( hb()
         .partials( pageTemplateSrc )
         .partials( partialsSrc, {

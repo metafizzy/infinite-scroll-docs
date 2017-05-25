@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" class="{{#if isExport}}export{{/if}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Infinite scroll, back-button friendly" />
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Episcroll &middot; {{page.title}}</title>
+
+  {{#if isDev}}
+    {{#each css_paths}}
+      <link rel="stylesheet" href="../{{@file.rootPath}}{{this}}" />
+    {{/each}}
+  {{else}}
+    <link rel="stylesheet" href="{{#if page.is_404}}/{{else}}{{@file.rootPath}}{{/if}}css/episcroll-docs.css" media="screen" />
+  {{/if}}
+
+</head>
+<body class="page--{{@file.basename}}" data-basename="{{@file.basename}}">
+
+{{> site-nav}}
+
+<div class="main">
+  <div class="container">
+
+    {{#if page.title}}
+      <h1 class="page-title">{{page.title}}</h1>
+    {{/if}}
+
+{{! no leading whitespace because handlebars preserves it, messes with code blocks
+https://github.com/wycats/handlebars.js/issues/858 }}
+{{#block "main"}}{{/block}}
+  </div> {{! container }}
+</div> {{! main }}
+
+{{> site-nav}}
+
+{{> site-footer episcroll=true}}
+
+{{#if isDev}}
+  {{#each js_paths}}
+    <script src="../{{@file.rootPath}}{{this}}"></script>
+  {{/each}}
+{{else}}
+  <script src="{{#if page.is_404}}/{{else}}{{@file.rootPath}}{{/if}}js/episcroll-docs.min.js"></script>
+{{/if}}
+
+{{#unless isExport}}
+  <!-- <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-58739927-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script> -->
+{{/unless}}
+
+</body>
+</html>

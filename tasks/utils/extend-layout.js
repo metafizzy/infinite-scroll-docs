@@ -4,8 +4,10 @@ var transfob = require('transfob');
 module.exports = function() {
   return transfob( function( file, enc, next ) {
     var contents = file.contents.toString();
-    contents = '{{#extend "page"}}{{#content "main"}}' + contents +
-      '{{/content}}{{/extend}}';
+    // use layout set in YAML front matter
+    var layout = file.data.page.layout;
+    contents = '{{#extend "' + layout + '"}}{{#content "main"}}' +
+      contents + '{{/content}}{{/extend}}';
     file.contents = new Buffer( contents );
     next( null, file );
   });

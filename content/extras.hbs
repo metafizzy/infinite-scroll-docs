@@ -1,5 +1,6 @@
 ---
 title: Extras
+layout: doc
 ---
 
 {{! ----------------------------------------------------------------- }}
@@ -67,7 +68,7 @@ $('.container').episcroll({...});
 requirejs( [
   'path/to/episcroll.pkgd.js',
 ], function( Episcroll ) {
-  var episcroll = new Episcroll( '.carousel', {...});
+  var episcroll = new Episcroll( '.container', {...});
 });
 ```
 
@@ -79,13 +80,12 @@ requirejs( [ 'require', 'jquery', 'path/to/episcroll.pkgd.js' ],
   function( require, $, Episcroll ) {
     // require jquery-bridget, it's included in episcroll.pkgd.js
     require( [ 'jquery-bridget/jquery-bridget' ],
-    function( jQueryBridget ) {
-      // make Episcroll a jQuery plugin
-      jQueryBridget( 'episcroll', Episcroll, $ );
-      // now you can use $().episcroll()
-      $('.container').episcroll({...});
-    }
-  );
+      function( jQueryBridget ) {
+        // make Episcroll a jQuery plugin
+        jQueryBridget( 'episcroll', Episcroll, $ );
+        // now you can use $().episcroll()
+        $('.container').episcroll({...});
+    });
 });
 ```
 
@@ -96,7 +96,7 @@ requirejs.config({
   baseUrl: 'node_modules/', // npm install path
   paths: {
     app: '../'
-  }
+  },
 });
 
 requirejs( [
@@ -114,13 +114,13 @@ requirejs.config({
   baseUrl: 'node_modules/',
   paths: {
     jquery: 'jquery/jquery'
-  }
+  },
 });
 
 requirejs( [
     'jquery',
     'episcroll/js/index',
-    'jquery-bridget/jquery-bridget'
+    'jquery-bridget/jquery-bridget',
   ],
   function( $, Episcroll ) {
     // make Episcroll a jQuery plugin
