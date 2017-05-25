@@ -1,0 +1,23 @@
+/* image-grid
+------------------------- */
+
+.image-grid {
+  max-width: 1200px;
+}
+
+.image-grid__item,
+.image-grid__col-sizer {
+  width: 30%;
+}
+
+.image-grid__gutter-sizer { width: 3.33%; }
+
+.image-grid__item {
+  margin-bottom: 30px;
+  float: left;
+}
+
+.image-grid__image {
+  display: block;
+  max-width: 100%;
+}

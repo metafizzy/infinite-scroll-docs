@@ -1,0 +1,37 @@
+{{> html-head}}
+
+<body>
+
+{{> site-nav}}
+
+<div class="main">
+  <div class="container">
+
+    {{#if page.title}}
+      <h1 class="page-title">{{page.title}}</h1>
+    {{/if}}
+
+    <div class="image-grid" data-js="image-grid">
+      <div class="image-grid__col-sizer"></div>
+      <div class="image-grid__gutter-sizer"></div>
+      {{#each page.imgurIDs}}
+        <div class="image-grid__item">
+          <img class="image-grid__image" src="https://i.imgur.com/{{this}}.jpg" />
+        </div>
+      {{/each}}
+{{! no leading whitespace }}
+{{#block "main"}}{{/block}}
+    </div>
+
+    {{> scroller-status}}
+
+    {{#if page.next}}
+      <p class="pagination">
+        <a class="pagination__next" href="{{page.next}}">Next page</a>
+      </p>
+    {{/if}}
+
+  </div> {{! container }}
+</div> {{! main }}
+
+{{> html-foot}}
