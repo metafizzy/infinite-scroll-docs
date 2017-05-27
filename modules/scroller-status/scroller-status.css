@@ -1,0 +1,13 @@
+/* scroller-status
+------------------------- */
+
+
+.scroller-status {
+  display: none;
+  padding: 20px 0;
+}
+
+.scroller-status__message {
+  text-align: center;
+  color: #777;
+}

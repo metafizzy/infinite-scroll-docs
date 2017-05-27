@@ -7,10 +7,10 @@
 
 .image-grid__item,
 .image-grid__col-sizer {
-  width: 30%;
+  width: 32%;
 }
 
-.image-grid__gutter-sizer { width: 3.33%; }
+.image-grid__gutter-sizer { width: 2%; }
 
 /* hide by default */
 .image-grid.are-images-unloaded .image-grid__item {
@@ -18,7 +18,7 @@
 }
 
 .image-grid__item {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   float: left;
 }
 

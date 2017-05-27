@@ -11,7 +11,7 @@
       <h1 class="page-title">{{page.title}}</h1>
     {{/if}}
 
-    <div class="article-feed" {{#if page.next}}data-episcroll='{ "path": ".pagination__next", "append": ".article", "status": ".scroller__status", "hideNav": ".pagination" }'{{/if}}>
+    <div class="article-feed" {{#if page.next}}data-episcroll='{ "path": ".pagination__next", "append": ".article", "status": ".scroller-status", "hideNav": ".pagination" }'{{/if}}>
 {{! no leading whitespace }}
 {{#block "main"}}{{/block}}
     </div>

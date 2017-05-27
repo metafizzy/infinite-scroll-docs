@@ -7,7 +7,9 @@
     "filterBind": false,
     "Episcroll": false,
     "EpiscrollDocs": true,
+    "imagesLoaded": false,
     "matchesSelector": false,
+    "Masonry": false,
     "utils": true
   }
 }

@@ -136,6 +136,148 @@ $container.on( 'load.episcroll', function( event, response ) {
 
 {{! ----------------------------------------------------------------- }}
 
+<h3>outlayer</h3>
+
+<p>Integrates <a href="https://masonry.desandro.com">Masonry</a>, <a href="https://isotope.metafizzy.co">Isotope</a> or <a href="https://packery.metafizzy.co">Packery</a>. Episcroll will add appended items to the layout.</p>
+
+``` js
+outlayer: instance,
+```
+
+<p class="argument">
+  <code class="argument__code">instance</code>
+  <span class="argument__type"><i>Masonry</i>, <i>Isotope</i>, or <i>Packery</i></span>
+  <span class="argument__description">The layout class instance</span>
+</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    // with Masonry & jQuery
+    // init Masonry
+    var $grid = $('.grid').masonry({
+      // Masonry options...
+      itemSelector: '.grid__item', 
+    });
+
+    // get Masonry instance
+    var msnry = $grid.data('masonry');
+
+    // init Episcroll
+    $grid.episcroll({
+      // Episcroll options...
+      append: '.grid__item',
+      outlayer: msnry,
+    });
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> masonry-small}}
+  </div>
+</div>
+
+
+``` js
+// with Masonry & vanilla JS
+// init Masonry
+var msnry = new Masonry( '.grid', {
+  // Masonry options...
+  itemSelector: '.grid__item', 
+});
+
+// init Episcroll
+var infScroll = new Episcroll( '.grid', {
+  // Episcroll options...
+  append: '.grid__item',
+  outlayer: msnry,
+});
+```
+
+
+<p>With Isotope:</p>
+
+<div class="duo">
+  <div class="duo__cell">
+    ``` js
+    // with Isotope & jQuery
+    // init Isotope
+    var $grid = $('.grid').isotope({
+      // Isotope options...
+      itemSelector: '.grid__item', 
+    });
+
+    // get Isotope instance
+    var iso = $grid.data('isotope');
+
+    // init Episcroll
+    $grid.episcroll({
+      // Episcroll options...
+      append: '.grid__item',
+      outlayer: iso,
+    });
+    ```
+  </div>
+  <div class="duo__cell">
+    ``` js
+    // with Isotope & vanilla JS
+    // init Isotope
+    var iso = new Isotope( '.grid', {
+      // Isotope options...
+      itemSelector: '.grid__item', 
+    });
+
+    var infScroll = new Episcroll( '.grid', {
+      // Episcroll options...
+      append: '.grid__item',
+      outlayer: iso,
+    });
+    ```
+  </div>
+</div>
+
+<p>With Packery:</p>
+
+<div class="duo">
+  <div class="duo__cell">
+    ``` js
+    // with Packery & jQuery
+    // init Packery
+    var $grid = $('.grid').packery({
+      // Packery options...
+      itemSelector: '.grid__item', 
+    });
+
+    // get Packery instance
+    var pckry = $grid.data('packery');
+
+    // init Episcroll
+    $grid.episcroll({
+      // Episcroll options...
+      append: '.grid__item',
+      outlayer: pckry,
+    });
+    ```
+  </div>
+  <div class="duo__cell">
+    ``` js
+    // with Packery & vanilla JS
+    // init Packery
+    var pckry = new Packery( '.grid', {
+      // Packery options...
+      itemSelector: '.grid__item', 
+    });
+
+    var infScroll = new Episcroll( '.grid', {
+      // Episcroll options...
+      append: '.grid__item',
+      outlayer: pckry,
+    });
+    ```
+  </div>
+</div>
+
+{{! ----------------------------------------------------------------- }}
+
 <h2>Scrolling</h2>
 
 {{! ----------------------------------------------------------------- }}

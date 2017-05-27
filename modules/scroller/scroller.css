@@ -12,18 +12,6 @@
 .scroller__content {
 }
 
-/* ---- scroller__status ---- */
-
-.scroller__status {
-  display: none;
-  padding: 20px 0;
-}
-
-.scroller__status__message {
-  text-align: center;
-  color: #777;
-}
-
 /* ---- prefill ---- */
 
 .scroller--prefill { height: 500px; }

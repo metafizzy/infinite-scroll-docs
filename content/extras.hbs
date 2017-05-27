@@ -132,64 +132,6 @@ requirejs( [
 
 {{! ----------------------------------------------------------------- }}
 
-<h2>Masonry, Isotope, &amp; Packery</h2>
-
-<p>When using Episcroll with <a href="https://masonry.desandro.com">Masonry</a>, use <a href="https://imagesloaded.desandro.com">imagesLoaded</a> to append items on <a href="events.html#load"><code>load</code></a> after images have been loaded.</p>
-
-<p>The same code below can be used for <a href="https://isotope.metafizzy.co">Isotope</a> and <a href="https://packery.metafizzy.co">Packery</a>, changing <code>.masonry</code> and <code>Masonry</code> respectively.</p>
-
-``` js
-// jQuery
-// init Masonry
-var $grid = $('.grid').masonry({
-  // Masonry options...
-});
-// init Episcroll
-$grid.episcroll({
-  // Episcroll options...
-  // do not set append
-});
-
-// append items on load
-$grid.on( 'load.episcroll', function( event, response ) {
-  // get items from response
-  var $items = $( response ).find('.grid-item');
-  // append items after images loaded
-  $items.imagesLoaded( function() {
-    $grid.episcroll( 'appendItems', $items )
-      .masonry( 'appended', $items );
-  });
-});
-```
-
-``` js
-// vanilla JS
-// init Masonry
-var msnry = new Masonry( '.grid', {
-  // Masonry options
-});
-// init Episcroll
-var infScroll = new Episcroll( '.grid', {
-  // Episcroll options...
-  // do not set append
-});
-
-// append items on load
-infScroll.on( 'load', function( response ) {
-  // get items from response
-  var items = response.querySelectorAll('.grid-item');
-  // append items after images loaded
-  imagesLoaded( items, function() {
-    infScroll.appendItems( items );
-    msnry.appended( items );
-  });
-});
-```
-
-
-
-{{! ----------------------------------------------------------------- }}
-
 <h2>Loading JSON</h2>
 
 <p>Here is one example of how to use Episcroll to load JSON data and append content. We'll use the Unsplash API to load pages of photos.</p>
