@@ -12,6 +12,11 @@
 
 .image-grid__gutter-sizer { width: 3.33%; }
 
+/* hide by default */
+.image-grid.are-images-unloaded .image-grid__item {
+  opacity: 0;
+}
+
 .image-grid__item {
   margin-bottom: 30px;
   float: left;
