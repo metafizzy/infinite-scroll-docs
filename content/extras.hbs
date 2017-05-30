@@ -157,11 +157,87 @@ $container.on( 'load.episcroll', function( event, response ) {
 });
 ```
 
-{{! TODO }}
+{{! TODO JSON demo }}
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>Button options</h2>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Click button to start scrolling</h3>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var $container = $('.container').episcroll({
+      // options...
+      scrollThreshold: false,
+      // disable loading on scroll
+    });
+
+    var $loadMoreButton = $('.load-more-button')
+    $loadMoreButton.on( 'click', function() {
+      // load next page
+      $container.episcroll('loadNextPage');
+      // enable loading on scroll
+      $container.episcroll( 'option', {
+        scrollThreshold: 400
+      });
+      // hide button
+      $loadMoreButton.hide();
+    });
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{! TODO Click button to start scrolling demo }}
+  </div>
+</div>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Scroll 3 pages, then use button</h3>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    var $container = $('.container').episcroll({
+      // options...
+      button: '.load-more-button',
+      // enable button
+    });
+
+    var $loadMoreButton = $('.load-more-button')
+
+    // get Episcroll instance
+    var infScroll = $container.data('episcroll');
+
+    $container.on( 'load.episcroll', onPageLoad );
+
+    function onPageLoad() {
+      if ( infScroll.loadCount == 3 ) {
+        // disable loading on scroll
+        $container.episcroll( 'option', {
+          scrollThreshold: false
+        });
+        // show button
+        $loadMoreButton.show();
+        // remove event listener
+        $container.off( 'load.episcroll', onPageLoad );
+      }
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{! TODO Scroll 3 pages, then use button demo }}
+  </div>
+</div>
 
 {{! ----------------------------------------------------------------- }}
 
 <h2>Upgrading from v2</h2>
+
+{{! TODO upgrade from v2 }}
 
 {{! ----------------------------------------------------------------- }}
 

@@ -3,6 +3,15 @@ isHomepage: true
 layout: doc
 ---
 
+<div class="duo" style="margin-top: 2.0rem;">
+  <div class="duo__cell">
+    <a class="button button--big-ol" href="demo/full-page">View full page demo</a>
+  </div>
+  <div class="duo__cell">
+    <a class="button button--big-ol" href="demo/masonry">View Masonry images demo</a>
+  </div>
+</div>
+
 {{! ----------------------------------------------------------------- }}
 
 <h2>Install</h2>
@@ -158,16 +167,36 @@ var infScroll = new Episcroll( '.container', {
 
 {{! ----------------------------------------------------------------- }}
 
-<h2>Feature showcase</h2>
+<h2>Features</h2>
 
-<p>Back-button friendly</p>
+<div class="duo">
+  <div class="duo__cell">
+    <h3>Back-button friendly</h3>
 
-<p>Masonry, Isotope, &amp; Packery</p>
+    <p>Episcroll upholds URLs by <a href="options.html#history">changing them automatically</a> as the user scrolls. Users can refresh the current page or return to a scrolled page and their position will be maintained. No more tears when you scroll 20 pages and accidentally hit refresh.</p>
 
-<p>Versatile UI options</p>
+    <p><a href="demo/full-page/">View full page demo</a></p>
+  </div>
+  <div class="duo__cell">
+    {{! TODO another feature }}
+  </div>
+</div>
 
-{{! ----------------------------------------------------------------- }}
 
-<h3><a href="options.html">View all options</a></h3>
+<div class="duo">
+  <div class="duo__cell">
+    <h3>Versatile UI options</h3>
 
-{{! ----------------------------------------------------------------- }}
+    <p>Rather load with a button than use scrolling? <a href="options.html#button">Got it</a>. What about scrolling a couple pages, then using a button? Got that. Or button first then scrolling? Yup.</p>
+
+    {{> button-option}}
+  </div>
+
+  <div class="duo__cell">
+    <h3>Masonry, Isotope, &amp; Packery</h3>
+
+    <p><a href="https://masonry.desandro.com">Masonry</a>, <a href="https://isotope.metafizzy.co">Isotope</a>, &amp; <a href="https://packery.metafizzy.co">Packery</a> layouts <a href="options.html#outlayer">plug right into Episcroll</a>. These features combine to create a rich visual grid for wandering eyes.</p>
+
+    {{> masonry-small}}
+  </div>
+</div>

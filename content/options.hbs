@@ -193,6 +193,9 @@ var infScroll = new Episcroll( '.grid', {
 });
 ```
 
+<div class="call-out">
+  <p><code>outlayer</code> requires <a href="https://imagesloaded.desandro.com">imagesLoaded</a>. It already <em>is</em> included with <code>episcroll.pkgd.js</code>, but not with Episcroll when installed with a package manager like npm or Yarn. You need to install and require <code>imagesloaded</code> separately. See details in <a href="extras.html">Extras</a>.</p>
+</div>
 
 <p>With Isotope:</p>
 
@@ -284,13 +287,13 @@ var infScroll = new Episcroll( '.grid', {
 
 <h3>scrollThreshold</h3>
 
-<p>Sets the distance between the viewport to scroll area for <code>atBottom</code> event to be triggered. Default: <code><span class="comment">scrollThreshold: 400</span></code>.</p>
+<p>Sets the distance between the viewport to scroll area for <a href="events.html#scrollthreshold"><code>scrollThreshold</code> event</a> to be triggered. Default: <code><span class="comment">scrollThreshold: 400</span></code>.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
     scrollThresold: 100
-    // trigger atBottom event when viewport is <100px from bottom of scroll area
+    // trigger scrollThreshold event when viewport is <100px from bottom of scroll area
     ```
   </div>
   <div class="duo__cell example__demo">
@@ -298,12 +301,12 @@ var infScroll = new Episcroll( '.grid', {
   </div>
 </div>
 
-<p>Disable loading on scroll and the <code>atBottom</code> event with <code>scrollThreshold: false</code>. This is useful if loading via button.</p>
+<p>Disable loading on scroll and the <code>scrollThreshold</code> event with <code>scrollThreshold: false</code>. This is useful if loading via button.</p>
 
 ``` js
 scrollThreshold: false,
 // disable loading on scroll
-// and atBottom event from triggering
+// and scrollThreshold event from triggering
 ```
 
 {{! ----------------------------------------------------------------- }}
@@ -382,20 +385,20 @@ scrollThreshold: false,
 
 <p>Loads next page when scroll crosses over <a href="#scrollthreshold"><code>scrollThreshold</code></a>. Enabled by default <code><span class="comment">loadOnScroll: true</span></code>.</p>
 
-<p>Disable <code>loadOnScroll</code> if you do not want to load pages on scroll, but still want the <a href="events.html#atbottom"><code>atBottom</code> event</a> triggered.</p>
+<p>Disable <code>loadOnScroll</code> if you do not want to load pages on scroll, but still want the <a href="events.html#scrollthreshold"><code>scrollThreshold</code> event</a> triggered.</p>
 
 ``` js
 loadOnScroll: false,
 // disable loading pages on scroll
-// atBottom event still triggered
+// scrollThreshold event still triggered
 ```
 
-<p>Otherwise, you can disable both loading on scroll and <code>atBottom</code> event by disabling <code>scrollThreshold</code>.</p>
+<p>Otherwise, you can disable both loading on scroll and <code>scrollThreshold</code> event by disabling <code>scrollThreshold</code>.</p>
 
 ``` js
 scrollThreshold: false,
 // disable loading pages on scroll
-// and atBottom event
+// and scrollThreshold event
 ```
 
 {{! ----------------------------------------------------------------- }}

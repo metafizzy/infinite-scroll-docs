@@ -2,28 +2,6 @@
 ------------------------- */
 
 .site-scroll__button {
-  display: block;
   margin: 60px auto;
   padding: 20px 40px;
-  background: #19F;
-  background-color: #19F;
-  background-image: linear-gradient( hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.15) );
-  border: none;
-  border-radius: 10px;
-  font-family: 'Texta', sans-serif;
-  font-size: 2.0rem;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 2px 10px hsla(0, 0%, 0%, 0.2);
-}
-
-.site-scroll__button:hover {
-  color: white;
-  background-color: #C25;
-}
-.site-scroll__button:active {
-  color: white;
-  background-color: #B03;
-  box-shadow: inset 0 2px 20px hsla(0, 0%, 0%, 0.4);
 }

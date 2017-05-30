@@ -4,11 +4,11 @@
 .container {
   padding-left: 10px;
   padding-right: 10px;
-  max-width: 1500px;
+  max-width: 1120px;
 }
 
-.container > * {
-  max-width: 900px;
+.container--wide {
+  max-width: 1370px;
 }
 
 .container .duo.example {

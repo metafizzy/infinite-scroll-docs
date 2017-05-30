@@ -1,6 +1,6 @@
 EpiscrollDocs['site-scroll'] = function( elem ) {
 
-  var button = elem.querySelector('.site-scroll__button');
+  var button = elem.querySelector('.button');
   var infScroll;
 
   var pages = [
@@ -21,7 +21,7 @@ EpiscrollDocs['site-scroll'] = function( elem ) {
     infScroll = new Episcroll( '.main .container', {
       path: function() {
         var nextIndex = pageIndex + this.loadCount;
-        return pages[ nextIndex ];
+        return pages[ nextIndex ] + '.html';
       },
       append: '.main__page',
       // log: true,
