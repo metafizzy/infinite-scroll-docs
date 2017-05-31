@@ -6,7 +6,7 @@ EpiscrollDocs.append = function( elem ) {
     path: 'demo/element-scroll/page{{#}}.html',
     append: '.post',
     elementScroll: elem,
-    status: elem.querySelector('.scroller__status'),
+    status: elem.querySelector('.scroller-status'),
     history: false,
   });
 

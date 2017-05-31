@@ -7,8 +7,8 @@ EpiscrollDocs['button-option'] = function( elem ) {
     append: '.post',
     elementScroll: elem,
     scrollThreshold: false,
-    button: elem.querySelector('.load-button'),
-    status: elem.querySelector('.scroller__status'),
+    button: elem.querySelector('.view-more-button'),
+    status: elem.querySelector('.scroller-status'),
     history: false,
   });
 

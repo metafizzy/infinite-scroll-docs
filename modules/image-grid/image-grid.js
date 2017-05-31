@@ -21,12 +21,12 @@ EpiscrollDocs['image-grid'] = function( elem ) {
     msnry.appended( items );
   });
 
-  var infScroll = new Episcroll( elem, {
+  new Episcroll( elem, {
     path: '.pagination__next',
     hideNav: '.pagination',
     append: '.image-grid__item',
     outlayer: msnry,
-    status: '.scroller__status',
+    status: '.scroller-status',
     log: true,
   });
 

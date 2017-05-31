@@ -4,12 +4,11 @@
 .button--big-ol {
   display: block;
   padding: 20px;
-  background-color: #19F;
+  background-color: #C25;
   background-image: linear-gradient( hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.15) );
   border: none;
   border-radius: 10px;
-  font-family: 'Texta', sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: white;
   text-align: center;
@@ -19,10 +18,10 @@
 
 .button.button--big-ol:hover {
   color: white;
-  background-color: #C25;
+  background-color: #19F;
 }
 .button.button--big-ol:active {
   color: white;
-  background-color: #B03;
+  background-color: #07D;
   box-shadow: inset 0 2px 20px hsla(0, 0%, 0%, 0.4);
 }

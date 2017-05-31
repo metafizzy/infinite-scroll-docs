@@ -12,7 +12,7 @@ EpiscrollDocs.prefill = function( elem ) {
       append: '.post',
       elementScroll: scroller,
       prefill: true,
-      status: elem.querySelector('.scroller__status'),
+      status: elem.querySelector('.scroller-status'),
       history: false,
       // log: true,
     });

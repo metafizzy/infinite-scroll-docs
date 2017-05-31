@@ -35,7 +35,7 @@
 }
 
 .site-nav__item--homepage {
-  font-size: 21px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -68,7 +68,7 @@
 
   .site-nav__item {
     width: auto;
-    font-size: 21px;
+    font-size: 1.1rem;
     line-height: 70px;
   }
 

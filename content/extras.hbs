@@ -30,7 +30,7 @@ var infScroll = new Episcroll( '.container', {
 });
 ```
 
-<p>Run webpack.</p>
+<p>Run Webpack.</p>
 
 ``` bash
 webpack main.js bundle.js
@@ -54,6 +54,33 @@ var Episcroll = require('episcroll');
 jQueryBridget( 'episcroll', Episcroll, $ );
 // now you can use $().episcroll()
 $('.container').episcroll({...});
+```
+
+<p>When installed with a package manager, Episcroll does not include <code>imagesLoaded</code>, which is required to use <a href="options.html#outlayer"><code>outlayer</code></a>. You will need to install and require <code>imagesLoaded</code> separately.</p>
+
+``` bash
+npm install imagesloaded
+# or
+yarn add imagesloaded
+```
+
+``` js
+// main.js
+var Masonry = require('masonry-layout');
+var Episcroll = require('episcroll');
+var imagesLoaded = require('imagesloaded);
+
+// init Masonry
+var msnry = new Masonry( '.container', {...});
+
+// make imagesLoaded available for Episcroll
+Episcroll.imagesLoaded = imagesLoaded;
+
+// now you can use outlayer option
+var infScroll = new Episcroll( '.container', {
+  // options...
+  outlayer: msnry,
+});
 ```
 
 {{! ----------------------------------------------------------------- }}
@@ -130,6 +157,36 @@ requirejs( [
 });
 ```
 
+<p>Episcroll does not include <code>imagesLoaded</code>, which is required to use <a href="options.html#outlayer"><code>outlayer</code></a>. You will need to install and require <code>imagesLoaded</code> separately.</p>
+
+``` js
+requirejs.config({
+  baseUrl: 'node_modules/', // npm install path
+  paths: {
+    app: '../'
+  },
+});
+
+requirejs( [
+  'masonry-layout/masonry',
+  'imagesloaded/imagesloaded',
+  'episcroll/js/index',
+  'app/my-component.js',
+], function( Masonry, imagsLoaded Episcroll, myComp ) {
+  // init Masonry
+  var msnry = new Masonry( '.container', {...});
+
+  // make imagesLoaded available for Episcroll
+  Episcroll.imagesLoaded = imagesLoaded;
+
+  // now you can use outlayer option
+  var infScroll = new Episcroll( '.container', {
+    // options...
+    outlayer: msnry,
+  });
+});
+```
+
 {{! ----------------------------------------------------------------- }}
 
 <h2>Loading JSON</h2>
@@ -172,7 +229,7 @@ $container.on( 'load.episcroll', function( event, response ) {
     ``` js
     var $container = $('.container').episcroll({
       // options...
-      scrollThreshold: false,
+      loadOnScroll: false,
       // disable loading on scroll
     });
 
@@ -182,7 +239,7 @@ $container.on( 'load.episcroll', function( event, response ) {
       $container.episcroll('loadNextPage');
       // enable loading on scroll
       $container.episcroll( 'option', {
-        scrollThreshold: 400
+        loadOnScroll: true
       });
       // hide button
       $loadMoreButton.hide();
@@ -190,13 +247,13 @@ $container.on( 'load.episcroll', function( event, response ) {
     ```
   </div>
   <div class="duo__cell example__demo">
-    {{! TODO Click button to start scrolling demo }}
+    {{> button-start}}
   </div>
 </div>
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>Scroll 3 pages, then use button</h3>
+<h3>Scroll 2 pages, then use button</h3>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -215,10 +272,10 @@ $container.on( 'load.episcroll', function( event, response ) {
     $container.on( 'load.episcroll', onPageLoad );
 
     function onPageLoad() {
-      if ( infScroll.loadCount == 3 ) {
+      if ( infScroll.loadCount == 2 ) {
         // disable loading on scroll
         $container.episcroll( 'option', {
-          scrollThreshold: false
+          loadOnScroll: false
         });
         // show button
         $loadMoreButton.show();
@@ -229,21 +286,29 @@ $container.on( 'load.episcroll', function( event, response ) {
     ```
   </div>
   <div class="duo__cell example__demo">
-    {{! TODO Scroll 3 pages, then use button demo }}
+    {{> scroll-2}}
   </div>
 </div>
 
 {{! ----------------------------------------------------------------- }}
 
-<h2>Upgrading from v2</h2>
+<h2>Loaders &amp; spinners</h2>
 
-{{! TODO upgrade from v2 }}
+{{! TODO loader & spinner, add explanation, link from status option }}
+
+<p>{{> loader-ellips}}</p>
 
 {{! ----------------------------------------------------------------- }}
 
 <h2>Browser support</h2>
 
 <p>Episcroll v1 supports IE/Edge 11, Android 4+, Safari for iOS 8+, Firefox 29+, and Chrome 33+.</p>
+
+{{! ----------------------------------------------------------------- }}
+
+<h2>Upgrading from v2</h2>
+
+{{! TODO upgrade from v2 }}
 
 {{! ----------------------------------------------------------------- }}
 

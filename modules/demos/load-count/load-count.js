@@ -8,7 +8,7 @@ EpiscrollDocs['load-count'] = function( elem ) {
     path: 'demo/element-scroll/page{{#}}.html',
     append: '.post',
     elementScroll: scroller,
-    status: elem.querySelector('.scroller__status'),
+    status: elem.querySelector('.scroller-status'),
     history: false,
   });
 

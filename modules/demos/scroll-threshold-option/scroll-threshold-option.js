@@ -6,7 +6,7 @@ EpiscrollDocs['scroll-threshold-option'] = function( elem ) {
     path: 'demo/element-scroll/page{{#}}.html',
     append: '.post',
     elementScroll: elem,
-    status: elem.querySelector('.scroller__status'),
+    status: elem.querySelector('.scroller-status'),
     scrollThreshold: 100,
     history: false,
   });
