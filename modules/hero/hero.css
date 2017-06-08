@@ -2,15 +2,39 @@
 ------------------------- */
 
 .hero {
-  padding: 40px 0;
+  padding: 20px 0;
   background: #19F;
   color: white;
+  min-height: 320px;
+}
+
+.hero .container {
+  position: relative;
+}
+
+.hero .container:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.hero .episcroll-logo {
+  display: block;
+  position: absolute;
+  left: 200px;
+  width: 260px;
+  height: 260px;
+}
+
+.hero__text {
+  padding-left: 300px;
 }
 
 .hero__title {
   font-size: 8.0rem;
   margin: 0;
   line-height: 1;
+  padding-top: 25px;
 }
 
 .hero__tagline {
@@ -18,3 +42,5 @@
   margin: 0;
   color: white;
 }
+
+/* TODO mobile styles */
