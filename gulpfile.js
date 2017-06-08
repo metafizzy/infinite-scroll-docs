@@ -6,7 +6,7 @@ var gulp = require('gulp');
 var site = {
   // templating data
   data: {
-    productName: 'Episcroll',
+    productName: 'Infinite Scroll',
     majorVersion: 1,
     isDev: process.argv[2] == 'dev',
     isExport: process.argv[2] == 'export',
@@ -40,7 +40,7 @@ gulp.task( 'default', [
 
 // ----- export ----- //
 
-// version of site used in episcroll-docs.zip
+// version of site used in infinite-scroll-docs.zip
 
 gulp.task( 'export', [ 'default' ] );
 

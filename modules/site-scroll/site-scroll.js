@@ -1,4 +1,4 @@
-EpiscrollDocs['site-scroll'] = function( elem ) {
+InfiniteScrollDocs['site-scroll'] = function( elem ) {
 
   var button = elem.querySelector('.button');
   var infScroll;
@@ -18,7 +18,7 @@ EpiscrollDocs['site-scroll'] = function( elem ) {
   button.addEventListener( 'click', onButtonClick );
 
   function onButtonClick() {
-    infScroll = new Episcroll( '.main .container', {
+    infScroll = new InfiniteScroll( '.main .container', {
       path: function() {
         var nextIndex = pageIndex + this.loadCount;
         return pages[ nextIndex ] + '.html';
@@ -37,7 +37,7 @@ EpiscrollDocs['site-scroll'] = function( elem ) {
 
   function onAppend( response, path, items ) {
     for ( var i=0; i < items.length; i++ ) {
-      EpiscrollDocs.initElementJS( items[i] );
+      InfiniteScrollDocs.initElementJS( items[i] );
     }
   }
 

@@ -1,8 +1,8 @@
-EpiscrollDocs['scroll-threshold-option'] = function( elem ) {
+InfiniteScrollDocs['scroll-threshold-option'] = function( elem ) {
 
   var scrollerContent = elem.querySelector('.scroller__content');
 
-  new Episcroll( scrollerContent, {
+  new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
     append: '.post',
     elementScroll: elem,

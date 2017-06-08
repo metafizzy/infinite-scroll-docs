@@ -11,21 +11,21 @@ layout: doc
 
 <h3>Webpack</h3>
 
-<p>Install Episcroll with npm or Yarn.</p>
+<p>Install Infinite Scroll with npm or Yarn.</p>
 
 ``` bash
-npm install episcroll
+npm install infinite-scroll
 # or
-yarn add episcroll
+yarn add infinite-scroll
 ```
 
-<p>You can then <code><span class="built_in">require</span>(<span class="string">'episcroll'</span>)</code>.</p>
+<p>You can then <code><span class="built_in">require</span>(<span class="string">'infiniteScroll'</span>)</code>.</p>
 
 ``` js
 // main.js
-var Episcroll = require('episcroll');
+var InfiniteScroll = require('infinite-scroll');
 
-var infScroll = new Episcroll( '.container', {
+var infScroll = new InfiniteScroll( '.container', {
   // options...
 });
 ```
@@ -36,7 +36,7 @@ var infScroll = new Episcroll( '.container', {
 webpack main.js bundle.js
 ```
 
-<p>To use Episcroll as a jQuery plugin with Browserify, you need to call <a href="https://www.npmjs.com/package/jquery-bridget">jQuery Bridget</a>.</p>
+<p>To use Infinite Scroll as a jQuery plugin with Browserify, you need to call <a href="https://www.npmjs.com/package/jquery-bridget">jQuery Bridget</a>.</p>
 
 ``` bash
 npm install jquery-bridget
@@ -48,15 +48,15 @@ yarn add jquery-bridget
 // main.js
 var $ = require('jquery');
 var jQueryBridget = require('jquery-bridget');
-var Episcroll = require('episcroll');
+var InfiniteScroll = require('infinite-scroll');
 
-// make Episcroll a jQuery plugin
-jQueryBridget( 'episcroll', Episcroll, $ );
-// now you can use $().episcroll()
-$('.container').episcroll({...});
+// make Infinite Scroll a jQuery plugin
+jQueryBridget( 'infiniteScroll', InfiniteScroll, $ );
+// now you can use $().infiniteScroll()
+$('.container').infiniteScroll({...});
 ```
 
-<p>When installed with a package manager, Episcroll does not include <code>imagesLoaded</code>, which is required to use <a href="options.html#outlayer"><code>outlayer</code></a>. You will need to install and require <code>imagesLoaded</code> separately.</p>
+<p>When installed with a package manager, Infinite Scroll does not include <code>imagesLoaded</code>, which is required to use <a href="options.html#outlayer"><code>outlayer</code></a>. You will need to install and require <code>imagesLoaded</code> separately.</p>
 
 ``` bash
 npm install imagesloaded
@@ -67,17 +67,17 @@ yarn add imagesloaded
 ``` js
 // main.js
 var Masonry = require('masonry-layout');
-var Episcroll = require('episcroll');
+var InfiniteScroll = require('infinite-scroll');
 var imagesLoaded = require('imagesloaded);
 
 // init Masonry
 var msnry = new Masonry( '.container', {...});
 
-// make imagesLoaded available for Episcroll
-Episcroll.imagesLoaded = imagesLoaded;
+// make imagesLoaded available for InfiniteScroll
+InfiniteScroll.imagesLoaded = imagesLoaded;
 
 // now you can use outlayer option
-var infScroll = new Episcroll( '.container', {
+var infScroll = new InfiniteScroll( '.container', {
   // options...
   outlayer: msnry,
 });
@@ -87,36 +87,36 @@ var infScroll = new Episcroll( '.container', {
 
 <h3>Requirejs</h3>
 
-<p>Episcroll supports <a href="http://requirejs.org/">RequireJS</a>.</p>
+<p>Infinite Scroll supports <a href="http://requirejs.org/">RequireJS</a>.</p>
 
-<p>You can require episcroll.pkgd.js.</p>
+<p>You can require infinite-scroll.pkgd.js.</p>
 
 ``` js
 requirejs( [
-  'path/to/episcroll.pkgd.js',
-], function( Episcroll ) {
-  var episcroll = new Episcroll( '.container', {...});
+  'path/to/infinite-scroll.pkgd.js',
+], function( InfiniteScroll ) {
+  var infScroll = new InfiniteScroll( '.container', {...});
 });
 ```
 
-<p>To use Episcroll as a jQuery plugin with RequireJS and episcroll.pkgd.js, you need to call <a href="https://github.com/desandro/jquery-bridget">jQuery Bridget</a>.</p>
+<p>To use Infinite Scroll as a jQuery plugin with RequireJS and infinite-scroll.pkgd.js, you need to call <a href="https://github.com/desandro/jquery-bridget">jQuery Bridget</a>.</p>
 
 ``` js
 // require the require function
-requirejs( [ 'require', 'jquery', 'path/to/episcroll.pkgd.js' ],
-  function( require, $, Episcroll ) {
-    // require jquery-bridget, it's included in episcroll.pkgd.js
+requirejs( [ 'require', 'jquery', 'path/to/infinite-scroll.pkgd.js' ],
+  function( require, $, InfiniteScroll ) {
+    // require jquery-bridget, it's included in infinite-scroll.pkgd.js
     require( [ 'jquery-bridget/jquery-bridget' ],
       function( jQueryBridget ) {
-        // make Episcroll a jQuery plugin
-        jQueryBridget( 'episcroll', Episcroll, $ );
-        // now you can use $().episcroll()
-        $('.container').episcroll({...});
+        // make Infinite Scroll a jQuery plugin
+        jQueryBridget( 'infiniteScroll', InfiniteScroll, $ );
+        // now you can use $().infiniteScroll()
+        $('.container').infiniteScroll({...});
     });
 });
 ```
 
-<p>Or, you can require Episcroll's index.js by using a package manager: npm, Bower, or Yarn. Set <code>baseUrl</code> to the package install path and set a config path for all your application code.</p>
+<p>Or, you can require Infinite Scroll's index.js by using a package manager: npm, Bower, or Yarn. Set <code>baseUrl</code> to the package install path and set a config path for all your application code.</p>
 
 ``` js
 requirejs.config({
@@ -127,14 +127,14 @@ requirejs.config({
 });
 
 requirejs( [
-  'episcroll/js/index',
+  'infinite-scroll/js/index',
   'app/my-component.js',
-], function( Episcroll, myComp ) {
-  var infScroll = new Episcroll( '.container', {...});
+], function( InfiniteScroll, myComp ) {
+  var infScroll = new InfiniteScroll( '.container', {...});
 });
 ```
 
-<p>You can require dependencies and use Episcroll as a jQuery plugin with jQuery Bridget.</p>
+<p>You can require dependencies and use Infinite Scroll as a jQuery plugin with jQuery Bridget.</p>
 
 ``` js
 requirejs.config({
@@ -146,18 +146,18 @@ requirejs.config({
 
 requirejs( [
     'jquery',
-    'episcroll/js/index',
+    'infinite-scroll/js/index',
     'jquery-bridget/jquery-bridget',
   ],
-  function( $, Episcroll ) {
-    // make Episcroll a jQuery plugin
-    $.bridget( 'episcroll', Episcroll, $ );
-    // now you can use $().episcroll()
-    $('.container').episcroll({...});
+  function( $, InfiniteScroll ) {
+    // make Infinite Scroll a jQuery plugin
+    $.bridget( 'infiniteScroll', InfiniteScroll, $ );
+    // now you can use $().infiniteScroll()
+    $('.container').infiniteScroll({...});
 });
 ```
 
-<p>Episcroll does not include <code>imagesLoaded</code>, which is required to use <a href="options.html#outlayer"><code>outlayer</code></a>. You will need to install and require <code>imagesLoaded</code> separately.</p>
+<p>Infinite Scroll does not include <code>imagesLoaded</code>, which is required to use <a href="options.html#outlayer"><code>outlayer</code></a>. You will need to install and require <code>imagesLoaded</code> separately.</p>
 
 ``` js
 requirejs.config({
@@ -170,17 +170,17 @@ requirejs.config({
 requirejs( [
   'masonry-layout/masonry',
   'imagesloaded/imagesloaded',
-  'episcroll/js/index',
+  'infinite-scroll/js/index',
   'app/my-component.js',
-], function( Masonry, imagsLoaded Episcroll, myComp ) {
+], function( Masonry, imagsLoaded InfiniteScroll, myComp ) {
   // init Masonry
   var msnry = new Masonry( '.container', {...});
 
-  // make imagesLoaded available for Episcroll
-  Episcroll.imagesLoaded = imagesLoaded;
+  // make imagesLoaded available for Infinite Scroll
+  InfiniteScroll.imagesLoaded = imagesLoaded;
 
   // now you can use outlayer option
-  var infScroll = new Episcroll( '.container', {
+  var infScroll = new InfiniteScroll( '.container', {
     // options...
     outlayer: msnry,
   });
@@ -191,10 +191,10 @@ requirejs( [
 
 <h2>Loading JSON</h2>
 
-<p>Here is one example of how to use Episcroll to load JSON data and append content. We'll use the Unsplash API to load pages of photos.</p>
+<p>Here is one example of how to use Infinite Scroll to load JSON data and append content. We'll use the Unsplash API to load pages of photos.</p>
 
 ``` js
-var $container = $('.container').episcroll({
+var $container = $('.container').infiniteScroll({
   path: 'https://api.unsplash.com/photos?client_id=...&page=\{{#}}',
   // load page as text
   responseType: 'text',
@@ -202,7 +202,7 @@ var $container = $('.container').episcroll({
   history: false,
 });
 
-$container.on( 'load.episcroll', function( event, response ) {
+$container.on( 'load.infiniteScroll', function( event, response ) {
   // convert response text into JSON data
   var data = JSON.parse( response );
   // put that data into template
@@ -210,7 +210,7 @@ $container.on( 'load.episcroll', function( event, response ) {
   // convert to jQuery object
   var $items = $( itemsHTML );
   // append items
-  $container.episcroll( 'appendItems', $items );
+  $container.infiniteScroll( 'appendItems', $items );
 });
 ```
 
@@ -227,7 +227,7 @@ $container.on( 'load.episcroll', function( event, response ) {
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    var $container = $('.container').episcroll({
+    var $container = $('.container').infiniteScroll({
       // options...
       loadOnScroll: false,
       // disable loading on scroll
@@ -236,9 +236,9 @@ $container.on( 'load.episcroll', function( event, response ) {
     var $loadMoreButton = $('.load-more-button')
     $loadMoreButton.on( 'click', function() {
       // load next page
-      $container.episcroll('loadNextPage');
+      $container.infiniteScroll('loadNextPage');
       // enable loading on scroll
-      $container.episcroll( 'option', {
+      $container.infiniteScroll( 'option', {
         loadOnScroll: true
       });
       // hide button
@@ -258,7 +258,7 @@ $container.on( 'load.episcroll', function( event, response ) {
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    var $container = $('.container').episcroll({
+    var $container = $('.container').infiniteScroll({
       // options...
       button: '.load-more-button',
       // enable button
@@ -266,21 +266,21 @@ $container.on( 'load.episcroll', function( event, response ) {
 
     var $loadMoreButton = $('.load-more-button')
 
-    // get Episcroll instance
-    var infScroll = $container.data('episcroll');
+    // get Infinite Scroll instance
+    var infScroll = $container.data('infiniteScroll');
 
-    $container.on( 'load.episcroll', onPageLoad );
+    $container.on( 'load.infiniteScroll', onPageLoad );
 
     function onPageLoad() {
       if ( infScroll.loadCount == 2 ) {
         // disable loading on scroll
-        $container.episcroll( 'option', {
+        $container.infiniteScroll( 'option', {
           loadOnScroll: false
         });
         // show button
         $loadMoreButton.show();
         // remove event listener
-        $container.off( 'load.episcroll', onPageLoad );
+        $container.off( 'load.infiniteScroll', onPageLoad );
       }
     }
     ```
@@ -302,7 +302,7 @@ $container.on( 'load.episcroll', function( event, response ) {
 
 <h2>Browser support</h2>
 
-<p>Episcroll v1 supports IE/Edge 11, Android 4+, Safari for iOS 8+, Firefox 29+, and Chrome 33+.</p>
+<p>Infinite Scroll v3 supports IE/Edge 11, Android 4+, Safari for iOS 8+, Firefox 29+, and Chrome 33+.</p>
 
 {{! ----------------------------------------------------------------- }}
 
@@ -318,7 +318,7 @@ $container.on( 'load.episcroll', function( event, response ) {
 
 <p>Creating a reduced test case is the best way to debug problems and report issues. Read <a href="http://css-tricks.com/reduced-test-cases/">CSS Tricks</a> on why they&rsquo;re so great.</p>
 
-<p>Create a reduced test case for Episcroll by forking any one of the <a href="http://codepen.io/desandro/tag/episcroll-docs">CodePen demos</a> from these docs.</p>
+<p>Create a reduced test case for Infinite Scroll by forking any one of the <a href="http://codepen.io/desandro/tag/infinite-scroll-docs">CodePen demos</a> from these docs.</p>
 
 <ul>
   <li>A reduced test case clearly demonstrates the bug or issue.</li>
@@ -332,10 +332,10 @@ $container.on( 'load.episcroll', function( event, response ) {
 
 <h3>Submitting issues</h3>
 
-<p>Report <a href="https://github.com/metafizzy/episcroll/issues/">issues on GitHub</a>. Make sure to include a <strong>reduced test case</strong>. Without a reduced test case, your issue may be closed.</p>
+<p>Report <a href="https://github.com/metafizzy/infinite-scroll/issues/">issues on GitHub</a>. Make sure to include a <strong>reduced test case</strong>. Without a reduced test case, your issue may be closed.</p>
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>Feature requests</h3>
 
-<p>Help us select new features by looking over <a href="https://github.com/metafizzy/episcroll/labels/feature%20request">requested features on the GitHub issue tracker</a> and adding your <strong>+1 reaction</strong> to features you&rsquo;d like to see added.</p>
+<p>Help us select new features by looking over <a href="https://github.com/metafizzy/infinite-scroll/labels/feature%20request">requested features on the GitHub issue tracker</a> and adding your <strong>+1 reaction</strong> to features you&rsquo;d like to see added.</p>

@@ -5,9 +5,9 @@ next: page2.html
 ---
 
 <article class="article">
-  <h2 class="article__title">1a - Episcroll full page demo</h2>
+  <h2 class="article__title">1a - Infinite Scroll full page demo</h2>
 
-  <p><b>Hi!</b> This demo will show off several key features of Episcroll.</p>
+  <p><b>Hi!</b> This demo will show off several key features of Infinite Scroll.</p>
 
   <ul>
     <li>Full page scrolling</li>
@@ -27,11 +27,11 @@ next: page2.html
 
   <!-- status elements -->
   <div class="scroller-status">
-    <div class="episcroll-request loader-ellips">
+    <div class="infinite-scroll-request loader-ellips">
       ...
     </div>
-    <p class="episcroll-last">End of content</p>
-    <p class="episcroll-error">No more pages to load</p>
+    <p class="infinite-scroll-last">End of content</p>
+    <p class="infinite-scroll-error">No more pages to load</p>
   </div>
 
   <!-- pagination has path -->
@@ -41,8 +41,8 @@ next: page2.html
   ```
 
   ``` js
-  // init Episcroll
-  $('.article-feed').episcroll({
+  // init Infinite Scroll
+  $('.article-feed').infiniteScroll({
     path: '.pagination__next',
     append: '.article',
     status: '.scroller-status',

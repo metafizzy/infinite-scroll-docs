@@ -1,9 +1,9 @@
-EpiscrollDocs['scroll-2'] = function( elem ) {
+InfiniteScrollDocs['scroll-2'] = function( elem ) {
 
   var scrollerContent = elem.querySelector('.scroller__content');
   var button = elem.querySelector('.view-more-button');
 
-  var infScroll = new Episcroll( scrollerContent, {
+  var infScroll = new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
     append: '.post',
     elementScroll: elem,

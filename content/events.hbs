@@ -11,7 +11,7 @@ layout: doc
 
 <h3>jQuery event binding</h3>
 
-<p>Bind events with jQuery with standard jQuery event methods <code>.on()</code>, <code>.off()</code>, and <code>.one()</code>. Event names are namespaced with <code>.episcroll</code>.</p>
+<p>Bind events with jQuery with standard jQuery event methods <code>.on()</code>, <code>.off()</code>, and <code>.one()</code>. Event names are namespaced with <code>.infiniteScroll</code>.</p>
 
 ``` js
 // jQuery
@@ -19,11 +19,11 @@ function listener(/* parameters */) {
   console.log('eventName happened');
 }
 // bind event listener
-$container.on( 'eventName.episcroll', listener );
+$container.on( 'eventName.infiniteScroll', listener );
 // unbind event listener
-$container.off( 'eventName.episcroll', listener );
+$container.off( 'eventName.infiniteScroll', listener );
 // bind event listener to trigger once. note ONE not ON
-$container.one( 'eventName.episcroll', function() {
+$container.one( 'eventName.infiniteScroll', function() {
   console.log('eventName happened just once');
 });
 ```
@@ -51,7 +51,7 @@ infScroll.once( 'eventName', function() {
 
 {{! ----------------------------------------------------------------- }}
 
-<h2>Episcroll events</h2>
+<h2>Infinite Scroll events</h2>
 
 {{! ----------------------------------------------------------------- }}
 
@@ -61,7 +61,7 @@ infScroll.once( 'eventName', function() {
 
 ``` js
 // jQuery
-$container.on( 'scrollThreshold.episcroll', function( event ) {
+$container.on( 'scrollThreshold.infiniteScroll', function( event ) {
   console.log('Scroll at bottom');
 });
 
@@ -73,11 +73,11 @@ infScroll.on( 'scrollThreshold', function() {...});
 
 <h3>request</h3>
 
-<p>Triggered when Episcroll makes the request for the next page to be loaded.</p>
+<p>Triggered when Infinite Scroll makes the request for the next page to be loaded.</p>
 
 ``` js
 // jQuery
-$container.on( 'request.episcroll', function( event, promise, path ) {
+$container.on( 'request.infiniteScroll', function( event, promise, path ) {
   console.log( 'Loading page: ' + path );
 });
 
@@ -97,7 +97,7 @@ infScroll.on( 'request', function( promise, path ) {...})
 
 ``` js
 // Using promise
-$container.on( 'request.episcroll', function( event, promise, path ) {
+$container.on( 'request.infiniteScroll', function( event, promise, path ) {
   promise.then( function( response ) {
     // fulfill callback
     console.log( path + ' has been loaded');
@@ -116,7 +116,7 @@ $container.on( 'request.episcroll', function( event, promise, path ) {
 
 ``` js
 // jQuery
-$container.on( 'load.episcroll', function( event, response, path ) {
+$container.on( 'load.infiniteScroll', function( event, response, path ) {
   console.log( 'Loaded: ' + path );
 });
 
@@ -136,9 +136,9 @@ infScroll.on( 'load', function( response, path ) {...});
 </p>
 
 ``` js
-var infScroll = $container.data('episcroll');
+var infScroll = $container.data('infiniteScroll');
 
-$container.on( 'load.episcroll', function( event, response, path ) {
+$container.on( 'load.infiniteScroll', function( event, response, path ) {
   console.log( 'Loaded: ' + path,
     'Current page: ' + infScroll.pageIndex,
     infScroll.loadCount + ' pages loaded'
@@ -154,7 +154,7 @@ $container.on( 'load.episcroll', function( event, response, path ) {
 
 ``` js
 // jQuery
-$container.on( 'append.episcroll', function( event, response, path, items ) {
+$container.on( 'append.infiniteScroll', function( event, response, path, items ) {
   console.log( 'Loaded: ' + path );
 });
 
@@ -179,7 +179,7 @@ infScroll.on( 'append', function( response, path, items ) {...});
 </p>
 
 ``` js
-$container.on( 'append.episcroll', function( event, response, path, items ) {
+$container.on( 'append.infiniteScroll', function( event, response, path, items ) {
   console.log( items.length + ' items appended' );
 });
 ```
@@ -192,7 +192,7 @@ $container.on( 'append.episcroll', function( event, response, path, items ) {
 
 ``` js
 // jQuery
-$container.on( 'error.episcroll', function( event, error, path ) {
+$container.on( 'error.infiniteScroll', function( event, error, path ) {
   console.log( 'Could not load: ' + path )
 })
 
@@ -220,7 +220,7 @@ infScroll.on( 'error', function( error, path ) {...})
 
 ``` js
 // jQuery
-$container.on( 'last.episcroll', function( event, response, path ) {
+$container.on( 'last.infiniteScroll', function( event, response, path ) {
   console.log( 'Loaded: ' + path );
 });
 
@@ -247,7 +247,7 @@ infScroll.on( 'last', function( response, path ) {...});
 
 ``` js
 // jQuery
-$container.on( 'history.episcroll', function( event, title, path ) {
+$container.on( 'history.infiniteScroll', function( event, title, path ) {
   console.log( 'History changed to: ' + path );
 });
 

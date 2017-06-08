@@ -1,4 +1,4 @@
-EpiscrollDocs.prefill = function( elem ) {
+InfiniteScrollDocs.prefill = function( elem ) {
 
   var scroller = elem.querySelector('.scroller');
   var scrollerContent = elem.querySelector('.scroller__content');
@@ -7,7 +7,7 @@ EpiscrollDocs.prefill = function( elem ) {
   button.addEventListener( 'click', onButtonClick );
 
   function onButtonClick() {
-    new Episcroll( scrollerContent, {
+    new InfiniteScroll( scrollerContent, {
       path: 'demo/element-scroll/page{{#}}.html',
       append: '.post',
       elementScroll: scroller,

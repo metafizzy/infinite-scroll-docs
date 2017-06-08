@@ -1,13 +1,13 @@
 # @desandro only
 
 zip:
-	rm -rf build/episcroll-docs.zip
-	cp -r build episcroll-docs
-	zip -rq build/episcroll-docs.zip episcroll-docs/
-	rm -rf episcroll-docs
+	rm -rf build/infinite-scroll-docs.zip
+	cp -r build infinite-scroll-docs
+	zip -rq build/infinite-scroll-docs.zip infinite-scroll-docs/
+	rm -rf infinite-scroll-docs
 
 deploy:
-	s3cmd -c ~/.s3cfg-fizzy sync --cf-invalidate build/. s3://mfzy.co/episcroll-docs/
+	s3cmd -c ~/.s3cfg-fizzy sync --cf-invalidate build/. s3://mfzy.co/infinite-scroll-docs/
 
 gulp:
 	gulp

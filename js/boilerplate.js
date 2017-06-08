@@ -3,7 +3,7 @@
 'use strict';
 
 // global namespace
-window.EpiscrollDocs = {};
+window.InfiniteScrollDocs = {};
 
 // ----- utils ----- //
 

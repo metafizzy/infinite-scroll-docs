@@ -18,7 +18,7 @@
   clear: both;
 }
 
-.hero .episcroll-logo {
+.hero .infinite-scroll-logo {
   display: block;
   position: absolute;
   left: 200px;
@@ -31,7 +31,7 @@
 }
 
 .hero__title {
-  font-size: 8.0rem;
+  font-size: 5.0rem;
   margin: 0;
   line-height: 1;
   padding-top: 25px;

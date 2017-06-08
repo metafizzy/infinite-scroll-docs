@@ -15,7 +15,7 @@ var cssSrc = [
 
 gulp.task( 'css', function() {
   gulp.src( cssSrc )
-    .pipe( concat('episcroll-docs.css') )
+    .pipe( concat('infinite-scroll-docs.css') )
     .pipe( gulp.dest('build/css') );
 });
 

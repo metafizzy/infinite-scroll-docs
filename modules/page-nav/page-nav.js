@@ -1,5 +1,5 @@
 /* globals Stickeroo */
-EpiscrollDocs['page-nav'] = function( elem ) {
+InfiniteScrollDocs['page-nav'] = function( elem ) {
   'use strict';
 
   var firstPageNav = document.querySelector('.page-nav');

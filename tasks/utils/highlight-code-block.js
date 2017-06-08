@@ -7,7 +7,7 @@ highlightjs.configure({
 
 var hljsJavascript = highlightjs.getLanguage('javascript');
 // highlight Packery
-hljsJavascript.keywords.episcroll_keyword = 'Episcroll';
+hljsJavascript.keywords['infinite-scroll_keyword'] = 'InfiniteScroll';
 // highlight packery variables
 hljsJavascript.keywords.infscroll_var = 'infScroll';
 

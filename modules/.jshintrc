@@ -5,8 +5,8 @@
   "undef": true,
   "globals": {
     "filterBind": false,
-    "Episcroll": false,
-    "EpiscrollDocs": true,
+    "InfiniteScroll": false,
+    "InfiniteScrollDocs": true,
     "imagesLoaded": false,
     "matchesSelector": false,
     "Masonry": false,

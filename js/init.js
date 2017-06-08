@@ -2,12 +2,12 @@
 'use strict';
 
 // init all modules, based on their data-js attribute
-EpiscrollDocs.initElementJS = function( elem ) {
+InfiniteScrollDocs.initElementJS = function( elem ) {
   var jsModuleElems = elem.querySelectorAll('[data-js]');
   for ( var i=0; i < jsModuleElems.length; i++ ) {
     var moduleElem = jsModuleElems[i];
     var moduleName = moduleElem.getAttribute('data-js');
-    var module = EpiscrollDocs[ moduleName ] || FizzyDocs[ moduleName ];
+    var module = InfiniteScrollDocs[ moduleName ] || FizzyDocs[ moduleName ];
     if ( module ) {
       module( moduleElem );
     }
@@ -15,6 +15,6 @@ EpiscrollDocs.initElementJS = function( elem ) {
 };
 
 // init all data-js elems
-EpiscrollDocs.initElementJS( document );
+InfiniteScrollDocs.initElementJS( document );
 
 })();

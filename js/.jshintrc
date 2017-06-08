@@ -6,7 +6,7 @@
   "globals": {
     "FizzyDocs": false,
     "fizzyUIUtils": false,
-    "EpiscrollDocs": true,
+    "InfiniteScrollDocs": true,
     "matchesSelector": false
   }
 }

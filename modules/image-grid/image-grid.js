@@ -1,6 +1,6 @@
 /* globals Masonry, imagesLoaded */
 
-EpiscrollDocs['image-grid'] = function( elem ) {
+InfiniteScrollDocs['image-grid'] = function( elem ) {
 
   var msnry = new Masonry( elem, {
     itemSelector: 'none', // select none at first
@@ -21,7 +21,7 @@ EpiscrollDocs['image-grid'] = function( elem ) {
     msnry.appended( items );
   });
 
-  new Episcroll( elem, {
+  new InfiniteScroll( elem, {
     path: '.pagination__next',
     hideNav: '.pagination',
     append: '.image-grid__item',

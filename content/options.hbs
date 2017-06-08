@@ -73,7 +73,7 @@ append: false,
 
 <h3>checkLastPage</h3>
 
-<p>Checks if page has <code>path</code> selector element. This prevents Episcroll from requesting a non-existant page. Requires <code>append</code> enabled and <a href="#path"><code>path</code></a> to be set to a selector. Enabled by default <code><span class="comment">checkLastPage: true</span></code></p>
+<p>Checks if page has <code>path</code> selector element. This prevents Infinite Scroll from requesting a non-existant page. Requires <code>append</code> enabled and <a href="#path"><code>path</code></a> to be set to a selector. Enabled by default <code><span class="comment">checkLastPage: true</span></code></p>
 
 {{! TODO checkLastPage enabled demo }}
 
@@ -122,13 +122,13 @@ checkLastPage: false,
 <p>Set <code>responseType: <span class="string">'text'</span></code> to return flat text for loading JSON.</p>
 
 ``` js
-$container.episcroll({
+$container.infiniteScroll({
   path: '/api/page\{{#}}.json',
   append: false,
   responseType: 'text',
 });
 
-$container.on( 'load.episcroll', function( event, response ) {
+$container.on( 'load.infiniteScroll', function( event, response ) {
   // parse JSON
   var data = JSON.parse( response );
 });
@@ -138,7 +138,7 @@ $container.on( 'load.episcroll', function( event, response ) {
 
 <h3>outlayer</h3>
 
-<p>Integrates <a href="https://masonry.desandro.com">Masonry</a>, <a href="https://isotope.metafizzy.co">Isotope</a> or <a href="https://packery.metafizzy.co">Packery</a>. Episcroll will add appended items to the layout.</p>
+<p>Integrates <a href="https://masonry.desandro.com">Masonry</a>, <a href="https://isotope.metafizzy.co">Isotope</a> or <a href="https://packery.metafizzy.co">Packery</a>. Infinite Scroll will add appended items to the layout.</p>
 
 ``` js
 outlayer: instance,
@@ -163,9 +163,9 @@ outlayer: instance,
     // get Masonry instance
     var msnry = $grid.data('masonry');
 
-    // init Episcroll
-    $grid.episcroll({
-      // Episcroll options...
+    // init Infinite Scroll
+    $grid.infiniteScroll({
+      // Infinite Scroll options...
       append: '.grid__item',
       outlayer: msnry,
     });
@@ -185,16 +185,16 @@ var msnry = new Masonry( '.grid', {
   itemSelector: '.grid__item', 
 });
 
-// init Episcroll
-var infScroll = new Episcroll( '.grid', {
-  // Episcroll options...
+// init Infinite Scroll
+var infScroll = new InfiniteScroll( '.grid', {
+  // Infinite Scroll options...
   append: '.grid__item',
   outlayer: msnry,
 });
 ```
 
 <div class="call-out">
-  <p><code>outlayer</code> requires <a href="https://imagesloaded.desandro.com">imagesLoaded</a>. It already <em>is</em> included with <code>episcroll.pkgd.js</code>, but not with Episcroll when installed with a package manager like npm or Yarn. You need to install and require <code>imagesloaded</code> separately. See details in <a href="extras.html">Extras</a>.</p>
+  <p><code>outlayer</code> requires <a href="https://imagesloaded.desandro.com">imagesLoaded</a>. It already <em>is</em> included with <code>infinite-scroll.pkgd.js</code>, but not with Infinite Scroll when installed with a package manager like npm or Yarn. You need to install and require <code>imagesloaded</code> separately. See details in <a href="extras.html">Extras</a>.</p>
 </div>
 
 <p>With Isotope:</p>
@@ -212,9 +212,9 @@ var infScroll = new Episcroll( '.grid', {
     // get Isotope instance
     var iso = $grid.data('isotope');
 
-    // init Episcroll
-    $grid.episcroll({
-      // Episcroll options...
+    // init Infinite Scroll
+    $grid.infiniteScroll({
+      // Infinite Scroll options...
       append: '.grid__item',
       outlayer: iso,
     });
@@ -229,8 +229,8 @@ var infScroll = new Episcroll( '.grid', {
       itemSelector: '.grid__item', 
     });
 
-    var infScroll = new Episcroll( '.grid', {
-      // Episcroll options...
+    var infScroll = new InfiniteScroll( '.grid', {
+      // Infinite Scroll options...
       append: '.grid__item',
       outlayer: iso,
     });
@@ -253,9 +253,9 @@ var infScroll = new Episcroll( '.grid', {
     // get Packery instance
     var pckry = $grid.data('packery');
 
-    // init Episcroll
-    $grid.episcroll({
-      // Episcroll options...
+    // init Infinite Scroll
+    $grid.infiniteScroll({
+      // Infinite Scroll options...
       append: '.grid__item',
       outlayer: pckry,
     });
@@ -270,8 +270,8 @@ var infScroll = new Episcroll( '.grid', {
       itemSelector: '.grid__item', 
     });
 
-    var infScroll = new Episcroll( '.grid', {
-      // Episcroll options...
+    var infScroll = new InfiniteScroll( '.grid', {
+      // Infinite Scroll options...
       append: '.grid__item',
       outlayer: pckry,
     });
@@ -332,7 +332,7 @@ scrollThreshold: false,
       </div>
       <!-- status is at bottom of scroll -->
       <div class="scroller-status">
-        <p class="episcroll-request">Loading...</p>
+        <p class="infinite-scroll-request">Loading...</p>
         ...
       </div>
     </div>
@@ -340,7 +340,7 @@ scrollThreshold: false,
 
     ``` js
     // content will be appended to .container
-    $('.container').episcroll({
+    $('.container').infiniteScroll({
       // options...
       elementScroll: '.sidebar',
       // use .sidebar overflow element scrolling
@@ -367,7 +367,7 @@ scrollThreshold: false,
 
     ``` js
     // content will be appended to .container
-    $('.container').episcroll({
+    $('.container').infiniteScroll({
       // options...
       elementScroll: true,
       // use .container overflow element scrolling
@@ -469,11 +469,11 @@ hideNav: '.pagination',
 <p>Displays status elements indicating state of page loading. Within the selected element:</p>
 
 <ul>
-  <li><code>.episcroll-request</code> element will be displayed on
+  <li><code>.infinite-scroll-request</code> element will be displayed on
     <a href="events.html#request"><code>request</code></a></li>
-  <li><code>.episcroll-last</code> element will be displayed on
+  <li><code>.infinite-scroll-last</code> element will be displayed on
     <a href="events.html#last"><code>last</code></a></li>
-  <li><code>.episcroll-error</code> element will be displayed on
+  <li><code>.infinite-scroll-error</code> element will be displayed on
     <a href="events.html#error"><code>error</code></a></li>
 </ul>
 
@@ -483,9 +483,9 @@ hideNav: '.pagination',
   <div class="duo__cell example__code">
     ``` html
     <div class="page-load-status">
-      <p class="episcroll-request">Loading...</p>
-      <p class="episcroll-last">End of content</p>
-      <p class="episcroll-error">No more pages to load</p>
+      <p class="infinite-scroll-request">Loading...</p>
+      <p class="infinite-scroll-last">End of content</p>
+      <p class="infinite-scroll-error">No more pages to load</p>
     </div>
     ```
 
@@ -502,7 +502,7 @@ hideNav: '.pagination',
 
 <h3>button</h3>
 
-<p>Enables a button to load pages on click. The button will state will be hooked in to Episcroll events:</p>
+<p>Enables a button to load pages on click. The button will state will be hooked in to Infinite Scroll events:</p>
 
 <ul>
   <li>Disabled while loading on <a href="events.html#request"><code>request</code></a></li>

@@ -1,10 +1,10 @@
-EpiscrollDocs['load-count'] = function( elem ) {
+InfiniteScrollDocs['load-count'] = function( elem ) {
 
   var scroller = elem.querySelector('.scroller');
   var scrollerContent = elem.querySelector('.scroller__content');
   var demoStatus = elem.querySelector('.demo-status');
 
-  var infScroll = new Episcroll( scrollerContent, {
+  var infScroll = new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
     append: '.post',
     elementScroll: scroller,

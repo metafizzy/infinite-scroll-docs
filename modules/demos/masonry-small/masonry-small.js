@@ -1,4 +1,4 @@
-EpiscrollDocs['masonry-small'] = function( elem ) {
+InfiniteScrollDocs['masonry-small'] = function( elem ) {
 
   var scrollerContent = elem.querySelector('.scroller__content');
 
@@ -17,7 +17,7 @@ EpiscrollDocs['masonry-small'] = function( elem ) {
     msnry.layout();
   });
 
-  new Episcroll( scrollerContent, {
+  new InfiniteScroll( scrollerContent, {
     path: 'demo/masonry/page{{#}}.html',
     append: '.image-grid__item',
     outlayer: msnry,

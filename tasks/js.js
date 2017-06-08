@@ -8,13 +8,13 @@ var jsSrc = [
   'bower_components/desandro-matches-selector/matches-selector.js',
   'bower_components/ev-emitter/ev-emitter.js',
   'bower_components/fizzy-ui-utils/utils.js',
-  // episcroll
-  'bower_components/episcroll/js/core.js',
-  'bower_components/episcroll/js/page-load.js',
-  'bower_components/episcroll/js/scroll-watch.js',
-  'bower_components/episcroll/js/history.js',
-  'bower_components/episcroll/js/status.js',
-  'bower_components/episcroll/js/button.js',
+  // infinite-scroll
+  'bower_components/infinite-scroll/js/core.js',
+  'bower_components/infinite-scroll/js/page-load.js',
+  'bower_components/infinite-scroll/js/scroll-watch.js',
+  'bower_components/infinite-scroll/js/history.js',
+  'bower_components/infinite-scroll/js/status.js',
+  'bower_components/infinite-scroll/js/button.js',
   // masonry
   'bower_components/get-size/get-size.js',
   'bower_components/outlayer/item.js',
@@ -36,7 +36,7 @@ var jsSrc = [
 gulp.task( 'docs-js', function() {
   gulp.src( jsSrc )
     .pipe( uglify() )
-    .pipe( concat('episcroll-docs.min.js') )
+    .pipe( concat('infinite-scroll-docs.min.js') )
     .pipe( gulp.dest('build/js') );
 });
 

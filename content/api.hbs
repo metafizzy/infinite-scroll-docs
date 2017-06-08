@@ -7,14 +7,14 @@ layout: doc
 
 <h2>Methods</h2>
 
-<p>Methods are actions done by Episcroll instances.</p>
+<p>Methods are actions done by Infinite Scroll instances.</p>
 
 <p>With jQuery, methods follow the jQuery UI pattern
-  <code>$container.episcroll( <span class="string">'methodName'</span> <span class="comment">/*, arguments */</span> )</code>.</p>
+  <code>$container.infiniteScroll( <span class="string">'methodName'</span> <span class="comment">/*, arguments */</span> )</code>.</p>
 
 ``` js
-var $container = $('.container').episcroll({ /* options... */ })
-  .episcroll('loadNextPage');
+var $container = $('.container').infiniteScroll({ /* options... */ })
+  .infiniteScroll('loadNextPage');
 ```
 
 <div class="call-out">
@@ -22,11 +22,11 @@ var $container = $('.container').episcroll({ /* options... */ })
 </div>
 
 <p>Vanilla JavaScript methods look like
-  <code>episcroll.methodName( <span class="comment">/* arguments */</span> )</code>. Unlike jQuery methods, they cannot be chained together.</p>
+  <code>infScroll.methodName( <span class="comment">/* arguments */</span> )</code>. Unlike jQuery methods, they cannot be chained together.</p>
 
 ``` js
 // vanilla JS
-var infScroll = new Episcroll('.container', {
+var infScroll = new InfiniteScroll('.container', {
   // options...
 });
 infScroll.loadNextPage();
@@ -40,7 +40,7 @@ infScroll.loadNextPage();
 
 ``` js
 // jQuery
-var promise = $container.episcroll('loadNextPage')
+var promise = $container.infiniteScroll('loadNextPage')
 // vanilla JS
 var promise = infScroll.loadNextPage()
 ```
@@ -53,7 +53,7 @@ var promise = infScroll.loadNextPage()
 <code>loadNextPage</code> returns a <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promise</a>.
 
 ``` js
-var promise = $container.episcroll('loadNextPage')
+var promise = $container.infiniteScroll('loadNextPage')
 
 promise.then( function( response ) {
   // fulfill callback
@@ -74,7 +74,7 @@ promise.then( function( response ) {
 
 ``` js
 // jQuery
-$container.episcroll( 'appendItems', items )
+$container.infiniteScroll( 'appendItems', items )
 // vanilla JS
 infScroll.appendItems( items )
 ```
@@ -87,16 +87,16 @@ infScroll.appendItems( items )
 <p>Use <code>appendItems</code> to manually append items on <a href="events.html#load"><code>load</code></a>, like with Masonry, Isotope, and Packery.</p>
 
 ``` js
-var $container = $('.container').episcroll({
+var $container = $('.container').infiniteScroll({
   append: false, // disable automatic appending
 });
 
-$container.on( 'load.episcroll', function( response ) {
+$container.on( 'load.infiniteScroll', function( response ) {
   // get posts from response
   var $posts = $( response ).find('.post');
   // append posts after images loaded
   $posts.imagesLoaded( function() {
-    $container.episcroll( 'appendItems', $posts );
+    $container.infiniteScroll( 'appendItems', $posts );
   });
 });
 ```
@@ -109,7 +109,7 @@ $container.on( 'load.episcroll', function( response ) {
 
 ``` js
 // jQuery
-var path = $container.episcroll('getPath')
+var path = $container.infiniteScroll('getPath')
 // vanilla JS
 var path = infScroll.getPath()
 ```
@@ -120,12 +120,12 @@ var path = infScroll.getPath()
 </p>
 
 ``` js
-var $container = $('.container').episcroll({
+var $container = $('.container').infiniteScroll({
   path: '/page/\{{#}}',
   // options...
 });
 
-$container.episcroll('getPath');
+$container.infiniteScroll('getPath');
 // => '/page/2'
 ```
 
@@ -137,7 +137,7 @@ $container.episcroll('getPath');
 
 ``` js
 // jQuery
-var path = $container.episcroll('getAbsolutePath')
+var path = $container.infiniteScroll('getAbsolutePath')
 // vanilla JS
 var path = infScroll.getAbsolutePath()
 ```
@@ -148,12 +148,12 @@ var path = infScroll.getAbsolutePath()
 </p>
 
 ``` js
-var $container = $('.container').episcroll({
+var $container = $('.container').infiniteScroll({
   path: '/page/\{{#}}',
   // options...
 });
 
-$container.episcroll('getPath');
+$container.infiniteScroll('getPath');
 // => 'http://example.com/page/2'
 ```
 
@@ -161,11 +161,11 @@ $container.episcroll('getPath');
 
 <h3>destroy</h3>
 
-<p>Remove Episcroll functionality completely.</p>
+<p>Remove Infinite Scroll functionality completely.</p>
 
 ``` js
 // jQuery
-$container.episcroll('destroy')
+$container.infiniteScroll('destroy')
 // vanilla JS
 infScroll.destroy()
 ```
@@ -176,25 +176,25 @@ infScroll.destroy()
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>jQuery.fn.data('episcroll')</h3>
+<h3>jQuery.fn.data('infiniteScroll')</h3>
 
-<p>Get the Episcroll instance from a jQuery object. Episcroll instances are useful to access Episcroll properties.</p>
+<p>Get the Infinite Scroll instance from a jQuery object. Infinite Scroll instances are useful to access Infinite Scroll properties.</p>
 
 ``` js
-var infScroll = $('.container').data('episcroll');
-// access Episcroll properties
+var infScroll = $('.container').data('infiniteScroll');
+// access Infinite Scroll properties
 console.log( 'Infinite scroll at page' + infScroll.pageIndex );
 ```
 
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>Episcroll.data()</h3>
+<h3>InfiniteScroll.data()</h3>
 
-<p>Get the Episcroll instance via its element. <code>Episcroll.data()</code> is useful for getting the Episcroll instance in JavaScript, after it has been initalized in HTML.</p>
+<p>Get the Infinite Scroll instance via its element. <code>InfiniteScroll.data()</code> is useful for getting the Infinite Scroll instance in JavaScript, after it has been initalized in HTML.</p>
 
 ``` js
-var infScroll = Episcroll.data( element )
+var infScroll = InfiniteScroll.data( element )
 ```
 
 <p class="argument">
@@ -203,27 +203,27 @@ var infScroll = Episcroll.data( element )
 </p>
 <p class="argument">
   <code class="argument__code">infScroll</code>
-  <span class="argument__type"><i>Episcroll</i></span>
+  <span class="argument__type"><i>InfiniteScroll</i></span>
 </p>
 
 <div class="example">
   <div class="example__code">
     ``` html
-    <!-- init Episcroll in HTML -->
-    <div class="container" data-episcroll='{...}'>...</div>
+    <!-- init Infinite Scroll in HTML -->
+    <div class="container" data-infinite-scroll='{...}'>...</div>
     ```
 
     ``` js
     // jQuery
     // pass in the element, $element[0], not the jQuery object
-    var infScroll = Episcroll.data( $('.container')[0] )
+    var infScroll = InfiniteScroll.data( $('.container')[0] )
 
     // vanilla JS
     var container = document.querySelector('.container')
-    var infScroll = Episcroll.data( container )
+    var infScroll = InfiniteScroll.data( container )
 
     // using a selector string
-    var infScroll = Episcroll.data('.container')
+    var infScroll = InfiniteScroll.data('.container')
     ```
   </div>
 </div>
@@ -233,13 +233,13 @@ var infScroll = Episcroll.data( element )
 <h2>Properties</h2>
 
 <div class="call-out">
-  <p>Properties are accessed only on Episcroll instances. If you initialized Episcroll with jQuery, use <code>.data(<span class="string">'episcroll'</span>)</code> to get the instance.</p>
+  <p>Properties are accessed only on Infinite Scroll instances. If you initialized Infinite Scroll with jQuery, use <code>.data(<span class="string">'infiniteScroll'</span>)</code> to get the instance.</p>
 
   ``` js
   // init Flickity with jQuery
-  var $container = $('.container').episcroll({...});
+  var $container = $('.container').infiniteScroll({...});
   // get instance
-  var infScroll = $container.data('episcroll');
+  var infScroll = $container.data('infiniteScroll');
   // access properties
   console.log( infScroll.pageIndex );
   ```
@@ -259,9 +259,9 @@ infScroll.pageIndex
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    var infScroll = $container.data('episcroll');
+    var infScroll = $container.data('infiniteScroll');
 
-    $container.on( 'load.episcroll', function() {
+    $container.on( 'load.infiniteScroll', function() {
       $demoStatus.text( 'Loaded page: ' +
         infScroll.pageIndex );
     });
@@ -272,7 +272,7 @@ infScroll.pageIndex
   </div>
 </div>
 
-<p>Episcroll will determine the initial <code>pageIndex</code> on initialization. If <a href="options.html#path"><code>path</code></a> is set to a next link element, Episcroll will determine <code>pageIndex</code> from the link's <code>href</code> value.</p>
+<p>Infinite Scroll will determine the initial <code>pageIndex</code> on initialization. If <a href="options.html#path"><code>path</code></a> is set to a next link element, Infinite Scroll will determine <code>pageIndex</code> from the link's <code>href</code> value.</p>
 
 ``` html
 <a class="pagination__next" href="/page/4">Next</a>
@@ -283,7 +283,7 @@ path: '.pagination__next',
 // next page is 4, pageIndex = 3
 ```
 
-<p>If <code>path</code> is set to a string with <code>\{{#}}</code>, Episcroll will determine <code>pageIndex</code> from the window URL.</p>
+<p>If <code>path</code> is set to a string with <code>\{{#}}</code>, Infinite Scroll will determine <code>pageIndex</code> from the window URL.</p>
 
 ``` js
 // URL: http://example.com/blog/9.html
@@ -307,9 +307,9 @@ infScroll.loadCount
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    var infScroll = $container.data('episcroll');
+    var infScroll = $container.data('infiniteScroll');
 
-    $container.on( 'load.episcroll', function() {
+    $container.on( 'load.infiniteScroll', function() {
       $demoStatus.text( infScroll.loadCount +
         'pages loaded' );
     });

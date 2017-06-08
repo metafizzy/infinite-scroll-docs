@@ -1,12 +1,12 @@
 {
-  "name": "episcroll-docs",
+  "name": "infinite-scroll-docs",
   "authors": [
     "David DeSandro <desandrocodes@gmail.com>"
   ],
   "description": "",
   "main": "",
   "dependencies": {
-    "episcroll": "../episcroll#master",
+    "infinite-scroll": "../infinite-scroll#v3",
     "fizzy-docs-modules": "metafizzy/fizzy-docs-modules",
     "normalize-css": "normalize.css#^7.0.0",
     "masonry": "^4.2.0",

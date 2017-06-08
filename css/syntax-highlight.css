@@ -31,10 +31,10 @@ code .at_rule { color: #088; }
 
 code .built_in { color: #E08; }
 
-code .episcroll,
-code .episcroll_keyword, /* new Episcroll() */
+code .infinite-scroll,
+code .infinite-scroll_keyword, /* new InfiniteScroll() */
 code .infscroll_var { color: #D0D; } /* infScroll */
 
 code .jquery_var { color: #D70; } /* $container */
 
-code .episcroll { text-decoration: underline; }
+code .infinite-scroll { text-decoration: underline; }
