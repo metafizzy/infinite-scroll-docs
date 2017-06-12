@@ -77,36 +77,19 @@ infScroll.on( 'scrollThreshold', function() {...});
 
 ``` js
 // jQuery
-$container.on( 'request.infiniteScroll', function( event, promise, path ) {
+$container.on( 'request.infiniteScroll', function( event, path ) {
   console.log( 'Loading page: ' + path );
 });
 
 // vanilla JS
-infScroll.on( 'request', function( promise, path ) {...})
+infScroll.on( 'request', function( path ) {...})
 ```
 
-<p class="argument">
-  <code class="argument__code">promise</code>
-  <span class="argument__type"><i>Promise</i></span>
-</p>
 <p class="argument">
   <code class="argument__code">path</code>
   <span class="argument__type"><i>String</i></span>
   <span class="argument__description">Requested page URL path</span>
 </p>
-
-``` js
-// Using promise
-$container.on( 'request.infiniteScroll', function( event, promise, path ) {
-  promise.then( function( response ) {
-    // fulfill callback
-    console.log( path + ' has been loaded');
-  }, function( error ) {
-    // error callback
-    console.error( error );
-  });
-});
-```
 
 {{! ----------------------------------------------------------------- }}
 

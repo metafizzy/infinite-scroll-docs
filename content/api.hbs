@@ -40,28 +40,9 @@ infScroll.loadNextPage();
 
 ``` js
 // jQuery
-var promise = $container.infiniteScroll('loadNextPage')
+$container.infiniteScroll('loadNextPage')
 // vanilla JS
-var promise = infScroll.loadNextPage()
-```
-
-<p class="argument">
-  <code class="argument__code">promise</code>
-  <span class="argument__type"><i>Promise</i></span>
-</p>
-
-<code>loadNextPage</code> returns a <a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">Promise</a>.
-
-``` js
-var promise = $container.infiniteScroll('loadNextPage')
-
-promise.then( function( response ) {
-  // fulfill callback
-  console.log('page has been loaded');
-}, function( error ) {
-  // error callback
-  console.error( error );
-});
+infScroll.loadNextPage()
 ```
 
 {{! ----------------------------------------------------------------- }}
