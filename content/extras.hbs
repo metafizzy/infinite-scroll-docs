@@ -300,15 +300,112 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 
 {{! ----------------------------------------------------------------- }}
 
+<h2>Google Analytics</h2>
+
+<p>Use Infinite Scroll events to <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/pages">track pageviews with Google Analytics</a>.</p>
+
+<p>With <a href="options.html#history"><code>history</code> option</a> enabled, use the <a href="events.html#history"><code>history</code> event</a>.</p>
+
+``` js
+$container.on( 'history.infiniteScroll', function() {
+  ga( 'set', 'page', location.pathname );
+  ga( 'send', 'pageview' );
+});
+```
+
+<p>With <code>history</code> option disabled, use the <a href="events.html#append"><code>append</code> or <a href="events.html#load"><code>load</code></a> event</a>.</p>
+
+``` js
+// link used to get absolute path, beginning with /
+var link = document.createElement('a');
+
+$container.on( 'append.infiniteScroll', function( event, response, path ) {
+  link.href = path;
+  ga( 'set', 'page', link.pathname );
+  ga( 'send', 'pageview' );
+});
+```
+
+{{! ----------------------------------------------------------------- }}
+
 <h2>Browser support</h2>
 
 <p>Infinite Scroll v3 supports IE/Edge 11, Android 4+, Safari for iOS 8+, Firefox 29+, and Chrome 33+.</p>
 
 {{! ----------------------------------------------------------------- }}
 
+<h2>WordPress Plugin</h2>
+
+<p>The official WordPress plugin for Infinite Scroll v3 is in the works. Until then, you can continue using <a href="https://wordpress.org/plugins/infinite-scroll/">the previous Infinite Scroll v2 WordPress plugin</a>.</p>
+
+{{! ----------------------------------------------------------------- }}
+
 <h2>Upgrading from v2</h2>
 
-{{! TODO upgrade from v2 }}
+<p>Infinite Scroll v3 is a complete rewrite with all new API and behavior. Upgrading from v2 to v3 will require making several changes.</p>
+
+<ul>
+  <li><code>.infinitescroll()</code> jQuery plugin renamed to camelCased <code>.infiniteScroll()</code>.</li>
+</ul>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Upgrading v2 options</h3>
+
+<ul>
+  <li><code>itemSelector</code>:
+    Use <a href="options.html#append"><code>append</code></a> to select items to append.</li>
+  <li><code>nextSelector</code>:
+    Set <a href="options.html#path"><code>path</code></a> to a selector string of a link to the next page to use its <code>href</code> value.
+    Use <a href="options.html#hideNav"><code>hideNav</code></a> to hide navigation.</li>
+  <li><code>binder</code>:
+    Use <a href="options.html#elementscroll"><code>elementScroll</code></a> to scroll within an element.</li>
+  <li><code>path</code>:
+    <a href="options.html#path"><code>path</code></a> works differently.</li>
+  <li><code>pathParse</code>:
+    Use <a href="options.html#path"><code>path</code></a>.</li>
+  <li><code>prefill</code>:
+    backwards compatible, works in v3.</li>
+  <li><code>dataType</code>:
+    Use <a href="options.html#responsetype"><code>responseType</code></a> to load data content like JSON.</li>
+  <li><code>animate</code> &amp; <code>extraScrollPx</code>:
+    Scrolling animation has been removed in v3.</li>
+  <li><code>appendCallback</code>:
+    Use <a href="events.html#append"><code>append</code> event</a>.</li>
+  <li><code>errorCallback</code>:
+    Use <a href="events.html#error"><code>error</code> event</a>.</li>
+  <li><code>maxPage</code>:
+    removed in v3.</li>
+  <li><code>debug</code>:
+    Use <a href="options.html#log"><code>log</code>.</li>
+  <li><code>loading</code>
+    <ul>
+      <li><code>finished</code>:
+        Use <a href="events.html#load"><code>load</code> event</a>.</li>
+      <li><code>finishedMsg</code>:
+        Use <a href="options.html#status"><code>status</code></a> and set message HTML in <code>.infinite-scroll-error</code> and <code>.infinite-scroll-last</code>.</li>
+      <li><code>img</code> &amp; <code>msgText</code>:
+        Use <a href="options.html#status"><code>status</code></a> and set loading HTML in <code>.infinite-scroll-request</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>Upgrading v2 methods</h3>
+
+<ul>
+  <li><code>pause</code>, <code>resume</code>, &amp; <code>toggle</code>:
+    Enable and disable <a href="options.html#loadonscroll"><code>loadOnScroll</code> option</a></li>
+  <li><code>bind</code> &amp; <code>unbind</code>:
+    Disable and re-set <a href="options.html#scrollthreshold"><code>scrollThreshold</code> option</a></li>
+  <li><code>retrieve</code>:
+    Use <a href="api.html#loadnextpage"><code>loadNextPage</code></a>.</li>
+  <li><code>update</code>:
+    Use <code>option</code></li>
+  <li><code>destroy</code>:
+    Backward compatible, works in v3</li>
+</ul>
 
 {{! ----------------------------------------------------------------- }}
 

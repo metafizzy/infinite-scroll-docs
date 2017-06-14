@@ -11,6 +11,7 @@
 
 .page-nav li {
   margin: 0.2rem 0;
+  overflow-wrap: break-word;
 }
 
 .page-nav__item--h3,
