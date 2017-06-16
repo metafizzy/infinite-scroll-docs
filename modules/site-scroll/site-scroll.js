@@ -24,7 +24,7 @@ InfiniteScrollDocs['site-scroll'] = function( elem ) {
         return pages[ nextIndex ] + '.html';
       },
       append: '.main__page',
-      // log: true,
+      // debug: true,
     });
 
     infScroll.on( 'append', onAppend );

@@ -14,7 +14,7 @@ InfiniteScrollDocs.prefill = function( elem ) {
       prefill: true,
       status: elem.querySelector('.scroller-status'),
       history: false,
-      // log: true,
+      // debug: true,
     });
 
     button.disabled = 'disabled';

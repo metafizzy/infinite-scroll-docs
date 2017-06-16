@@ -27,7 +27,7 @@ InfiniteScrollDocs['image-grid'] = function( elem ) {
     append: '.image-grid__item',
     outlayer: msnry,
     status: '.scroller-status',
-    log: true,
+    debug: true,
   });
 
 };

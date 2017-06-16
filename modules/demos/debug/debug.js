@@ -1,4 +1,4 @@
-InfiniteScrollDocs.log = function( elem ) {
+InfiniteScrollDocs.debug = function( elem ) {
 
   var scrollerContent = elem.querySelector('.scroller__content');
 
@@ -8,7 +8,7 @@ InfiniteScrollDocs.log = function( elem ) {
     elementScroll: elem,
     status: elem.querySelector('.scroller-status'),
     history: false,
-    log: true,
+    debug: true,
   });
 
 };
