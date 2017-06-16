@@ -292,11 +292,123 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 
 {{! ----------------------------------------------------------------- }}
 
-<h2>Loaders &amp; spinners</h2>
+<h2>Loading animations</h2>
 
-{{! TODO loader & spinner, add explanation, link from status option }}
+<p>Feel free to use these loading animations within <a href="options.html#status"><code>.infinite-scroll-request</code> status element</a>.</p>
 
-<p>{{> loader-ellips}}</p>
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="loader-ellips infinite-scroll-request">
+      <span class="loader-ellips__dot"></span>
+      <span class="loader-ellips__dot"></span>
+      <span class="loader-ellips__dot"></span>
+      <span class="loader-ellips__dot"></span>
+    </div>
+    ```
+
+    ``` css
+    .loader-ellips {
+      font-size: 20px; /* change size here */
+      position: relative;
+      width: 4em;
+      height: 1em;
+      margin: 10px auto;
+    }
+
+    .loader-ellips__dot {
+      display: block;
+      width: 1em;
+      height: 1em;
+      border-radius: 0.5em;
+      background: #555; /* change color here */
+      position: absolute;
+      animation-duration: 0.5s;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+    }
+
+    .loader-ellips__dot:nth-child(1),
+    .loader-ellips__dot:nth-child(2) {
+      left: 0;
+    }
+    .loader-ellips__dot:nth-child(3) { left: 1.5em; }
+    .loader-ellips__dot:nth-child(4) { left: 3em; }
+
+    @keyframes reveal {
+      from { transform: scale(0.001); }
+      to { transform: scale(1); }
+    }
+
+    @keyframes slide {
+      to { transform: translateX(1.5em) }
+    }
+
+    .loader-ellips__dot:nth-child(1) {
+      animation-name: reveal;
+    }
+
+    .loader-ellips__dot:nth-child(2),
+    .loader-ellips__dot:nth-child(3) {
+      animation-name: slide;
+    }
+
+    .loader-ellips__dot:nth-child(4) {
+      animation-name: reveal;
+      animation-direction: reverse;
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> loader-ellips}}
+  </div>
+</div>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` html
+    <div class="loader-wheel">
+      <i><i><i><i><i><i><i><i><i><i><i><i>
+      </i></i></i></i></i></i></i></i></i></i></i></i>
+    </div>
+    ```
+
+    ``` css
+    .loader-wheel {
+      font-size: 64px; /* change size here */
+      position: relative;
+      height: 1em;
+      width: 1em;
+      padding-left: 0.45em;
+      overflow: hidden;
+      margin: 0 auto;
+      animation: loader-wheel-rotate 0.5s steps(12) infinite;
+    }
+
+    .loader-wheel i {
+      display: block;
+      position: absolute;
+      height: 0.3em;
+      width: 0.1em;
+      border-radius: 0.05em;
+      background: #333; /* change color here */
+      opacity: 0.8;
+      transform: rotate(-30deg);
+      transform-origin: center 0.5em;
+    }
+
+    @keyframes loader-wheel-rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> loader-wheel}}
+  </div>
+</div>
+
+<p></p>
 
 {{! ----------------------------------------------------------------- }}
 
