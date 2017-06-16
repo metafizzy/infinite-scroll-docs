@@ -8,7 +8,7 @@
   min-height: 320px;
 }
 
-.hero .container {
+.hero__masthead {
   position: relative;
 }
 
@@ -21,26 +21,74 @@
 .hero .infinite-scroll-logo {
   display: block;
   position: absolute;
-  left: 200px;
-  width: 260px;
-  height: 260px;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 80px;
 }
 
 .hero__text {
-  padding-left: 300px;
+  padding-left: 100px;
 }
 
 .hero__title {
-  font-size: 5.0rem;
+  font-size: 2.0rem;
   margin: 0;
   line-height: 1;
-  padding-top: 25px;
+  padding-top: 10px;
 }
 
 .hero__tagline {
-  font-size: 2.0rem;
+  font-size: 1.2rem;
+  line-height: 1.2;
   margin: 0;
   color: white;
 }
 
-/* TODO mobile styles */
+.hero .chunky-button--fill {
+  background-color: #06C;
+  color: white;
+}
+
+.hero .chunky-button--fill .chunky-button__icon svg {
+  fill: white;
+}
+
+.hero .chunky-button--fill:hover {
+  background-color: #EA0;
+}
+
+.hero .chunky-button--outline {
+  border-color: #05B;
+  color: white;
+}
+
+.hero .chunky-button--outline .chunky-button__icon svg {
+  fill: white;
+}
+
+.hero .chunky-button--outline:hover {
+  background: #EA0;
+}
+
+@media screen and ( min-width: 768px ) {
+
+  .hero .infinite-scroll-logo {
+    width: 260px;
+    height: 260px;
+  }
+
+  .hero__text {
+    padding-left: 300px;
+  }
+
+  .hero__title {
+    font-size: 5.0rem;
+    padding-top: 25px;
+  }
+
+  .hero__button-row {
+    margin-top: 40px;
+  }
+
+}

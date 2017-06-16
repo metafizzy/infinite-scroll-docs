@@ -1,9 +1,40 @@
 <div class="hero">
   <div class="container">
-    {{> infinite-scroll-logo}}
-    <div class="hero__text">
-      <h1 class="hero__title">Infinite Scroll</h1>
-      <p class="hero__tagline">Automatically add next page</p>
+    <div class="hero__masthead">
+      {{> infinite-scroll-logo}}
+      <div class="hero__text">
+        <h1 class="hero__title">Infinite Scroll</h1>
+        <p class="hero__tagline">Automatically add next page</p>
+        <p>
+          {{>gh-button project="Infinite Scroll" ghPath="metafizzy/infinite-scroll" stars="4,400" }}
+        </p>
+      </div>
     </div>
+
+    <div class="duo hero__button-row">
+      <div class="duo__cell">
+        <a class="chunky-button chunky-button--fill" href="{{sourceUrlPath}}infinite-scroll.pkgd.min.js">
+          <i class="chunky-button__icon">
+            {{> js-file}}
+          </i>
+          <span class="chunky-button__text">
+            <span class="chunky-button__text__plain">Download</span>
+            <b class="chunky-button__text__strong">infinite-scroll.pkgd.min.js</b>
+          </span>
+        </a>
+      </div>
+      <div class="duo__cell">
+        <a class="chunky-button chunky-button--outline" href="infinite-scroll-docs.zip">
+          <i class="chunky-button__icon">
+            {{> zip-file}}
+          </i>
+          <span class="chunky-button__text">
+            <span class="chunky-button__text__plain">Download</span>
+            <b class="chunky-button__text__strong">these docs</b>
+          </span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </div>
