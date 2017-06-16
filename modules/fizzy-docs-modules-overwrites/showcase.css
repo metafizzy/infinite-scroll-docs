@@ -1,0 +1,11 @@
+/* showcase overwrites
+------------------------- */
+
+.showcase-item__link {
+  background: white;
+}
+
+.showcase-item__link:hover {
+  background: #19F;
+  color: white;
+}

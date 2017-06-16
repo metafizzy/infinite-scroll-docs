@@ -1,0 +1,58 @@
+/* site-footer
+------------------------- */
+
+.site-footer {
+  margin-top: 0;
+  background: #EEE;
+  position: relative;
+  z-index: 1; /* above page-nav */
+}
+
+/* ---- twitter-logo ---- */
+
+.site-footer .twitter-logo { fill: #19F; }
+.site-footer a:hover .twitter-logo { fill: #C25; }
+
+/* ---- metafizzy brand ---- */
+
+.site-footer .metafizzy-logo { width: 45px; }
+.site-footer .metafizzy-wordmark { width: 160px; }
+
+.site-footer .metafizzy-wordmark path { fill: #19F; }
+
+.site-footer .metafizzy-logo__stripe1,
+.site-footer .metafizzy-logo__stripe2,
+.site-footer .metafizzy-logo__stripe3,
+.site-footer .metafizzy-logo__stripe4 { fill: #19F; }
+
+.site-footer a:hover .metafizzy-wordmark path { fill: #333; }
+
+.site-footer a:hover .metafizzy-logo__stripe1 { fill: #C25; }
+.site-footer a:hover .metafizzy-logo__stripe2 { fill: #E62; }
+.site-footer a:hover .metafizzy-logo__stripe3 { fill: #EA0; }
+.site-footer a:hover .metafizzy-logo__stripe4 { fill: #19F; }
+
+@media screen and ( min-width: 960px ) {
+
+  /* sidebar brand */
+
+  .site-footer .metafizzy-brand {
+    position: absolute;
+    left: 20px;
+    top: 60px;
+    width: 160px;
+  }
+
+  .site-footer .metafizzy-logo {
+    display: block;
+    width: 90px;
+    margin: 0 auto 10px;
+  }
+
+  .site-footer .metafizzy-wordmark {
+    width: 140px;
+    margin: 0 auto;
+    display: block;
+  }
+
+}

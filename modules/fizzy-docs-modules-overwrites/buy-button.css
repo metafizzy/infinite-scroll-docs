@@ -1,0 +1,16 @@
+/* buy-button
+------------------------- */
+
+.buy-button {
+  background: #EEE;
+}
+
+.buy-button__price {
+  background: #19F;
+}
+
+.buy-button:hover { text-decoration: none; }
+
+.buy-button:hover .buy-button__price {
+  background: #C25;
+}
