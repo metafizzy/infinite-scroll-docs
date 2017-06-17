@@ -20,7 +20,7 @@ layout: doc
 ```
 
 ``` js
-path: '.pagination__next',
+path: '.pagination__next'
 // parse href of element
 // => /page/2, /page/3, page/4 ...
 ```
@@ -28,7 +28,7 @@ path: '.pagination__next',
 <p>Set to a string with <code>\{{#}}</code> for the incremental page number.</p>
 
 ``` js
-path: 'news/blog-p\{{#}}.html',
+path: 'news/blog-p\{{#}}.html'
 // replace \{{#}} with page number
 // => news/blog-p2.html, news/blog-p3.html, news/blog-p4 ...
 ```
@@ -39,7 +39,7 @@ path: 'news/blog-p\{{#}}.html',
 path: function() {
   var pageNumber = ( this.loadCount + 1 ) * 10;
   return '/articles/P' + pageNumber;
-},
+}
 // => /articles/P10, /articles/P20, /articles/P30 ...
 ```
 
@@ -52,7 +52,7 @@ path: function() {
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    append: '.post',
+    append: '.post'
     // append .post elements from next page to container
     ```
   </div>
@@ -65,7 +65,7 @@ Disable appending with <code>append: <span class="literal">false</span></code>, 
 
 
 ``` js
-append: false,
+append: false
 // do not append any content on page load
 ```
 
@@ -78,7 +78,7 @@ append: false,
 {{! TODO checkLastPage enabled demo }}
 
 ``` js
-// checkLastPage: true,
+// checkLastPage: true
 // enabled by default
 ```
 
@@ -86,7 +86,7 @@ append: false,
 
 
 ``` js
-checkLastPage: false,
+checkLastPage: false
 // disabled
 ```
 
@@ -99,7 +99,7 @@ checkLastPage: false,
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    prefill: true,
+    prefill: true
     // load pages on init until user can scroll
     ```
   </div>
@@ -115,7 +115,7 @@ checkLastPage: false,
 <p>Sets the type of response returned by the page request. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">MDN docs XMLHttpRequest.responseType</a>.</p>
 
 ``` js
-// responseType: 'document',
+// responseType: 'document'
 // default, return next page's DOM
 ```
 
@@ -141,7 +141,7 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 <p>Integrates <a href="https://masonry.desandro.com">Masonry</a>, <a href="https://isotope.metafizzy.co">Isotope</a> or <a href="https://packery.metafizzy.co">Packery</a>. Infinite Scroll will add appended items to the layout.</p>
 
 ``` js
-outlayer: instance,
+outlayer: instance
 ```
 
 <p class="argument">
@@ -304,7 +304,7 @@ var infScroll = new InfiniteScroll( '.grid', {
 <p>Disable loading on scroll and the <code>scrollThreshold</code> event with <code>scrollThreshold: false</code>. This is useful if loading via button.</p>
 
 ``` js
-scrollThreshold: false,
+scrollThreshold: false
 // disable loading on scroll
 // and scrollThreshold event from triggering
 ```
@@ -388,7 +388,7 @@ scrollThreshold: false,
 <p>Disable <code>loadOnScroll</code> if you do not want to load pages on scroll, but still want the <a href="events.html#scrollthreshold"><code>scrollThreshold</code> event</a> triggered.</p>
 
 ``` js
-loadOnScroll: false,
+loadOnScroll: false
 // disable loading pages on scroll
 // scrollThreshold event still triggered
 ```
@@ -396,7 +396,7 @@ loadOnScroll: false,
 <p>Otherwise, you can disable both loading on scroll and <code>scrollThreshold</code> event by disabling <code>scrollThreshold</code>.</p>
 
 ``` js
-scrollThreshold: false,
+scrollThreshold: false
 // disable loading pages on scroll
 // and scrollThreshold event
 ```
@@ -411,23 +411,21 @@ scrollThreshold: false,
 
 <p>Changes the browser history and URL.</p>
 
-<p>Enabled by default <code><span class="comment">history: 'replace'</span></code> will use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method"><code>history.replaceState()</code></a> to change the current history entry. Going back in the browser will return the user to previous site.</p>
-
-{{! basic full demo }}
+<p>Enabled by default <code><span class="comment">history: 'replace'</span></code> will use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method"><code>history.replaceState()</code></a> to change the current history entry. Going back in the browser will return the user to previous site. <a href="demo/full-page">View full page demo with <code>history: 'replace'</code></a>.</p>
 
 <p>Set <code>history: <span class="string">'push'</span></code> to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method"><code>history.pushState()</code></a> to create new history entries for each page change. Going back in the browser will load the previous page.</p>
 
 
 ``` js
-history: 'push',
+history: 'push'
 // create new history entry for each page
 ```
 
-{{! history push demo }}
+{{! TODO history push demo? }}
 
-<p>When enabled with <a href=#append><code>append</code></a> enabled, history will be changed when the appended page is scrolled into view. Users may scroll up and down, and history will reflect the URL of the content in the view.</p> {{! demo }}
+<p>When enabled with <a href=#append><code>append</code></a> enabled, history will be changed when the appended page is scrolled into view. Users may scroll up and down, and history will reflect the URL of the content in the view.</p>
 
-<p>When enabled with <code>append</code> disabled, history will be changed only when a page is loaded.</p> {{! demo }}
+<p>When enabled with <code>append</code> disabled, history will be changed only when a page is loaded.</p>
 
 {{! ----------------------------------------------------------------- }}
 
@@ -436,7 +434,7 @@ history: 'push',
 <p>Updates the window title. Requires <code>history</code> enabled. Enabled by default <code><span class="comment">historyTitle: true</span></code>.</p>
 
 ``` js
-historyTitle: false,
+historyTitle: false
 // do not change window title when history changes
 ```
 
@@ -459,7 +457,7 @@ historyTitle: false,
 ```
 
 ``` js
-hideNav: '.pagination',
+hideNav: '.pagination'
 ```
 
 {{! ----------------------------------------------------------------- }}
@@ -490,7 +488,7 @@ hideNav: '.pagination',
     ```
 
     ``` js
-    status: '.page-load-status',
+    status: '.page-load-status'
     ```
   </div>
   <div class="duo__cell example__demo">
@@ -533,7 +531,7 @@ hideNav: '.pagination',
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    debug: true,
+    debug: true
     ```
   </div>
   <div class="duo__cell example__demo">
