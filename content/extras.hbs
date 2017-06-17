@@ -458,6 +458,7 @@ $container.on( 'append.infiniteScroll', function( event, response, path ) {
 
 <ul>
   <li><code>.infinitescroll()</code> jQuery plugin renamed to camelCased <code>.infiniteScroll()</code>.</li>
+  <li>The callback argument has been removed. Use <a href="events.html#append"><code>append</code></a> or <a href="events.html#load"><code>load</code></a> event</li>.
 </ul>
 
 {{! ----------------------------------------------------------------- }}
@@ -518,6 +519,63 @@ $container.on( 'append.infiniteScroll', function( event, response, path ) {
   <li><code>destroy</code>:
     Backward compatible, works in v3</li>
 </ul>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>v2 upgrade example</h3>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    // Infinite Scroll v2
+    $('.container').infinitescroll({
+      itemSelector: '.post',
+      nextSelector: '.pagination__next',
+      loading: {
+        img: '/loading.gif',
+        msgText: 'Loading...',
+        finished: 'Congratulations, you have reached the end of the internet',
+      },
+    // callback
+    }, function( items ) {
+      $( items ).tooltip();
+    });
+    ```
+  </div>
+  <div class="duo__cell example__code">
+    ``` js
+    // Infinite Scroll v3
+    var $container = $('.container').infinitescroll({
+      append: '.post',
+      path: '.pagination__next',
+      status: '.page-load-status',
+    });
+
+    // use event for v2 callback
+    $container.on( 'append.infiniteScroll', function( event, response, path, items ) {
+      $( items ).tooltip();
+    });
+    ```
+    
+    ``` html
+    <div class="container">
+      <div class="post">...</div>
+      <div class="post">...</div>
+      ...
+    </div>
+    <!-- use status element for v2 loading options -->
+    <div class="page-load-status">
+      <div class="infinite-scroll-request">
+        <img src="/loading.gif" alt="Loading" />
+        Loading...
+      </div>
+      <p class="infinite-scroll-error infinite-scroll-last">
+        Congratulations, you have reached the end of the internet
+      </p>
+    </div>
+    ```
+  </div>
+</div>
 
 {{! ----------------------------------------------------------------- }}
 
