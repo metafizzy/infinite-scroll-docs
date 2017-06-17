@@ -6,7 +6,7 @@ InfiniteScrollDocs['load-count'] = function( elem ) {
 
   var infScroll = new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
-    append: '.post',
+    append: '.scroller-item',
     elementScroll: scroller,
     status: elem.querySelector('.scroller-status'),
     history: false,
@@ -14,7 +14,7 @@ InfiniteScrollDocs['load-count'] = function( elem ) {
 
   infScroll.on( 'load', function() {
     demoStatus.textContent =  infScroll.loadCount + ' page' +
-      ( infScroll.loadCount > 2 ? 's' : '' ) + ' loaded';
+      ( infScroll.loadCount > 1 ? 's' : '' ) + ' loaded';
   });
 
 };

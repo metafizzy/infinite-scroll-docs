@@ -9,7 +9,7 @@ InfiniteScrollDocs.prefill = function( elem ) {
   function onButtonClick() {
     new InfiniteScroll( scrollerContent, {
       path: 'demo/element-scroll/page{{#}}.html',
-      append: '.post',
+      append: '.scroller-item',
       elementScroll: scroller,
       prefill: true,
       status: elem.querySelector('.scroller-status'),

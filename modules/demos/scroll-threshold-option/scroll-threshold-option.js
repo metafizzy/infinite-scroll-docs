@@ -4,7 +4,7 @@ InfiniteScrollDocs['scroll-threshold-option'] = function( elem ) {
 
   new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
-    append: '.post',
+    append: '.scroller-item',
     elementScroll: elem,
     status: elem.querySelector('.scroller-status'),
     scrollThreshold: 100,

@@ -4,7 +4,7 @@ InfiniteScrollDocs['button-option'] = function( elem ) {
 
   new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
-    append: '.post',
+    append: '.scroller-item',
     elementScroll: elem,
     scrollThreshold: false,
     button: elem.querySelector('.view-more-button'),

@@ -5,7 +5,7 @@ InfiniteScrollDocs['scroll-2'] = function( elem ) {
 
   var infScroll = new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
-    append: '.post',
+    append: '.scroller-item',
     elementScroll: elem,
     button: button,
     status: elem.querySelector('.scroller-status'),

@@ -6,7 +6,7 @@ InfiniteScrollDocs['page-index'] = function( elem ) {
 
   var infScroll = new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
-    append: '.post',
+    append: '.scroller-item',
     elementScroll: scroller,
     status: elem.querySelector('.scroller-status'),
     history: false,

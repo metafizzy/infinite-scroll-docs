@@ -12,6 +12,31 @@
 .scroller__content {
 }
 
+/* ---- scroller-item ---- */
+
+.scroller-item {
+  height: 200px;
+  margin-bottom: 10px;
+  padding: 20px;
+  background: #19F;
+  border-radius: 5px;
+  color: white;
+  font-size: 3.0rem;
+  line-height: 1;
+}
+
+.scroller-item--height2 { height: 250px; }
+.scroller-item--height3 { height: 300px; }
+
+.scroller-item--magenta { background: #C25; }
+.scroller-item--red { background: #E21; }
+.scroller-item--gold { background: #EA0; }
+.scroller-item--green { background: #6C6; }
+
 /* ---- prefill ---- */
 
 .scroller--prefill { height: 500px; }
+
+.scroller--prefill .scroller-item,
+.scroller--prefill .scroller-item--height2,
+.scroller--prefill .scroller-item--height3 { height: 80px; }
