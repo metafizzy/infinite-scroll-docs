@@ -74,22 +74,47 @@ Disable appending by not setting <code>append</code>, for loading JSON or adding
 
 <h3>checkLastPage</h3>
 
-<p>Checks if page has <code>path</code> selector element. This prevents Infinite Scroll from requesting a non-existant page. Requires <a href="#append"><code>append</code></a> enabled and <a href="#path"><code>path</code></a> to be set to a selector. Enabled by default <code><span class="comment">checkLastPage: true</span></code></p>
+<p>Checks if page has selector element. This prevents Infinite Scroll from requesting a non-existant page. If enabled and page does not have selector, <a href="events.html#last"><code>last</code> event</a> will be triggered. Requires <code><span class="comment"><a href="#responsetype">responseType</a>: 'document'</span></code>.</p>
 
-{{! TODO checkLastPage enabled demo }}
+<p>Enabled by default <code><span class="comment">checkLastPage: true</span></code>. When set to <code><span class="literal">true</span></code> and <a href="#path"><code>path</code></a> set to a selector string, Infinite Scroll will check if the loaded page has the <code>path</code> selector.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    // checkLastPage: true,
+    // checkLastPage enabled by default
+    path: '.pagination__next',
+    // check last page for .pagination__next
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    <p>This demo uses <a href="#button"><code>button</code></a> to show that Infinite Scroll will not attempt to load page 5 and that the button will be hidden when there are no more pages to load.</p>
+    {{> button-option}}
+  </div>
+</div>
+
+<p>If <code>path</code> is set to a string with <code>\{{#}}</code> or a function, set <code>checkLastPage</code> to a selector string to check for that selector.</p>
 
 ``` js
-// checkLastPage: true
-// enabled by default
+path: 'news/blog-p\{{#}}.html',
+// path set to string with \{{#}}
+checkLastPage: '.pagination__next',
+// check page for .pagination__next
 ```
 
-{{! TODO checklastPage disabled }}
+<p>When disabled, Infinite Scroll will attempt to load the next page.</p>
 
-
-``` js
-checkLastPage: false
-// disabled
-```
+<div class="duo example">
+  <div class="duo__cell example__code">
+    ``` js
+    checkLastPage: false
+    // disabled
+    ```
+  </div>
+  <div class="duo__cell example__demo">
+    {{> check-last-page-disabled}}
+  </div>
+</div>
 
 {{! ----------------------------------------------------------------- }}
 

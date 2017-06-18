@@ -20,6 +20,7 @@ InfiniteScrollDocs['masonry-small'] = function( elem ) {
   new InfiniteScroll( scrollerContent, {
     path: 'demo/masonry/page{{#}}.html',
     append: '.image-grid__item',
+    checkLastPage: '.pagination__next',
     outlayer: msnry,
     history: false,
     elementScroll: elem,

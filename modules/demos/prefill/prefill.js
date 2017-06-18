@@ -10,11 +10,11 @@ InfiniteScrollDocs.prefill = function( elem ) {
     new InfiniteScroll( scrollerContent, {
       path: 'demo/element-scroll/page{{#}}.html',
       append: '.scroller-item',
+      checkLastPage: '.pagination__next',
       elementScroll: scroller,
       prefill: true,
       status: elem.querySelector('.scroller-status'),
       history: false,
-      // debug: true,
     });
 
     button.disabled = 'disabled';
