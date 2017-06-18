@@ -15,7 +15,7 @@ InfiniteScrollDocs['scroll-2'] = function( elem ) {
   infScroll.on( 'load', onPageLoad );
 
   function onPageLoad() {
-    if ( infScroll.loadCount == 2 ) {
+    if ( infScroll.loadCount == 1 ) {
       infScroll.options.loadOnScroll = false;
       button.style.display = 'inline-block';
       infScroll.off( onPageLoad );

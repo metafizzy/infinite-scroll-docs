@@ -87,6 +87,10 @@
     padding-top: 25px;
   }
 
+  .hero__tagline {
+    font-size: 2.0rem;
+  }
+
   .hero__button-row {
     margin-top: 60px;
   }

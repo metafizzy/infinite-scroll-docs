@@ -140,6 +140,39 @@ $container.infiniteScroll('getPath');
 
 {{! ----------------------------------------------------------------- }}
 
+<h3>option</h3>
+
+<p>Set options after initialization.</p>
+
+``` js
+// jQuery
+$container.infiniteScroll( 'option', options )
+// vanilla JS
+infScroll.option( options )
+```
+
+<p class="argument">
+  <code class="argument__code">options</code>
+  <span class="argument__type"><i>Object</i></span>
+</p>
+
+``` js
+var $container = $('.container').infiniteScroll({
+  // initial options...
+  // disable loading on scroll
+  loadOnScroll: false,
+});
+
+// enable loadOnScroll on button click
+$('.load-more-button').on( 'click', function() {
+  $container.infiniteScroll( 'option', {
+    loadOnScroll: true,
+  });
+});
+```
+
+{{! ----------------------------------------------------------------- }}
+
 <h3>destroy</h3>
 
 <p>Remove Infinite Scroll functionality completely.</p>

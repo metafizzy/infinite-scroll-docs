@@ -9,15 +9,25 @@ layout: doc
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>Webpack</h3>
+<h3>Webpack &amp; Browserify</h3>
 
 <p>Install Infinite Scroll with npm or Yarn.</p>
 
-``` bash
-npm install infinite-scroll
-# or
-yarn add infinite-scroll
-```
+
+<div class="duo">
+  <div class="duo__cell">
+    ``` bash
+    # npm
+    npm install infinite-scroll
+    ```
+  </div>
+  <div class="duo__cell">
+    ``` bash
+    # Yarn
+    yarn add infinite-scroll
+    ```
+  </div>
+</div>
 
 <p>You can then <code><span class="built_in">require</span>(<span class="string">'infiniteScroll'</span>)</code>.</p>
 
@@ -30,19 +40,39 @@ var infScroll = new InfiniteScroll( '.container', {
 });
 ```
 
-<p>Run Webpack.</p>
+<p>Compile your JS with Webpack or Browserify.</p>
 
-``` bash
-webpack main.js bundle.js
-```
+<div class="duo">
+  <div class="duo__cell">
+    ``` bash
+    # Webpack
+    webpack main.js bundle.js
+    ```
+  </div>
+  <div class="duo__cell">
+    ``` bash
+    # Browserify
+    browserify main.js -o bundle.js
+    ```
+  </div>
+</div>
 
-<p>To use Infinite Scroll as a jQuery plugin with Browserify, you need to call <a href="https://www.npmjs.com/package/jquery-bridget">jQuery Bridget</a>.</p>
+<p>To use Infinite Scroll as a jQuery plugin, you need to call <a href="https://www.npmjs.com/package/jquery-bridget">jQuery Bridget</a>.</p>
 
-``` bash
-npm install jquery-bridget
-# or
-yarn add jquery-bridget
-```
+<div class="duo">
+  <div class="duo__cell">
+    ``` bash
+    # npm
+    npm install jquery-bridget
+    ```
+  </div>
+  <div class="duo__cell">
+    ``` bash
+    # Yarn
+    yarn add jquery-bridget
+    ```
+  </div>
+</div>
 
 ``` js
 // main.js
@@ -58,17 +88,26 @@ $('.container').infiniteScroll({...});
 
 <p>When installed with a package manager, Infinite Scroll does not include <code>imagesLoaded</code>, which is required to use <a href="options.html#outlayer"><code>outlayer</code></a>. You will need to install and require <code>imagesLoaded</code> separately.</p>
 
-``` bash
-npm install imagesloaded
-# or
-yarn add imagesloaded
-```
+<div class="duo">
+  <div class="duo__cell">
+    ``` bash
+    # npm
+    npm install imagesloaded
+    ```
+  </div>
+  <div class="duo__cell">
+    ``` bash
+    # Yarn
+    yarn add imagesloaded
+    ```
+  </div>
+</div>
 
 ``` js
 // main.js
 var Masonry = require('masonry-layout');
 var InfiniteScroll = require('infinite-scroll');
-var imagesLoaded = require('imagesloaded);
+var imagesLoaded = require('imagesloaded');
 
 // init Masonry
 var msnry = new Masonry( '.container', {...});
@@ -229,17 +268,17 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
     ``` js
     var $container = $('.container').infiniteScroll({
       // options...
-      loadOnScroll: false,
       // disable loading on scroll
+      loadOnScroll: false,
     });
 
-    var $loadMoreButton = $('.load-more-button')
+    var $loadMoreButton = $('.load-more-button');
     $loadMoreButton.on( 'click', function() {
       // load next page
       $container.infiniteScroll('loadNextPage');
       // enable loading on scroll
       $container.infiniteScroll( 'option', {
-        loadOnScroll: true
+        loadOnScroll: true,
       });
       // hide button
       $loadMoreButton.hide();
@@ -260,8 +299,8 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
     ``` js
     var $container = $('.container').infiniteScroll({
       // options...
-      button: '.load-more-button',
       // enable button
+      button: '.load-more-button',
     });
 
     var $loadMoreButton = $('.load-more-button')
@@ -272,7 +311,8 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
     $container.on( 'load.infiniteScroll', onPageLoad );
 
     function onPageLoad() {
-      if ( infScroll.loadCount == 2 ) {
+      if ( infScroll.loadCount == 1 ) {
+        // after 2nd page loaded
         // disable loading on scroll
         $container.infiniteScroll( 'option', {
           loadOnScroll: false
@@ -458,7 +498,7 @@ $container.on( 'append.infiniteScroll', function( event, response, path ) {
 
 <ul>
   <li><code>.infinitescroll()</code> jQuery plugin renamed to camelCased <code>.infiniteScroll()</code>.</li>
-  <li>The callback argument has been removed. Use <a href="events.html#append"><code>append</code></a> or <a href="events.html#load"><code>load</code></a> event</li>.
+  <li>The callback argument has been removed. Use <a href="events.html#append"><code>append</code></a> or <a href="events.html#load"><code>load</code></a> event.</li>
 </ul>
 
 {{! ----------------------------------------------------------------- }}
@@ -478,19 +518,19 @@ $container.on( 'append.infiniteScroll', function( event, response, path ) {
   <li><code>pathParse</code>:
     Use <a href="options.html#path"><code>path</code></a>.</li>
   <li><code>prefill</code>:
-    backwards compatible, works in v3.</li>
+    <a href="options.html#prefilll">Backwards compatible</a>, works in v3.</li>
   <li><code>dataType</code>:
     Use <a href="options.html#responsetype"><code>responseType</code></a> to load data content like JSON.</li>
   <li><code>animate</code> &amp; <code>extraScrollPx</code>:
     Scrolling animation has been removed in v3.</li>
+  <li><code>maxPage</code>:
+    removed in v3. Use conditional event logic, like in <a href="#scroll-2-pages-then-use-button">scroll 2 pages then button example</a>.</li>
   <li><code>appendCallback</code>:
     Use <a href="events.html#append"><code>append</code> event</a>.</li>
   <li><code>errorCallback</code>:
     Use <a href="events.html#error"><code>error</code> event</a>.</li>
-  <li><code>maxPage</code>:
-    removed in v3.</li>
   <li><code>debug</code>:
-    backwards compatible, works in v3.</li>
+    <a href="options.html#debug">Backwards compatible</a>, works in v3.</li>
   <li><code>loading</code>
     <ul>
       <li><code>finished</code>:
@@ -509,15 +549,15 @@ $container.on( 'append.infiniteScroll', function( event, response, path ) {
 
 <ul>
   <li><code>pause</code>, <code>resume</code>, &amp; <code>toggle</code>:
-    Enable and disable <a href="options.html#loadonscroll"><code>loadOnScroll</code> option</a></li>
+    Enable and disable <a href="options.html#loadonscroll"><code>loadOnScroll</code> option</a>.</li>
   <li><code>bind</code> &amp; <code>unbind</code>:
-    Disable and re-set <a href="options.html#scrollthreshold"><code>scrollThreshold</code> option</a></li>
+    Disable and re-set <a href="options.html#scrollthreshold"><code>scrollThreshold</code> option</a>.</li>
   <li><code>retrieve</code>:
     Use <a href="api.html#loadnextpage"><code>loadNextPage</code></a>.</li>
   <li><code>update</code>:
-    Use <code>option</code></li>
+    Use <a href="api.html#option"><code>option</code></a>.</li>
   <li><code>destroy</code>:
-    Backward compatible, works in v3</li>
+    <a href="api.html#destroy">Backward compatible</a>, works in v3.</li>
 </ul>
 
 {{! ----------------------------------------------------------------- }}

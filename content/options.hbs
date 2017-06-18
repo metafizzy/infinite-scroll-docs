@@ -30,7 +30,7 @@ path: '.pagination__next'
 ``` js
 path: 'news/blog-p\{{#}}.html'
 // replace \{{#}} with page number
-// => news/blog-p2.html, news/blog-p3.html, news/blog-p4 ...
+// => news/blog-p2.html, news/blog-p3.html, news/blog-p4.html...
 ```
 
 <p>Set to a function that returns the URL for page URLs that do not use incremental numbers. For example, A List Apart articles increment by 10. Use <a href="api.html#pageindex"><code>pageIndex</code></a> and <a href="api.html#loadcount">loadCount</a> properties to calculate the URL.</p>
@@ -47,7 +47,7 @@ path: function() {
 
 <h3>append</h3>
 
-<p>Appends selected elements from loaded page to the container.</p>
+<p>Appends selected elements from loaded page to the container. Disabled by default <code><span class="comment">append: false</span></code></p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -61,11 +61,12 @@ path: function() {
   </div>
 </div>
 
-Disable appending with <code>append: <span class="literal">false</span></code>, for loading JSON or adding your own append behavior like with <a href="extras.html#metafizzy-layout-libraries">Masonry or Isotope</a>.
+Disable appending by not setting <code>append</code>, for loading JSON or adding your own append behavior like with <a href="extras.html#metafizzy-layout-libraries">Masonry or Isotope</a>.
 
 
 ``` js
-append: false
+// disabled by default
+// append: false
 // do not append any content on page load
 ```
 
@@ -73,7 +74,7 @@ append: false
 
 <h3>checkLastPage</h3>
 
-<p>Checks if page has <code>path</code> selector element. This prevents Infinite Scroll from requesting a non-existant page. Requires <code>append</code> enabled and <a href="#path"><code>path</code></a> to be set to a selector. Enabled by default <code><span class="comment">checkLastPage: true</span></code></p>
+<p>Checks if page has <code>path</code> selector element. This prevents Infinite Scroll from requesting a non-existant page. Requires <a href="#append"><code>append</code></a> enabled and <a href="#path"><code>path</code></a> to be set to a selector. Enabled by default <code><span class="comment">checkLastPage: true</span></code></p>
 
 {{! TODO checkLastPage enabled demo }}
 
