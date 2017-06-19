@@ -307,6 +307,20 @@ var infScroll = new InfiniteScroll( '.grid', {
 
 {{! ----------------------------------------------------------------- }}
 
+<h3>onInit</h3>
+
+<p>Called on initialization. Useful for initial binding <a href="events.html">events</a> with vanilla JS.</p>
+
+``` js
+onInit: function() {
+  this.on( 'load', function() {
+    console.log('Infinite Scroll load')
+  });
+}
+```
+
+{{! ----------------------------------------------------------------- }}
+
 <h2>Scrolling</h2>
 
 {{! ----------------------------------------------------------------- }}
