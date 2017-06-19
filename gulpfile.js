@@ -7,7 +7,7 @@ var site = {
   // templating data
   data: {
     productName: 'Infinite Scroll',
-    majorVersion: 1,
+    majorVersion: 3,
     isDev: process.argv[2] == 'dev',
     isExport: process.argv[2] == 'export',
   },

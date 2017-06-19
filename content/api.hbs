@@ -9,8 +9,11 @@ layout: doc
 
 <p>Methods are actions done by Infinite Scroll instances.</p>
 
-<p>With jQuery, methods follow the jQuery UI pattern
-  <code>$container.infiniteScroll( <span class="string">'methodName'</span> <span class="comment">/*, arguments */</span> )</code>.</p>
+<p>With jQuery, methods follow the jQuery UI pattern.</p>
+
+``` js
+$container.infiniteScroll( 'methodName' /*, arguments */ )
+```
 
 ``` js
 var $container = $('.container').infiniteScroll({ /* options... */ })
@@ -18,11 +21,16 @@ var $container = $('.container').infiniteScroll({ /* options... */ })
 ```
 
 <div class="call-out">
-  <p>jQuery chaining is broken by methods that return values like <a href="#getcellelements"><code>loadNextPage</code></a>.</p>
+  <p>jQuery chaining is broken by methods that return values like <a href="#getpath"><code>getPath</code></a>.</p>
 </div>
 
-<p>Vanilla JavaScript methods look like
-  <code>infScroll.methodName( <span class="comment">/* arguments */</span> )</code>. Unlike jQuery methods, they cannot be chained together.</p>
+<p>Vanilla JavaScript methods look like:</p>
+
+``` js
+infScroll.methodName( /* arguments */ )
+```
+
+<p>Unlike jQuery methods, vanilla JS methods cannot be chained together.</p>
 
 ``` js
 // vanilla JS
@@ -65,7 +73,7 @@ infScroll.appendItems( items )
   <span class="argument__type"><i>jQuery</i> object, <i>NodeList</i>, or <i>Array</i> of <i>Element</i>s</span>
 </p>
 
-<p>Use <code>appendItems</code> to manually append items on <a href="events.html#load"><code>load</code></a>, like with Masonry, Isotope, and Packery.</p>
+<p>Use <code>appendItems</code> to manually append items on <a href="events.html#load"><code>load</code></a>.</p>
 
 ``` js
 var $container = $('.container').infiniteScroll({
@@ -86,7 +94,7 @@ $container.on( 'load.infiniteScroll', function( response ) {
 
 <h3>getPath</h3>
 
-<p>Get the path URL for the next page.</p>
+<p>Get relative URL path for the next page.</p>
 
 ``` js
 // jQuery
@@ -102,19 +110,19 @@ var path = infScroll.getPath()
 
 ``` js
 var $container = $('.container').infiniteScroll({
-  path: '/page/\{{#}}',
+  path: 'page/\{{#}}',
   // options...
 });
 
 $container.infiniteScroll('getPath');
-// => '/page/2'
+// => 'page/2'
 ```
 
 {{! ----------------------------------------------------------------- }}
 
 <h3>getAbsolutePath</h3>
 
-<p>Get the absolute path URL for the next page, including the protocol and top-level domain.</p>
+<p>Get the absolute URL path for the next page.</p>
 
 ``` js
 // jQuery
@@ -130,12 +138,13 @@ var path = infScroll.getAbsolutePath()
 
 ``` js
 var $container = $('.container').infiniteScroll({
-  path: '/page/\{{#}}',
+  path: 'page/\{{#}}',
   // options...
 });
 
-$container.infiniteScroll('getPath');
-// => 'http://example.com/page/2'
+// for example URL: http://example.com/section/news/
+$container.infiniteScroll('getAbsolutePath');
+// => '/section/news/page/2'
 ```
 
 {{! ----------------------------------------------------------------- }}
@@ -218,6 +227,7 @@ var infScroll = InfiniteScroll.data( element )
 <p class="argument">
   <code class="argument__code">infScroll</code>
   <span class="argument__type"><i>InfiniteScroll</i></span>
+  <span class="argument__description">Infinite Scroll instance</span>
 </p>
 
 <div class="example">
@@ -228,16 +238,16 @@ var infScroll = InfiniteScroll.data( element )
     ```
 
     ``` js
-    // jQuery
+    // using a selector string
+    var infScroll = InfiniteScroll.data('.container')
+
+    // jQuery with element
     // pass in the element, $element[0], not the jQuery object
     var infScroll = InfiniteScroll.data( $('.container')[0] )
 
-    // vanilla JS
+    // vanilla JS with element
     var container = document.querySelector('.container')
     var infScroll = InfiniteScroll.data( container )
-
-    // using a selector string
-    var infScroll = InfiniteScroll.data('.container')
     ```
   </div>
 </div>

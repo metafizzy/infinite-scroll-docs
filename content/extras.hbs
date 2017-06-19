@@ -257,11 +257,11 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 
 {{! ----------------------------------------------------------------- }}
 
-<h2>Button options</h2>
+<h2>Button behaviors</h2>
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>Click button to start scrolling</h3>
+<h3>Click button to start loading on scroll</h3>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -292,7 +292,7 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>Scroll 2 pages, then use button</h3>
+<h3>Scroll 2 pages, then load with button</h3>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -524,7 +524,7 @@ $container.on( 'append.infiniteScroll', function( event, response, path ) {
   <li><code>animate</code> &amp; <code>extraScrollPx</code>:
     Scrolling animation has been removed in v3.</li>
   <li><code>maxPage</code>:
-    removed in v3. Use conditional event logic, like in <a href="#scroll-2-pages-then-use-button">scroll 2 pages then button example</a>.</li>
+    removed in v3. Use conditional event logic, like in <a href="#scroll-2-pages-then-load-with-button">scroll 2 pages then button example</a>.</li>
   <li><code>appendCallback</code>:
     Use <a href="events.html#append"><code>append</code> event</a>.</li>
   <li><code>errorCallback</code>:

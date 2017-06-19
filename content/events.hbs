@@ -11,18 +11,22 @@ layout: doc
 
 <h3>jQuery event binding</h3>
 
-<p>Bind events with jQuery with standard jQuery event methods <code>.on()</code>, <code>.off()</code>, and <code>.one()</code>. Event names are namespaced with <code>.infiniteScroll</code>.</p>
+<p>Bind events with jQuery with standard jQuery event methods
+  <a href="http://api.jquery.com/on/"><code>.on()</code></a>,
+  <a href="http://api.jquery.com/off/"><code>.off()</code></a>, and
+  <a href="http://api.jquery.com/one/"><code>.one()</code></a>.
+  Event names are namespaced with <code>.infiniteScroll</code>.</p>
 
 ``` js
 // jQuery
 function listener(/* parameters */) {
   console.log('eventName happened');
 }
-// bind event listener
+// add event listener
 $container.on( 'eventName.infiniteScroll', listener );
-// unbind event listener
+// remove event listener
 $container.off( 'eventName.infiniteScroll', listener );
-// bind event listener to trigger once. note ONE not ON
+// add event listener to trigger once. note ONE not ON
 $container.one( 'eventName.infiniteScroll', function() {
   console.log('eventName happened just once');
 });
@@ -39,11 +43,11 @@ $container.one( 'eventName.infiniteScroll', function() {
 function listener(/* parameters */) {
   console.log('eventName happened');
 }
-// bind event listener
+// add event listener
 infScroll.on( 'eventName', listener );
-// unbind event listener
+// remove event listener
 infScroll.off( 'eventName', listener );
-// bind event listener to trigger once. note ONCE not ONE or ON
+// add event listener to trigger once. note ONCE not ONE or ON
 infScroll.once( 'eventName', function() {
   console.log('eventName happened just once');
 });

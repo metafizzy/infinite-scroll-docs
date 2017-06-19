@@ -327,7 +327,7 @@ var infScroll = new InfiniteScroll( '.grid', {
   </div>
 </div>
 
-<p>Disable loading on scroll and the <code>scrollThreshold</code> event with <code>scrollThreshold: false</code>. This is useful if loading via button.</p>
+<p>Disable loading on scroll and the <code>scrollThreshold</code> event with <code>scrollThreshold: false</code>. This is useful if loading with <a href="#button"><code>button</code></a>.</p>
 
 ``` js
 scrollThreshold: false
@@ -343,7 +343,7 @@ scrollThreshold: false
 
 <p>We recommend disabling <a href="#history"><code>history</code></a> with <code>elementScroll</code>.</p>
 
-<p>Set <code>elementScroll</code> to a selector string or element to use a different parent element. This is useful if a <a href="#status">status element</a> or <a href="#button">button</a> is at the bottom of the scroll area.</p>
+<p>Set <code>elementScroll</code> to a selector string or element to use a different parent element. This is useful if a <a href="#status"><code>status</code> element</a> or <a href="#button"><code>button</code></a> is at the bottom of the scroll area.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -501,7 +501,7 @@ hideNav: '.pagination'
     <a href="events.html#error"><code>error</code></a></li>
 </ul>
 
-<p>The selected element will be hidden on <a href="events.html#load"><code>load</code></a>.</p>
+<p>The selected <code>status</code> element will be hidden on <a href="events.html#append"><code>append</code></a> or <a href="events.html#load"><code>load</code></a>.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -561,6 +561,7 @@ hideNav: '.pagination'
     ```
   </div>
   <div class="duo__cell example__demo">
+    <p>View logs in your browser's Developer Console.</p>
     {{> debug}}
   </div>
 </div>
