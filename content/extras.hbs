@@ -272,8 +272,8 @@ https://codepen.io/desandro/pen/7bccf0c9c843a910b455c9b2aceda20f
       loadOnScroll: false,
     });
 
-    var $loadMoreButton = $('.load-more-button');
-    $loadMoreButton.on( 'click', function() {
+    var $viewMoreButton = $('.view-more-button');
+    $viewMoreButton.on( 'click', function() {
       // load next page
       $container.infiniteScroll('loadNextPage');
       // enable loading on scroll
@@ -281,7 +281,7 @@ https://codepen.io/desandro/pen/7bccf0c9c843a910b455c9b2aceda20f
         loadOnScroll: true,
       });
       // hide button
-      $loadMoreButton.hide();
+      $viewMoreButton.hide();
     });
     ```
   </div>
@@ -300,10 +300,10 @@ https://codepen.io/desandro/pen/7bccf0c9c843a910b455c9b2aceda20f
     var $container = $('.container').infiniteScroll({
       // options...
       // enable button
-      button: '.load-more-button',
+      button: '.view-more-button',
     });
 
-    var $loadMoreButton = $('.load-more-button')
+    var $viewMoreButton = $('.view-more-button');
 
     // get Infinite Scroll instance
     var infScroll = $container.data('infiniteScroll');
@@ -315,10 +315,10 @@ https://codepen.io/desandro/pen/7bccf0c9c843a910b455c9b2aceda20f
         // after 2nd page loaded
         // disable loading on scroll
         $container.infiniteScroll( 'option', {
-          loadOnScroll: false
+          loadOnScroll: false,
         });
         // show button
-        $loadMoreButton.show();
+        $viewMoreButton.show();
         // remove event listener
         $container.off( 'load.infiniteScroll', onPageLoad );
       }
@@ -401,6 +401,7 @@ https://codepen.io/desandro/pen/7bccf0c9c843a910b455c9b2aceda20f
   </div>
   <div class="duo__cell example__demo">
     {{> loader-ellips}}
+    {{> edit-demo default="owWLYz" }}
   </div>
 </div>
 
@@ -445,6 +446,7 @@ https://codepen.io/desandro/pen/7bccf0c9c843a910b455c9b2aceda20f
   </div>
   <div class="duo__cell example__demo">
     {{> loader-wheel}}
+    {{> edit-demo default="KqadKj" }}
   </div>
 </div>
 
