@@ -12,6 +12,8 @@ layout: doc
   </div>
 </div>
 
+<p style="font-size: 1.2rem;">Infinite Scroll is a JavaScript plugin that automatically adds the next page, saving users from a full page load. You&rsquo;ve likely seen it in use all over the web.</p>
+
 {{! ----------------------------------------------------------------- }}
 
 <h2>Install</h2>
@@ -41,7 +43,7 @@ layout: doc
 
 <h3>Package managers</h3>
 
-<p><a href="https://npmjs.com/package/infinite-scroll">Install with npm</a>: <code>npm install infinite-scroll</code></p>
+<p>Install with <a href="https://npmjs.com/package/infinite-scroll">npm</a>: <code>npm install infinite-scroll</code></p>
 
 <p>Install with Yarn: <code>yarn add infinite-scroll</code></p>
 
@@ -89,13 +91,13 @@ layout: doc
 <script src="/path/to/infinite-scroll.pkgd.min.js"></script>
 ```
 
-<p>Infinite Scroll works on a container element with a group of item elements.</p>
+<p>Infinite Scroll works on a container element with item elements.</p>
 
 ``` html
 <div class="container">
-  <div class="post">...</div>
-  <div class="post">...</div>
-  <div class="post">...</div>
+  <article class="post">...</article>
+  <article class="post">...</article>
+  <article class="post">...</article>
   ...
 </div>
 ```
@@ -177,14 +179,14 @@ var infScroll = new InfiniteScroll( '.container', {
   <div class="duo__cell">
     <h3>Easy start, powerful build</h3>
 
-    <p>Infinite Scroll works out-of-the-box with any blog or WordPress site. And with  its robust array of <a href="options.html">options</a>, <a href="api.html">methods</a>, and <a href="events.html">events</a>, you can add custom loaders, notifications and behaviors to fully integrate Infinite Scroll into your user experience.</p>
+    <p>Infinite Scroll works out-of-the-box with any blog or WordPress site. With its robust array of <a href="options.html">options</a>, <a href="api.html">methods</a>, and <a href="events.html">events</a>, you can add custom behaviors, notifications, and loading animations to fully integrate Infinite Scroll into your user experience.</p>
   </div>
 </div>
 
 
 <div class="duo">
   <div class="duo__cell">
-    <h3>Versatile UI options</h3>
+    <h3>Versatile UI</h3>
 
     <p>Rather load with a button than use scrolling? <a href="options.html#button">Got it</a>. What about scrolling a couple pages, then using a button? <a href="extras.html#scroll-2-pages-then-use-button">Got that</a>. Or load with your own specific logic? <a href="api.html#loadnextpage">Yup</a>.</p>
 

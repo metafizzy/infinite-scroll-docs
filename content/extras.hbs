@@ -242,7 +242,7 @@ var $container = $('.container').infiniteScroll({
 });
 
 $container.on( 'load.infiniteScroll', function( event, response ) {
-  // convert response text into JSON data
+  // prase response text into JSON data
   var data = JSON.parse( response );
   // put that data into template
   var itemsHTML = template.compile( data );
@@ -253,7 +253,7 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 });
 ```
 
-{{! TODO JSON demo }}
+https://codepen.io/desandro/pen/7bccf0c9c843a910b455c9b2aceda20f
 
 {{! ----------------------------------------------------------------- }}
 
@@ -339,7 +339,7 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` html
-    <div class="loader-ellips infinite-scroll-request">
+    <div class="loader-ellips">
       <span class="loader-ellips__dot"></span>
       <span class="loader-ellips__dot"></span>
       <span class="loader-ellips__dot"></span>
@@ -599,8 +599,8 @@ $container.on( 'append.infiniteScroll', function( event, response, path ) {
     
     ``` html
     <div class="container">
-      <div class="post">...</div>
-      <div class="post">...</div>
+      <<article class="post">...</article>">...</div>
+      <<article class="post">...</article>">...</div>
       ...
     </div>
     <!-- use status element for v2 loading options -->

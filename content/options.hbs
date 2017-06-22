@@ -25,6 +25,8 @@ path: '.pagination__next'
 // => /page/2, /page/3, page/4 ...
 ```
 
+<p><a href="demo/full-page">View full page demo with <code>path</code> selector string</a>.</p>
+
 <p>Set to a string with <code>\{{#}}</code> for the incremental page number.</p>
 
 ``` js
@@ -33,7 +35,7 @@ path: 'news/blog-p\{{#}}.html'
 // => news/blog-p2.html, news/blog-p3.html, news/blog-p4.html...
 ```
 
-<p>Set to a function that returns the URL for page URLs that do not use incremental numbers. For example, A List Apart articles increment by 10. Use <a href="api.html#pageindex"><code>pageIndex</code></a> and <a href="api.html#loadcount">loadCount</a> properties to calculate the URL.</p>
+<p>Set to a function that returns the URL for page URLs that do not use incremental numbers. For example, A List Apart articles increment by 10. Use <a href="api.html#pageindex"><code>pageIndex</code></a> and <a href="api.html#loadcount"><code>loadCount</code></a> properties to calculate the URL.</p>
 
 ``` js
 path: function() {
@@ -42,6 +44,28 @@ path: function() {
 }
 // => /articles/P10, /articles/P20, /articles/P30 ...
 ```
+
+<p>For another example, this documentation site uses a function to get the next URL from an array.</p>
+
+``` js
+var nextPages = [
+  'index',
+  'options',
+  'api',
+  'events',
+  'extras',
+  'license',
+];
+
+$('.container').infiniteScroll({
+  path: function() {
+    return nextPages[ this.loadCount ] + '.html';
+  },
+  // options...
+});
+```
+
+<p>This technique is used in <a href="{{! TODO codepen links here}}">all the CodePen demos</a>.</p>
 
 {{! ----------------------------------------------------------------- }}
 
@@ -58,6 +82,7 @@ path: function() {
   </div>
   <div class="duo__cell example__demo">
     {{> append}}
+    {{> edit-demo default="WOjqNM" vanillaJS="WOpjMM"}}
   </div>
 </div>
 
@@ -74,9 +99,10 @@ Disable appending by not setting <code>append</code>, for loading JSON or adding
 
 <h3>checkLastPage</h3>
 
-<p>Checks if page has selector element. This prevents Infinite Scroll from requesting a non-existant page. If enabled and page does not have selector, <a href="events.html#last"><code>last</code> event</a> will be triggered. Requires <code><span class="comment"><a href="#responsetype">responseType</a>: 'document'</span></code>.</p>
+<p>Checks if Infinite Scroll has reached the last page. This prevents Infinite Scroll from requesting a non-existant page. <a href="events.html#last"><code>last</code> event</a> will be triggered when last page is reached. Enabled by default <code><span class="comment">heckLastPage: true</span></code>.</p>
 
-<p>Enabled by default <code><span class="comment">checkLastPage: true</span></code>. When set to <code><span class="literal">true</span></code> and <a href="#path"><code>path</code></a> set to a selector string, Infinite Scroll will check if the loaded page has the <code>path</code> selector.</p>
+
+<p>When set to <code><span class="comment">checkLastPage: true</span></code> and <a href="#path"><code>path</code></a> set to a selector string, Infinite Scroll will check if the loaded page has the <code>path</code> selector. Requires <code><span class="comment"><a href="#responsetype">responseType</a>: 'document'</span></code>.</p>
 
 <div class="duo example">
   <div class="duo__cell example__code">
@@ -100,6 +126,18 @@ path: 'news/blog-p\{{#}}.html',
 // path set to string with \{{#}}
 checkLastPage: '.pagination__next',
 // check page for .pagination__next
+```
+
+<p>If <code>path</code> is set a function, Infinite Scroll will check if that function returns a value.</p>
+
+``` js
+path: function() {
+  // no value returned after 4th loaded page
+  if ( this.loadCount < 4 ) {
+    var nextIndex = this.loadCount + 2;
+    return 'news/blog-p' + nextIndex + '.html';
+  }
+}
 ```
 
 <p>When disabled, Infinite Scroll will attempt to load the next page.</p>
@@ -131,6 +169,8 @@ checkLastPage: '.pagination__next',
   </div>
   <div class="duo__cell example__demo">
     {{> prefill}}
+    
+    https://codepen.io/desandro/pen/b0b561e71e91fc047bf1e55448c24ecd
   </div>
 </div>
 
@@ -199,6 +239,7 @@ outlayer: instance
   </div>
   <div class="duo__cell example__demo">
     {{> masonry-small}}
+    https://codepen.io/desandro/pen/97b617c7fbddc3e044eafee925fa62c8
   </div>
 </div>
 
@@ -338,6 +379,7 @@ onInit: function() {
   </div>
   <div class="duo__cell example__demo">
     {{> scroll-threshold-option}}
+    https://codepen.io/desandro/pen/4b4048c2b932111f88913c80963301bb
   </div>
 </div>
 
@@ -366,12 +408,12 @@ scrollThreshold: false
     <div class="sidebar">
       <!-- .container has scroll content -->
       <div class="container">
-        <div class="post">...</div>
-        <div class="post">...</div>
+        <article class="post">...</article>">...</div>
+        <article class="post">...</article>">...</div>
         ...
       </div>
       <!-- status is at bottom of scroll -->
-      <div class="scroller-status">
+      <div class="page-load-status">
         <p class="infinite-scroll-request">Loading...</p>
         ...
       </div>
@@ -389,6 +431,7 @@ scrollThreshold: false
   </div>
   <div class="duo__cell example__demo">
     {{> append}}
+    https://codepen.io/desandro/pen/121fd5852838a335b10b0678cead1b54
   </div>
 </div>
 
@@ -399,8 +442,8 @@ scrollThreshold: false
     ``` html
     <!-- .container is scrollable and has scroll content -->
     <div class="container">
-      <div class="post">...</div>
-      <div class="post">...</div>
+      <article class="post">...</article>">...</div>
+      <article class="post">...</article>">...</div>
       ...
     </div>
     ```
@@ -416,6 +459,7 @@ scrollThreshold: false
   </div>
   <div class="duo__cell example__demo">
     {{> element-scroll-container}}
+    https://codepen.io/desandro/pen/32a447147ed9babf5964f2f1ed1aeafe
   </div>
 </div>
 
@@ -451,7 +495,9 @@ scrollThreshold: false
 
 <p>Changes the browser history and URL.</p>
 
-<p>Enabled by default <code><span class="comment">history: 'replace'</span></code> will use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method"><code>history.replaceState()</code></a> to change the current history entry. Going back in the browser will return the user to previous site. <a href="demo/full-page">View full page demo with <code>history: 'replace'</code></a>.</p>
+<p>Enabled by default <code><span class="comment">history: 'replace'</span></code> will use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method"><code>history.replaceState()</code></a> to change the current history entry. Going back in the browser will return the user to previous site.</p>
+
+<p><a href="demo/full-page">View full page demo with <code>history: 'replace'</code></a>.</p>
 
 <p>Set <code>history: <span class="string">'push'</span></code> to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method"><code>history.pushState()</code></a> to create new history entries for each page change. Going back in the browser will load the previous page.</p>
 
@@ -500,6 +546,8 @@ historyTitle: false
 hideNav: '.pagination'
 ```
 
+https://codepen.io/desandro/pen/0f24e61280a058a9a61f1787e86517a7
+
 {{! ----------------------------------------------------------------- }}
 
 <h3>status</h3>
@@ -533,6 +581,7 @@ hideNav: '.pagination'
   </div>
   <div class="duo__cell example__demo">
     {{> status}}
+    https://codepen.io/desandro/pen/4048e5959b5de67637b9ac37e4932d97
   </div>
 </div>
 
@@ -551,7 +600,7 @@ hideNav: '.pagination'
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    button: '.load-next-button',
+    button: '.view-more-button',
     // load pages on button click
     scrollThreshold: false,
     // disable loading on scroll
@@ -559,6 +608,7 @@ hideNav: '.pagination'
   </div>
   <div class="duo__cell example__demo">
     {{> button-option}}
+    https://codepen.io/desandro/pen/868bc09b61964c17ca2d01d1bd9af052
   </div>
 </div>
 
@@ -577,5 +627,6 @@ hideNav: '.pagination'
   <div class="duo__cell example__demo">
     <p>View logs in your browser's Developer Console.</p>
     {{> debug}}
+    https://codepen.io/desandro/pen/29922876b14d34665a36ebca377601c7
   </div>
 </div>

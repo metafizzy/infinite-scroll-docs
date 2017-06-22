@@ -3,18 +3,18 @@
     "title": "Developer",
     "for": "1 developer",
     "price": "25",
-    "gumroadSlug": "infinite-scroll-dev"
+    "gumroadSlug": "infscroll-dev"
   },
   "team": {
     "title": "Team",
     "for": "up to 8 developers",
     "price": "110",
-    "gumroadSlug": "infinite-scroll-team"
+    "gumroadSlug": "infscroll-team"
   },
   "organization": {
     "title": "Organization",
     "for": "Unlimited developers",
     "price": "320",
-    "gumroadSlug": "infinite-scroll-org"
+    "gumroadSlug": "infscroll-org"
   }
 }

@@ -21,7 +21,8 @@ InfiniteScrollDocs['site-scroll'] = function( elem ) {
     infScroll = new InfiniteScroll( '.main .container', {
       path: function() {
         var nextIndex = pageIndex + this.loadCount;
-        return pages[ nextIndex ] + '.html';
+        var page = pages[ nextIndex ];
+        return page && page + '.html';
       },
       append: '.main__page',
       // debug: true,

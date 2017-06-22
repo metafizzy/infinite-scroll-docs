@@ -38,6 +38,19 @@
   padding-top: 10px;
 }
 
+.hero__new-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  vertical-align: top;
+  border-radius: 1.0em;
+  background: #C25;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.0rem;
+}
+
 .hero__tagline {
   font-size: 1.2rem;
   line-height: 1.2;
@@ -80,6 +93,33 @@
 
   .hero__text {
     padding-left: 300px;
+  }
+
+  .hero__new-badge {
+    position: relative;
+    top: -10px;
+    width: 70px;
+    height: 70px;
+    background: #C25;
+    color: white;
+    border-radius: 35px;
+    margin: 0;
+  }
+
+  .hero__new-badge__new {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 4px;
+    text-transform: uppercase;
+    transform: skewY(-15deg);
+  }
+
+  .hero__new-badge__version {
+    display: block;
+    font-size: 2.4rem;
+    line-height: 0.8;
+    font-weight: bold;
+    transform: skewY(-15deg);
   }
 
   .hero__title {
