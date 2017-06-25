@@ -2,14 +2,17 @@
 ------------------------- */
 
 .page-nav {
-  list-style: none;
-  margin: 0 0 40px;
-  padding: 0 10px 0 0;
   font-size: 0.85rem;
   line-height: 1.2;
 }
 
-.page-nav li {
+.page-nav__list {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0 10px 0 0;
+}
+
+.page-nav__item {
   margin: 0.2rem 0;
   overflow-wrap: break-word;
 }
@@ -25,9 +28,13 @@
     left: 0;
     top: 0;
     width: 200px;
+    height: 100%;
+  }
+
+  .page-nav__list {
+    display: block;
     margin: 0;
     padding: 20px;
-    list-style: none;
   }
 
   /* activate sticky */
@@ -36,8 +43,11 @@
     display: none;
   }
 
-  .page-nav.is-fixed {
-    position: fixed;
+  .page-nav.is-sticky .page-nav__list {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    top: 0;
   }
 
 }

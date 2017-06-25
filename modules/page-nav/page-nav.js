@@ -1,18 +1,27 @@
-/* globals Stickeroo */
+( function() {
+
+var firstPageNav;
+
 InfiniteScrollDocs['page-nav'] = function( elem ) {
-  'use strict';
 
-  var firstPageNav = document.querySelector('.page-nav');
+  var listElem = elem.querySelector('.page-nav__list');
+  var afterContent = getComputedStyle( elem, ':after' ).content;
+  var isStickyContent = afterContent.match('sticky');
 
-  if ( elem == firstPageNav ) {
-    new Stickeroo( elem );
+  if ( firstPageNav && isStickyContent ) {
+    // hide loaded page-navs
+    elem.style.display = 'none';
     return;
   }
 
-  var afterContent = getComputedStyle( elem, ':after' ).content;
-  var isStickyContent = afterContent.indexOf('sticky') != -1;
-  if ( isStickyContent ) {
-    elem.style.display = 'none';
+  // with first page nav...
+  firstPageNav = elem;
+  // activate if :after { content: 'sticky' } and fits in window
+  var canFit = listElem.clientHeight <= window.innerHeight;
+  if ( canFit && isStickyContent ) {
+    elem.classList.add('is-sticky');
   }
 
 };
+
+})();

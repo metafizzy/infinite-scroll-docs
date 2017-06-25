@@ -21,7 +21,7 @@ module.exports = function pageNav() {
         '</a></li>\n';
     });
     // add pageNavHtml to page
-    $('.page-nav').html( pageNavHtml );
+    $('.page-nav__list').html( pageNavHtml );
 
     file.contents = new Buffer( $.html() );
     next( null, file );
