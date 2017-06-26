@@ -2,7 +2,6 @@
 <html lang="en" class="{{#if isExport}}export{{/if}}">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Infinite scroll, back-button friendly" />
   <meta name="viewport" content="width=device-width" />
 
   <title>Infinite Scroll{{#unless page.isHomepage}} &middot; {{page.title}}{{/unless}}</title>
@@ -14,5 +13,26 @@
   {{else}}
     <link rel="stylesheet" href="{{@file.rootPath}}css/infinite-scroll-docs.css?1" media="screen" />
   {{/if}}
+
+  {{#unless isExport}}
+    {{! Twitter card }}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@metafizzyco" />
+    <meta name="twitter:title" content="Infinite Scroll{{#unless page.isHomepage}} &middot; {{page.title}}{{/unless}}" />
+    {{! Facebook OpenGraph }}
+    <meta property="og:url" content="https://infinite-scroll.com/{{@file.relativePath}}.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Infinite Scroll{{#unless page.isHomepage}} &middot; {{page.title}}{{/unless}}" />
+    <meta property="og:site_name" content="Infinite Scroll" />
+    {{! blurb }}
+    {{#if page.description}}
+      <meta name="description" content="{{page.description}}" />
+      <meta name="twitter:description" content="{{page.description}}" />
+      <meta property="og:description" content="{{page.description}}" />
+    {{/if}}
+    {{! image }}
+    <meta name="twitter:image" content="https://infinite-scroll.com/img/infinite-scroll-illo.png" />
+    <meta property="og:image" content="https://infinite-scroll.com/img/infinite-scroll-illo.png" />
+  {{/unless}}
 
 </head>

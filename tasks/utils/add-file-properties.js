@@ -5,6 +5,9 @@ var path = require('path');
 module.exports = function() {
   return transfob( function( file, enc, next ) {
     file.basename = path.basename( file.path, '.hbs' );
+    file.relativePath = path.relative( file.cwd + '/content/', file.path )
+      .replace( /.hbs$/, '' );
+    // rootPath
     if ( file.data.page.is404 ) {
       file.rootPath = '/';
     } else {
