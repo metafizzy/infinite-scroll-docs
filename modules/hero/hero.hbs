@@ -29,17 +29,19 @@
           </span>
         </a>
       </div>
-      <div class="duo__cell">
-        <a class="chunky-button chunky-button--outline" href="infinite-scroll-docs.zip">
-          <i class="chunky-button__icon">
-            {{> zip-file}}
-          </i>
-          <span class="chunky-button__text">
-            <span class="chunky-button__text__plain">Download</span>
-            <b class="chunky-button__text__strong">these docs</b>
-          </span>
-        </a>
-      </div>
+      {{#unless isExport}}
+        <div class="duo__cell">
+          <a class="chunky-button chunky-button--outline" href="infinite-scroll-docs.zip">
+            <i class="chunky-button__icon">
+              {{> zip-file}}
+            </i>
+            <span class="chunky-button__text">
+              <span class="chunky-button__text__plain">Download</span>
+              <b class="chunky-button__text__strong">these docs</b>
+            </span>
+          </a>
+        </div>
+      {{/unless}}
     </div>
 
   </div>

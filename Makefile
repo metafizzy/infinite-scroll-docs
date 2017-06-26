@@ -7,7 +7,7 @@ zip:
 	rm -rf infinite-scroll-docs
 
 deploy:
-	s3cmd -c ~/.s3cfg-fizzy sync --cf-invalidate build/. s3://mfzy.co/infinite-scroll-docs/
+	s3cmd -c ~/.s3cfg-fizzy sync --cf-invalidate build/. s3://infinite-scroll.com
 
 gulp:
 	gulp

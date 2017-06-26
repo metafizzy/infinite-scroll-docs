@@ -37,13 +37,20 @@ gulp.task( 'default', [
   'js',
   'css',
   'dist',
-  'prod-assets'
-] );
+  'prod-assets',
+]);
 
 // ----- export ----- //
 
 // version of site used in infinite-scroll-docs.zip
-gulp.task( 'export', [ 'default' ] );
+gulp.task( 'export', [
+  'hint',
+  'content',
+  'js',
+  'css',
+  'dist',
+  'assets',
+]);
 
 // ----- watch ----- //
 
