@@ -506,8 +506,12 @@ $container.on( 'append.infiniteScroll', function( event, response, path ) {
 <p>Infinite Scroll v3 is a complete rewrite with all new API and behavior. Upgrading from v2 to v3 will require making several changes.</p>
 
 <ul>
+  <li><code>jquery.infinitescroll.js</code> and <code>jquery.infinite-scroll.min.js</code> files have been replaced with
+    <a href="{{sourceUrlPath}}infinite-scroll.pkgd.js"><code>dist/infinite-scroll.pkgd.js</code></a> and
+    <a href="{{sourceUrlPath}}infinite-scroll.pkgd.min.js"><code>dist/infinite-scroll.pkgd.min.js</code></a>
+  </li>
   <li><code>.infinitescroll()</code> jQuery plugin renamed to camelCased <code>.infiniteScroll()</code>.</li>
-  <li>The callback argument has been removed. Use <a href="events.html#append"><code>append</code></a> or <a href="events.html#load"><code>load</code></a> event.</li>
+  <li>The callback function has been removed. Use <a href="events.html#append"><code>append</code></a> or <a href="events.html#load"><code>load</code></a> event.</li>
 </ul>
 
 {{! ----------------------------------------------------------------- }}
