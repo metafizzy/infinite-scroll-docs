@@ -1,3 +1,5 @@
+/* jshint node: true, undef: true, unused: true */
+
 var gulp = require('gulp');
 
 // ----- site ----- //
