@@ -18,13 +18,17 @@
   clear: both;
 }
 
-.hero .infinite-scroll-logo {
+.hero .infinite-scroll-illo {
   display: block;
   position: absolute;
   left: 0;
   top: 0;
   width: 80px;
   height: 80px;
+}
+
+.hero .infinite-scroll-illo__page {
+  stroke: #036;
 }
 
 .hero__text {
@@ -86,7 +90,7 @@
 
 @media screen and ( min-width: 768px ) {
 
-  .hero .infinite-scroll-logo {
+  .hero .infinite-scroll-illo {
     width: 260px;
     height: 260px;
   }
