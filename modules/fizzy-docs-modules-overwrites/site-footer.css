@@ -13,46 +13,39 @@
 .site-footer .twitter-logo { fill: #19F; }
 .site-footer a:hover .twitter-logo { fill: #C25; }
 
-/* ---- metafizzy brand ---- */
+/* ---- mfzy-logo ---- */
 
-.site-footer .metafizzy-logo { width: 45px; }
-.site-footer .metafizzy-wordmark { width: 160px; }
+.site-footer .mfzy-logo__body-fill { fill: #19F; }
+.site-footer .mfzy-logo__stripes { display: none; }
 
-.site-footer .metafizzy-wordmark path { fill: #19F; }
+.site-footer a:hover .mfzy-logo__stripes { display: inline; }
 
-.site-footer .metafizzy-logo__stripe1,
-.site-footer .metafizzy-logo__stripe2,
-.site-footer .metafizzy-logo__stripe3,
-.site-footer .metafizzy-logo__stripe4 { fill: #19F; }
+/* ---- mfzy-wordmark ---- */
 
-.site-footer a:hover .metafizzy-wordmark path { fill: #333; }
-
-.site-footer a:hover .metafizzy-logo__stripe1 { fill: #C25; }
-.site-footer a:hover .metafizzy-logo__stripe2 { fill: #E62; }
-.site-footer a:hover .metafizzy-logo__stripe3 { fill: #EA0; }
-.site-footer a:hover .metafizzy-logo__stripe4 { fill: #19F; }
+.mfzy-wordmark { stroke: #19F; }
+.mfzy-brand__link:hover .mfzy-wordmark { stroke: #333; }
 
 @media screen and ( min-width: 960px ) {
 
   /* sidebar brand */
 
-  .site-footer .metafizzy-brand {
+  .site-footer .mfzy-brand {
     position: absolute;
     left: 20px;
     top: 60px;
     width: 160px;
   }
 
-  .site-footer .metafizzy-logo {
+  .site-footer .mfzy-logo {
     display: block;
-    width: 90px;
-    margin: 0 auto 10px;
+    width: 108px;
+    height: 108px;
+    margin: 0 auto 5px;
   }
 
-  .site-footer .metafizzy-wordmark {
-    width: 140px;
-    margin: 0 auto;
+  .site-footer .mfzy-wordmark {
     display: block;
+    margin: 0 auto;
   }
 
 }
