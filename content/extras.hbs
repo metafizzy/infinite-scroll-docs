@@ -340,6 +340,37 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 
 {{! ----------------------------------------------------------------- }}
 
+<h2>Loading URLs from loaded pages</h2>
+
+<p>You can use Infinite Scroll to load the next article page by updating the next URL from the loaded page. For example, the current URL is <code>/news/alpha</code>, and its next link <code>/news/beta</code>; and when you load <code>/news/beta</code>, its next link is <code>/news/gamma</code>.</p>
+
+<p>To do so, you can use a <code>nextURL</code> variable and update it on <a href="events.html#load"><code>load</code></a>, then set <a href="options.html#path"><code>path</code></a> to a function to return <code>nextURL</code>.</p>
+
+``` js
+var nextURL;
+
+function updateNextURL( doc ) {
+  nextURL = $( doc ).find('.pagination__next').attr('href');
+}
+// get initial nextURL
+updateNextURL( document );
+
+// init Infinite Scroll
+var $container = $('.container').infiniteScroll({
+  // use function to set custom URLs
+  path: function() {
+    return nextURL;
+  },
+});
+
+// update nextURL on page load
+$container.on( 'load.infiniteScroll', function( event, response ) {
+  updateNextURL( response );
+});
+```
+
+{{! ----------------------------------------------------------------- }}
+
 <h2>Loading animations</h2>
 
 <p>Feel free to use these loading animations within <a href="options.html#status"><code>.infinite-scroll-request</code> status element</a>.</p>
