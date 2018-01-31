@@ -235,7 +235,9 @@ requirejs( [
 
 ``` js
 var $container = $('.container').infiniteScroll({
-  path: 'https://api.unsplash.com/photos?client_id=...&page=\{{#}}',
+  path: function() {
+    return 'https://api.unsplash.com/photos?client_id=...&page=' + this.pageIndex;
+  },
   // load page as text
   responseType: 'text',
   // disable history
