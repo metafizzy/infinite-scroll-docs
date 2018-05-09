@@ -501,11 +501,18 @@ scrollThreshold: false
 
 <h3>history</h3>
 
-<p>Changes the browser history and URL.</p>
+<p>Changes page URL and browser history.</p>
 
 <p>Enabled by default <code><span class="comment">history: 'replace'</span></code> will use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method"><code>history.replaceState()</code></a> to change the current history entry. Going back in the browser will return the user to previous site.</p>
 
 <p><a href="demo/full-page">View full page demo with <code>history: 'replace'</code></a>.</p>
+
+<p>Set <code>history: <span class="literal">false</span></code> to disable.</p>
+
+``` js
+history: false
+// disable changing URL and browser history
+```
 
 <p>Set <code>history: <span class="string">'push'</span></code> to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method"><code>history.pushState()</code></a> to create new history entries for each page change. Going back in the browser will load the previous page.</p>
 
