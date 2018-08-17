@@ -81,7 +81,7 @@ var $container = $('.container').infiniteScroll({
   append: false, // disable automatic appending
 });
 
-$container.on( 'load.infiniteScroll', function( response ) {
+$container.on( 'load.infiniteScroll', function( event, response ) {
   // get posts from response
   var $posts = $( response ).find('.post');
   // append posts after images loaded
