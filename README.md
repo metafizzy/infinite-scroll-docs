@@ -6,7 +6,7 @@ Documentation for Infinite Scroll, the JavaScript library for automatically addi
 
 ## Install
 
-Building these docs requires [npm](https://npmjs.com) and [Bower](http://bower.io).
+Building these docs requires [npm](https://npmjs.com) and [Bower](https://bower.io).
 
 ``` bash
 npm install
@@ -41,7 +41,7 @@ Modules are re-usable components used throughout the site. A module may consist 
         page-nav.js
         page-nav.hbs
 
-[BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) is used for CSS code style.
+[BEM](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) is used for CSS code style.
 
 ``` css
 .page-nav {} /* block */
@@ -63,4 +63,4 @@ InfiniteScrollDocs.['page-nav'] = function( elem ) {
 
 ---
 
-By [Metafizzy](http://metafizzy.co)
+By [Metafizzy](https://metafizzy.co)

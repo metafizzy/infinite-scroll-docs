@@ -127,7 +127,7 @@ var infScroll = new InfiniteScroll( '.container', {
 
 <h3>Requirejs</h3>
 
-<p>Infinite Scroll supports <a href="http://requirejs.org/">RequireJS</a>.</p>
+<p>Infinite Scroll supports <a href="https://requirejs.org/">RequireJS</a>.</p>
 
 <p>You can require infinite-scroll.pkgd.js.</p>
 
@@ -245,7 +245,7 @@ var $container = $('.container').infiniteScroll({
 });
 
 $container.on( 'load.infiniteScroll', function( event, response ) {
-  // prase response text into JSON data
+  // parse response text into JSON data
   var data = JSON.parse( response );
   // put that data into template
   var itemsHTML = template.compile( data );
