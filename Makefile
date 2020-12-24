@@ -7,14 +7,14 @@ zip:
 	rm -rf infinite-scroll-docs
 
 deploy:
-	s3cmd -c ~/.s3cfg-fizzy sync --cf-invalidate build/. s3://infinite-scroll.com
+	netlify deploy --dir=build
 
 gulp:
-	gulp
+	npx gulp
 
 gulp-export:
 	rm -rf build/
-	gulp export
+	npx gulp export
 	make zip
 
 prod: gulp-export gulp deploy
