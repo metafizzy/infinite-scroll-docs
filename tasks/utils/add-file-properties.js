@@ -4,7 +4,7 @@ var path = require('path');
 // add handlebars layouts syntax to use page layout template
 module.exports = function() {
   return transfob( function( file, enc, next ) {
-    file.basename = path.basename( file.path, '.hbs' );
+    file.fileBasename = path.basename( file.path, '.hbs' );
     file.relativePath = path.relative( file.cwd + '/content/', file.path )
       .replace( /.hbs$/, '' );
     // rootPath

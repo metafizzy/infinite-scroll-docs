@@ -1,8 +1,8 @@
 var gulp = require('gulp');
 
-// copy packery dist to build/
+// copy infinite-scroll dist to build/
 gulp.task( 'dist', function() {
-  gulp.src( 'bower_components/infinite-scroll/dist/*.*' )
+  return gulp.src( 'node_modules/infinite-scroll/dist/*.*' )
     .pipe( gulp.dest('build') );
 });
 

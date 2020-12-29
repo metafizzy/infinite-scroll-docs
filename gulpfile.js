@@ -26,42 +26,38 @@ var site = {
 
 require('./tasks/assets')( site );
 require('./tasks/dist')( site );
-require('./tasks/hint')( site );
 require('./tasks/js')( site );
 require('./tasks/css')( site );
 require('./tasks/content')( site );
 
 // ----- default ----- //
 
-gulp.task( 'default', [
-  'hint',
+gulp.task( 'default', gulp.parallel(
   'content',
   'js',
   'css',
   'dist',
   'prod-assets',
-]);
+));
 
 // ----- export ----- //
 
 // version of site used in infinite-scroll-docs.zip
-gulp.task( 'export', [
-  'hint',
+gulp.task( 'export', gulp.parallel(
   'content',
   'js',
   'css',
   'dist',
   'assets',
-]);
+));
 
 // ----- watch ----- //
 
-gulp.task( 'dev', [
-  'hint',
+gulp.task( 'dev', gulp.parallel(
   'dist',
   'prod-assets',
   'content'
-], function() {
+), function() {
   site.watches.forEach( function( watchable ) {
     gulp.watch.apply( gulp, watchable );
   });

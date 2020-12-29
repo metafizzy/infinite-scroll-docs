@@ -14,7 +14,7 @@ var cssSrc = [
 ];
 
 gulp.task( 'css', function() {
-  gulp.src( cssSrc )
+  return gulp.src( cssSrc )
     .pipe( concat('infinite-scroll-docs.css') )
     .pipe( gulp.dest('build/css') );
 });

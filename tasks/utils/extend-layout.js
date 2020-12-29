@@ -8,7 +8,7 @@ module.exports = function() {
     var layout = file.data.page.layout;
     contents = '{{#extend "' + layout + '"}}{{#content "main"}}' +
       contents + '{{/content}}{{/extend}}';
-    file.contents = new Buffer( contents );
+    file.contents = Buffer.from( contents );
     next( null, file );
   });
 };

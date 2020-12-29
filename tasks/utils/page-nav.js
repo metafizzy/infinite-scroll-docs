@@ -23,7 +23,7 @@ module.exports = function pageNav() {
     // add pageNavHtml to page
     $('.page-nav__list').html( pageNavHtml );
 
-    file.contents = new Buffer( $.html() );
+    file.contents = Buffer.from( $.html() );
     next( null, file );
   });
 };

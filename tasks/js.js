@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
+var terser = require('gulp-terser');
 var getGlobPaths = require('./utils/get-glob-paths');
 
 var jsSrc = [
@@ -34,13 +34,13 @@ var jsSrc = [
 
 // concat & minify js
 gulp.task( 'docs-js', function() {
-  gulp.src( jsSrc )
-    .pipe( uglify() )
+  return gulp.src( jsSrc )
+    .pipe( terser() )
     .pipe( concat('infinite-scroll-docs.min.js') )
     .pipe( gulp.dest('build/js') );
 });
 
-gulp.task( 'js', [ 'docs-js' ] );
+gulp.task( 'js', gulp.parallel( 'docs-js' ) );
 
 module.exports = function( site ) {
 

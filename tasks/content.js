@@ -43,7 +43,7 @@ module.exports = function( site ) {
     var filterQuery = site.data.isExport ? [ '**', '!**/404.*'] : '**';
 
     site.data.sourceUrlPath = site.data.isExport ? '' :
-      'https://unpkg.com/infinite-scroll@3/dist/';
+      'https://unpkg.com/infinite-scroll@4/dist/';
 
     return gulp.src( contentSrc )
       .pipe( filter( filterQuery ) )
