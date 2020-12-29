@@ -22,7 +22,7 @@
   padding-left: 15px;
 }
 
-@media screen and ( min-width: 960px ) {
+@media screen and (min-width: 960px) {
   .page-nav {
     position: absolute;
     left: 0;
@@ -38,7 +38,7 @@
   }
 
   /* activate sticky */
-  .page-nav:after {
+  .page-nav::after {
     content: 'sticky';
     display: none;
   }
@@ -49,5 +49,4 @@
     left: 0;
     top: 0;
   }
-
 }

@@ -16,11 +16,9 @@
 }
 
 /* desktop */
-@media screen and ( min-width: 960px ) {
-
+@media screen and (min-width: 960px) {
   .container {
     padding-left: 200px;
     padding-right: 20px;
   }
-
 }

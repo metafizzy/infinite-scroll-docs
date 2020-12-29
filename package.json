@@ -23,10 +23,12 @@
   },
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint",
     "build": "npx gulp",
     "dev": "npx gulp dev",
-    "lint:js": "npx eslint ."
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "npx eslint .",
+    "lint:css": "npx stylelint '**/*.css'"
   },
   "keywords": [
     "documentation",
@@ -37,7 +39,9 @@
   "license": "GPL-3.0",
   "devDependencies": {
     "eslint": "^7.16.0",
-    "eslint-plugin-metafizzy": "^1.2.1"
+    "eslint-plugin-metafizzy": "^1.2.1",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0"
   },
   "repository": {
     "type": "git",

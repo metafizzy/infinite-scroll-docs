@@ -25,7 +25,7 @@
 .mfzy-wordmark { stroke: #19F; }
 .mfzy-brand__link:hover .mfzy-wordmark { stroke: #333; }
 
-@media screen and ( min-width: 960px ) {
+@media screen and (min-width: 960px) {
 
   /* sidebar brand */
 
@@ -47,5 +47,4 @@
     display: block;
     margin: 0 auto;
   }
-
 }

@@ -5,7 +5,7 @@
   display: block;
   padding: 20px;
   background-color: #C25;
-  background-image: linear-gradient( hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.15) );
+  background-image: linear-gradient(hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.15));
   border: none;
   border-radius: 10px;
   font-size: 1.6rem;
@@ -20,6 +20,7 @@
   color: white;
   background-color: #19F;
 }
+
 .button.button--big-ol:active {
   color: white;
   background-color: #07D;

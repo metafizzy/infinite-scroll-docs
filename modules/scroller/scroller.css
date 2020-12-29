@@ -9,9 +9,6 @@
   border-radius: 5px;
 }
 
-.scroller__content {
-}
-
 /* ---- scroller-item ---- */
 
 .scroller-item {
@@ -21,7 +18,7 @@
   background: #19F;
   border-radius: 5px;
   color: white;
-  font-size: 3.0rem;
+  font-size: 3rem;
   line-height: 1;
 }
 

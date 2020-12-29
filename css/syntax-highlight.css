@@ -1,29 +1,36 @@
 /* syntax highlight
 ------------------------- */
 
-code .string,
-code .tag .value { color: #0A2; }
+code .string { color: #0A2; }
+
 code .number, /* integer */
 code .cp, /* doctype */
-code .literal { color: #07D; } /*boolean*/
+code .literal {
+  color: #07D;
+} /* boolean */
 code .keyword { color: #E31; } /* keyword */
 code .kd, /* storage */
 code .attribute { color: #D31; } /* markup attribute */
-code .title  { color: #39A; }
-code .params  { color: #98D; }
-code .p  { color: #EDB; } /* punctuation */
-code .o  { color: #F63; }   /* operator */
-code .nb { color: #AA97AC;} /* support */
+code .title { color: #39A; }
+code .params { color: #98D; }
+code .p { color: #EDB; } /* punctuation */
+code .o { color: #F63; }   /* operator */
+code .nb { color: #AA97AC; } /* support */
 
 /* comment */
-code .comment { color: #999; font-style: italic; }
+code .comment {
+  color: #999;
+  font-style: italic;
+}
 
 code .tag { color: #37B; } /* Markup open tag */
 
 code .id { color: #567; } /* css id */
 code .class { color: #B27; }  /* CSS class */
 code .rules { color: #431; }
-code .value  { color: #555; } /* CSS value */
+code .value { color: #555; } /* CSS value */
+code .tag .value { color: #0A2; }
+
 code .nd,
 code .pseudo { color: #38D; } /* CSS pseudo selector */
 code .hexcolor { color: #F63; }
@@ -33,7 +40,9 @@ code .built_in { color: #E08; }
 
 code .infinite-scroll,
 code .infinite-scroll_keyword, /* new InfiniteScroll() */
-code .infscroll_var { color: #D0D; } /* infScroll */
+code .infscroll_var {
+  color: #D0D;
+} /* infScroll */
 
 code .jquery_var { color: #D70; } /* $container */
 

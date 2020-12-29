@@ -9,7 +9,7 @@
 }
 
 /* clearfix */
-.site-nav:after {
+.site-nav::after {
   content: '';
   clear: both;
   display: block;
@@ -31,14 +31,11 @@
 .site-nav__item a {
   display: block;
   color: white;
-  padding: 5px
+  padding: 5px;
 }
 
 .site-nav__item--homepage {
   font-weight: bold;
-}
-
-.site-nav__item--homepage a {
 }
 
 .site-nav__item a:hover {
@@ -63,8 +60,7 @@
 }
 
 /* size at which it can fit */
-@media screen and ( min-width: 768px ) {
-
+@media screen and (min-width: 768px) {
   .site-nav__item {
     width: auto;
     font-size: 1.1rem;
@@ -72,11 +68,10 @@
   }
 
   .site-nav__item a {
-    padding: 0px 25px;
+    padding: 0 25px;
   }
 
   .site-nav__item--homepage {
     width: 200px;
   }
-
 }

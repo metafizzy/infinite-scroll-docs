@@ -12,14 +12,14 @@
 
 .image-grid__gutter-sizer { width: 2%; }
 
-/* hide by default */
-.image-grid.are-images-unloaded .image-grid__item {
-  opacity: 0;
-}
-
 .image-grid__item {
   margin-bottom: 20px;
   float: left;
+}
+
+/* hide by default */
+.image-grid.are-images-unloaded .image-grid__item {
+  opacity: 0;
 }
 
 .image-grid__image {
