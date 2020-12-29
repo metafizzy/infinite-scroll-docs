@@ -13,7 +13,7 @@ var addFileProperties = require('./utils/add-file-properties');
 // sources
 var contentSrc = 'content/**/*.hbs';
 var partialsSrc = [
-  'bower_components/fizzy-docs-modules/*/*.hbs',
+  'node_modules/fizzy-docs-modules/*/*.hbs',
   'modules/*/**/*.hbs',
 ];
 var dataSrc = 'data/*.json';

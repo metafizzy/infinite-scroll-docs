@@ -5,25 +5,25 @@ var getGlobPaths = require('./utils/get-glob-paths');
 
 var jsSrc = [
   // dependencies
-  'bower_components/desandro-matches-selector/matches-selector.js',
-  'bower_components/ev-emitter/ev-emitter.js',
-  'bower_components/fizzy-ui-utils/utils.js',
+  'node_modules/ev-emitter/ev-emitter.js',
+  'node_modules/fizzy-ui-utils/utils.js',
   // infinite-scroll
-  'bower_components/infinite-scroll/js/core.js',
-  'bower_components/infinite-scroll/js/page-load.js',
-  'bower_components/infinite-scroll/js/scroll-watch.js',
-  'bower_components/infinite-scroll/js/history.js',
-  'bower_components/infinite-scroll/js/status.js',
-  'bower_components/infinite-scroll/js/button.js',
+  'node_modules/infinite-scroll/js/core.js',
+  'node_modules/infinite-scroll/js/page-load.js',
+  'node_modules/infinite-scroll/js/scroll-watch.js',
+  'node_modules/infinite-scroll/js/history.js',
+  'node_modules/infinite-scroll/js/status.js',
+  'node_modules/infinite-scroll/js/button.js',
   // masonry
-  'bower_components/get-size/get-size.js',
-  'bower_components/outlayer/item.js',
-  'bower_components/outlayer/outlayer.js',
-  'bower_components/masonry/masonry.js',
+  'node_modules/desandro-matches-selector/matches-selector.js',
+  'node_modules/get-size/get-size.js',
+  'node_modules/outlayer/item.js',
+  'node_modules/outlayer/outlayer.js',
+  'node_modules/masonry-layout/masonry.js',
   // imagesloaded
-  'bower_components/imagesloaded/imagesloaded.js',
+  'node_modules/imagesloaded/imagesloaded.js',
   // fizzy docs modules
-  'bower_components/fizzy-docs-modules/*/*.js',
+  'node_modules/fizzy-docs-modules/*/*.js',
   // docs
   'js/boilerplate.js',
   // modules

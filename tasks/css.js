@@ -4,9 +4,9 @@ var getGlobPaths = require('./utils/get-glob-paths');
 
 var cssSrc = [
   // dependencies
-  'bower_components/normalize-css/normalize.css',
+  'node_modules/normalize.css/normalize.css',
   // fizzy docs modules
-  'bower_components/fizzy-docs-modules/*/*.css',
+  'node_modules/fizzy-docs-modules/*/*.css',
   // base
   'css/*.css',
   // modules
