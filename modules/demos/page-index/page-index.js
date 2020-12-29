@@ -1,20 +1,20 @@
 InfiniteScrollDocs['page-index'] = function( elem ) {
 
-  var scroller = elem.querySelector('.scroller');
-  var scrollerContent = elem.querySelector('.scroller__content');
-  var demoStatus = elem.querySelector('.demo-status');
+  let scroller = elem.querySelector('.scroller');
+  let scrollerContent = elem.querySelector('.scroller__content');
+  let demoStatus = elem.querySelector('.demo-status');
 
-  var infScroll = new InfiniteScroll( scrollerContent, {
+  let infScroll = new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
     append: '.scroller-item',
     checkLastPage: '.pagination__next',
     elementScroll: scroller,
     status: elem.querySelector('.scroller-status'),
     history: false,
-  });
+  } );
 
   infScroll.on( 'load', function() {
     demoStatus.textContent = 'Loaded page: ' + this.pageIndex;
-  });
+  } );
 
 };

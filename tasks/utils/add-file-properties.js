@@ -1,5 +1,5 @@
-var transfob = require('transfob');
-var path = require('path');
+let transfob = require('transfob');
+let path = require('path');
 
 // add handlebars layouts syntax to use page layout template
 module.exports = function() {
@@ -15,5 +15,5 @@ module.exports = function() {
         .replace( /\.\.$/, '' );
     }
     next( null, file );
-  });
+  } );
 };

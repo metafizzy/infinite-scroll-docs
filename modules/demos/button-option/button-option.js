@@ -1,6 +1,6 @@
 InfiniteScrollDocs['button-option'] = function( elem ) {
 
-  var scrollerContent = elem.querySelector('.scroller__content');
+  let scrollerContent = elem.querySelector('.scroller__content');
 
   new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
@@ -11,6 +11,6 @@ InfiniteScrollDocs['button-option'] = function( elem ) {
     button: elem.querySelector('.view-more-button'),
     status: elem.querySelector('.scroller-status'),
     history: false,
-  });
+  } );
 
 };

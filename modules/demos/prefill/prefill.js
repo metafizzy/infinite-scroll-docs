@@ -1,8 +1,8 @@
 InfiniteScrollDocs.prefill = function( elem ) {
 
-  var scroller = elem.querySelector('.scroller');
-  var scrollerContent = elem.querySelector('.scroller__content');
-  var button = elem.querySelector('.button');
+  let scroller = elem.querySelector('.scroller');
+  let scrollerContent = elem.querySelector('.scroller__content');
+  let button = elem.querySelector('.button');
 
   button.addEventListener( 'click', onButtonClick );
 
@@ -15,7 +15,7 @@ InfiniteScrollDocs.prefill = function( elem ) {
       prefill: true,
       status: elem.querySelector('.scroller-status'),
       history: false,
-    });
+    } );
 
     button.disabled = 'disabled';
     button.removeEventListener( 'click', onButtonClick );

@@ -1,12 +1,12 @@
 ( function() {
 
-var firstPageNav;
+let firstPageNav;
 
 InfiniteScrollDocs['page-nav'] = function( elem ) {
 
-  var listElem = elem.querySelector('.page-nav__list');
-  var afterContent = getComputedStyle( elem, ':after' ).content;
-  var isStickyContent = afterContent.match('sticky');
+  let listElem = elem.querySelector('.page-nav__list');
+  let afterContent = getComputedStyle( elem, ':after' ).content;
+  let isStickyContent = afterContent.match('sticky');
 
   if ( firstPageNav && isStickyContent ) {
     // hide loaded page-navs
@@ -17,11 +17,11 @@ InfiniteScrollDocs['page-nav'] = function( elem ) {
   // with first page nav...
   firstPageNav = elem;
   // activate if :after { content: 'sticky' } and fits in window
-  var canFit = listElem.clientHeight <= window.innerHeight;
+  let canFit = listElem.clientHeight <= window.innerHeight;
   if ( canFit && isStickyContent ) {
     elem.classList.add('is-sticky');
   }
 
 };
 
-})();
+} )();

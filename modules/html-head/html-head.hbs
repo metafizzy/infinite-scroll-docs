@@ -7,7 +7,7 @@
   <title>Infinite Scroll{{#unless page.isHomepage}} &middot; {{page.title}}{{/unless}}</title>
 
   {{#if isDev}}
-    {{#each css_paths}}
+    {{#each cssPaths}}
       <link rel="stylesheet" href="../{{@file.rootPath}}{{this}}" />
     {{/each}}
   {{else}}

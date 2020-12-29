@@ -1,9 +1,9 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var terser = require('gulp-terser');
-var getGlobPaths = require('./utils/get-glob-paths');
+let gulp = require('gulp');
+let concat = require('gulp-concat');
+let terser = require('gulp-terser');
+let getGlobPaths = require('./utils/get-glob-paths');
 
-var jsSrc = [
+let jsSrc = [
   // dependencies
   'node_modules/ev-emitter/ev-emitter.js',
   'node_modules/fizzy-ui-utils/utils.js',
@@ -38,12 +38,12 @@ gulp.task( 'docs-js', function() {
     .pipe( terser() )
     .pipe( concat('infinite-scroll-docs.min.js') )
     .pipe( gulp.dest('build/js') );
-});
+} );
 
-gulp.task( 'js', gulp.parallel( 'docs-js' ) );
+gulp.task( 'js', gulp.parallel('docs-js') );
 
 module.exports = function( site ) {
 
-  site.data.js_paths = getGlobPaths( jsSrc );
+  site.data.jsPaths = getGlobPaths( jsSrc );
 
 };

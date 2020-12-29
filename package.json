@@ -25,7 +25,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx gulp",
-    "dev": "npx gulp dev"
+    "dev": "npx gulp dev",
+    "lint:js": "npx eslint ."
   },
   "keywords": [
     "documentation",
@@ -34,7 +35,10 @@
   ],
   "author": "David DeSandro",
   "license": "GPL-3.0",
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "eslint-plugin-metafizzy": "^1.2.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/metafizzy/infinite-scroll-docs.git"

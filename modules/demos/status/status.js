@@ -1,6 +1,6 @@
 InfiniteScrollDocs.status = function( elem ) {
 
-  var scrollerContent = elem.querySelector('.scroller__content');
+  let scrollerContent = elem.querySelector('.scroller__content');
 
   new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
@@ -10,6 +10,6 @@ InfiniteScrollDocs.status = function( elem ) {
     status: elem.querySelector('.scroller-status'),
     scrollThreshold: 50,
     history: false,
-  });
+  } );
 
 };

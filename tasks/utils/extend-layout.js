@@ -1,14 +1,14 @@
-var transfob = require('transfob');
+let transfob = require('transfob');
 
 // add handlebars layouts syntax to use page layout template
 module.exports = function() {
   return transfob( function( file, enc, next ) {
-    var contents = file.contents.toString();
+    let contents = file.contents.toString();
     // use layout set in YAML front matter
-    var layout = file.data.page.layout;
+    let layout = file.data.page.layout;
     contents = '{{#extend "' + layout + '"}}{{#content "main"}}' +
       contents + '{{/content}}{{/extend}}';
     file.contents = Buffer.from( contents );
     next( null, file );
-  });
+  } );
 };

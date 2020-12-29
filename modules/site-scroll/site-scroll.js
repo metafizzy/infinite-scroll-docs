@@ -1,9 +1,9 @@
 InfiniteScrollDocs['site-scroll'] = function( elem ) {
 
-  var button = elem.querySelector('.button');
-  var infScroll;
+  let button = elem.querySelector('.button');
+  let infScroll;
 
-  var pages = [
+  let pages = [
     'index',
     'options',
     'api',
@@ -12,21 +12,21 @@ InfiniteScrollDocs['site-scroll'] = function( elem ) {
     'license',
   ];
 
-  var basename = document.body.getAttribute('data-basename');
-  var pageIndex = pages.indexOf( basename ) + 1;
+  let basename = document.body.getAttribute('data-basename');
+  let pageIndex = pages.indexOf( basename ) + 1;
 
   button.addEventListener( 'click', onButtonClick );
 
   function onButtonClick() {
     infScroll = new InfiniteScroll( '.main .container', {
       path: function() {
-        var nextIndex = pageIndex + this.loadCount;
-        var page = pages[ nextIndex ];
+        let nextIndex = pageIndex + this.loadCount;
+        let page = pages[ nextIndex ];
         return page && page + '.html';
       },
       append: '.main__page',
       // debug: true,
-    });
+    } );
 
     infScroll.on( 'append', onAppend );
 
@@ -37,7 +37,7 @@ InfiniteScrollDocs['site-scroll'] = function( elem ) {
   }
 
   function onAppend( response, path, items ) {
-    for ( var i=0; i < items.length; i++ ) {
+    for ( let i = 0; i < items.length; i++ ) {
       InfiniteScrollDocs.initElementJS( items[i] );
     }
   }

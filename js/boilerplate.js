@@ -1,6 +1,5 @@
 // boilerplate
 ( function() {
-'use strict';
 
 // global namespace
 window.InfiniteScrollDocs = {};
@@ -9,4 +8,4 @@ window.InfiniteScrollDocs = {};
 
 window.utils = fizzyUIUtils;
 
-})();
+} )();

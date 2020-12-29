@@ -1,27 +1,27 @@
-var gulp = require('gulp');
-var rename = require('gulp-rename');
-var filter = require('gulp-filter');
-var frontMatter = require('gulp-front-matter');
-var path = require('path');
-var pageNav = require('./utils/page-nav');
-var highlightCodeBlock = require('./utils/highlight-code-block');
-var hb = require('gulp-hb');
-var hbLayouts = require('handlebars-layouts');
-var extendLayout = require('./utils/extend-layout');
-var addFileProperties = require('./utils/add-file-properties');
+const gulp = require('gulp');
+const rename = require('gulp-rename');
+const filter = require('gulp-filter');
+const frontMatter = require('gulp-front-matter');
+const path = require('path');
+const pageNav = require('./utils/page-nav');
+const highlightCodeBlock = require('./utils/highlight-code-block');
+const hb = require('gulp-hb');
+const hbLayouts = require('handlebars-layouts');
+const extendLayout = require('./utils/extend-layout');
+const addFileProperties = require('./utils/add-file-properties');
 
 // sources
-var contentSrc = 'content/**/*.hbs';
-var partialsSrc = [
+let contentSrc = 'content/**/*.hbs';
+let partialsSrc = [
   'node_modules/fizzy-docs-modules/*/*.hbs',
   'modules/*/**/*.hbs',
 ];
-var dataSrc = 'data/*.json';
-var pageTemplateSrc = 'templates/*.hbs';
+let dataSrc = 'data/*.json';
+let pageTemplateSrc = 'templates/*.hbs';
 
 // ----- page template ----- //
 
-var helpers = {
+let helpers = {
   lowercase: function( str ) {
     return str.toLowerCase();
   },
@@ -33,14 +33,14 @@ var helpers = {
   },
   slug: function( str ) {
     return str.replace( /[^\w\d]+/gi, '-' ).toLowerCase();
-  }
+  },
 };
 
 module.exports = function( site ) {
 
   gulp.task( 'content', function() {
     // exclude 404 if export
-    var filterQuery = site.data.isExport ? [ '**', '!**/404.*'] : '**';
+    let filterQuery = site.data.isExport ? [ '**', '!**/404.*' ] : '**';
 
     site.data.sourceUrlPath = site.data.isExport ? '' :
       'https://unpkg.com/infinite-scroll@4/dist/';
@@ -49,7 +49,7 @@ module.exports = function( site ) {
       .pipe( filter( filterQuery ) )
       .pipe( frontMatter({
         property: 'data.page',
-        remove: true
+        remove: true,
       }) )
       .pipe( extendLayout() )
       .pipe( addFileProperties() )
@@ -58,18 +58,17 @@ module.exports = function( site ) {
         .partials( partialsSrc, {
           parsePartialName: function( options, file ) {
             return path.basename( file.path, '.hbs' );
-          }
+          },
         } )
         .data( dataSrc )
         .data( site.data )
         .helpers( hbLayouts )
-        .helpers( helpers )
-      )
+        .helpers( helpers ) )
       .pipe( highlightCodeBlock() )
       .pipe( pageNav() )
       .pipe( rename({ extname: '.html' }) )
       .pipe( gulp.dest('build') );
-  });
+  } );
 
   site.watch( contentSrc, [ 'content' ] );
   site.watch( pageTemplateSrc, [ 'content' ] );

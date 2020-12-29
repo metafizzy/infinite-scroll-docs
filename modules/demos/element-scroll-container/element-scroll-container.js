@@ -6,6 +6,6 @@ InfiniteScrollDocs['element-scroll-container'] = function( elem ) {
     checkLastPage: '.pagination__next',
     elementScroll: true,
     history: false,
-  });
+  } );
 
 };

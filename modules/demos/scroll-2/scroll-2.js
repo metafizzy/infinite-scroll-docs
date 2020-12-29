@@ -1,9 +1,9 @@
 InfiniteScrollDocs['scroll-2'] = function( elem ) {
 
-  var scrollerContent = elem.querySelector('.scroller__content');
-  var button = elem.querySelector('.view-more-button');
+  let scrollerContent = elem.querySelector('.scroller__content');
+  let button = elem.querySelector('.view-more-button');
 
-  var infScroll = new InfiniteScroll( scrollerContent, {
+  let infScroll = new InfiniteScroll( scrollerContent, {
     path: 'demo/element-scroll/page{{#}}.html',
     append: '.scroller-item',
     checkLastPage: '.pagination__next',
@@ -11,7 +11,7 @@ InfiniteScrollDocs['scroll-2'] = function( elem ) {
     button: button,
     status: elem.querySelector('.scroller-status'),
     history: false,
-  });
+  } );
 
   infScroll.on( 'load', onPageLoad );
 
