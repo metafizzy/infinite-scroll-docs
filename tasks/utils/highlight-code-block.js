@@ -37,7 +37,7 @@ function replaceCodeBlock( match, leadingWhiteSpace, block ) {
     block;
   // wrap in <pre><code>
   let classAttr = language ? `class="${language}"` : '';
-  return `\n<pre><code ${classAttr}>${highlighted}</code></pre>'`;
+  return `\n<pre><code ${classAttr}>${highlighted}</code></pre>`;
 }
 
 module.exports = function() {

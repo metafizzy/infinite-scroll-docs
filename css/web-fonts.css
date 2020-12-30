@@ -1,36 +1,26 @@
 /* web fonts
 ------------------------- */
 
-@import url("//hello.myfonts.net/count/2d333f");
-
-/*
-  Just use WOFF2 and WOFF for webfonts
-  https://css-tricks.com/snippets/css/using-font-face/ */
-
-/* Texta Heavy */
+/* Work Sans Regular */
 @font-face {
-  font-family: 'Texta';
-  font-weight: bold;
+  font-family: 'Work Sans';
+  font-weight: 400;
   font-style: normal;
-  src:
-    url('../fonts/2D333F_0_0.woff2') format('woff2'),
-    url('../fonts/2D333F_0_0.woff') format('woff');
+  src: url('../fonts/WorkSans-Regular.woff2') format('woff2');
 }
 
-/* Texta Italic */
+/* Work Sans Italic */
 @font-face {
-  font-family: 'Texta';
-  font-weight: normal;
+  font-family: 'Work Sans';
+  font-weight: 400;
   font-style: italic;
-  src:
-    url('../fonts/2D333F_1_0.woff2') format('woff2'),
-    url('../fonts/2D333F_1_0.woff') format('woff');
+  src: url('../fonts/WorkSans-Italic.woff2') format('woff2');
 }
 
-/* Texta Regular */
+/* Work Sans Semi-bold */
 @font-face {
-  font-family: 'Texta';
-  src:
-    url('../fonts/2D333F_2_0.woff2') format('woff2'),
-    url('../fonts/2D333F_2_0.woff') format('woff');
+  font-family: 'Work Sans';
+  font-weight: 600;
+  font-style: normal;
+  src: url('../fonts/WorkSans-SemiBold.woff2') format('woff2');
 }

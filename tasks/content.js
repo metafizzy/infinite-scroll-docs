@@ -38,7 +38,7 @@ let helpers = {
 
 module.exports = function( site ) {
 
-  gulp.task( 'content', function() {
+  gulp.task( 'buildContent', function() {
     // exclude 404 if export
     let filterQuery = site.data.isExport ? [ '**', '!**/404.*' ] : '**';
 
@@ -70,9 +70,14 @@ module.exports = function( site ) {
       .pipe( gulp.dest('build') );
   } );
 
-  site.watch( contentSrc, [ 'content' ] );
-  site.watch( pageTemplateSrc, [ 'content' ] );
-  site.watch( dataSrc, [ 'content' ] );
-  site.watch( partialsSrc, [ 'content' ] );
+  let contentTask = gulp.parallel('buildContent');
+  gulp.task( 'content', contentTask );
+
+  if ( site.data.isDev ) {
+    gulp.watch( contentSrc, contentTask );
+    gulp.watch( pageTemplateSrc, contentTask );
+    gulp.watch( dataSrc, contentTask );
+    gulp.watch( partialsSrc, contentTask );
+  }
 
 };

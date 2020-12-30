@@ -6,18 +6,17 @@
 }
 
 body {
-  font-family: 'Texta', sans-serif;
+  font-family: 'Work Sans', -apple-system, Helvetica, Arial, sans-serif;
   color: #444;
   line-height: 1.5;
   margin: 0;
   padding: 0;
 }
 
-.export body { font-family: sans-serif; }
+.export body { font-family: -apple-system, Helvetica, Arial, sans-serif; }
 
 /* font size on html for rem */
-html { font-size: 17px; }
-html.export { font-size: 15px; }
+html { font-size: 15px; }
 
 a {
   color: #19F;
@@ -153,8 +152,7 @@ tr:nth-child(2) td {
 
 @media screen and (min-width: 768px) {
 
-  html { font-size: 19px; }
-  html.export { font-size: 16px; }
+  html { font-size: 17px; }
 
   .container {
     padding: 0 30px;

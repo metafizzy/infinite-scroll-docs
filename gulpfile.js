@@ -9,14 +9,9 @@ let site = {
   // templating data
   data: {
     productName: 'Infinite Scroll',
-    majorVersion: 3,
+    majorVersion: 4,
     isDev: taskName == 'dev',
     isExport: taskName == 'export',
-  },
-  // src to watch, tasks to trigger
-  watches: [],
-  watch: function( src, tasks ) {
-    site.watches.push([ src, tasks ]);
   },
 };
 
@@ -55,8 +50,4 @@ gulp.task( 'dev', gulp.parallel(
     'dist',
     'prod-assets',
     'content',
-), function() {
-  site.watches.forEach( function( watchable ) {
-    gulp.watch( ...watchable );
-  } );
-} );
+) );
