@@ -26,9 +26,13 @@
     "test": "npm run lint",
     "build": "npx gulp",
     "dev": "npx gulp dev",
+    "export": "rm -rf build/ && npx gulp export && npm run zip",
+    "prod": "npm run export && npm run build && npm run deploy",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "npx eslint .",
-    "lint:css": "npx stylelint '**/*.css'"
+    "lint:css": "npx stylelint '**/*.css'",
+    "zip": "rm -rf build/infinite-scroll-docs.zip && cp -r build infinite-scroll-docs && zip -rq build/infinite-scroll-docs.zip infinite-scroll-docs/ && rm -rf infinite-scroll-docs",
+    "deploy": "netlify deploy --dir=build"
   },
   "keywords": [
     "documentation",
