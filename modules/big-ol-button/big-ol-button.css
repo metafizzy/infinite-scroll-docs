@@ -16,6 +16,10 @@
   box-shadow: 0 2px 10px hsla(0, 0%, 0%, 0.2);
 }
 
+.main .button--big-ol {
+  text-decoration: none;
+}
+
 .button.button--big-ol:hover {
   color: white;
   background-color: #19F;

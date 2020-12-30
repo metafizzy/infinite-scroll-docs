@@ -5,6 +5,10 @@
   background: #EEE;
 }
 
+.main .buy-button {
+  text-decoration: none;
+}
+
 .buy-button__price {
   background: #19F;
 }

@@ -49,4 +49,10 @@
     left: 0;
     top: 0;
   }
+
+  .page-nav__item a {
+    display: block;
+    padding: 2px 0;
+    text-decoration: none;
+  }
 }
