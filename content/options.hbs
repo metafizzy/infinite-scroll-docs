@@ -176,28 +176,21 @@ path: function() {
 
 {{! ----------------------------------------------------------------- }}
 
-<h3>responseType</h3>
+<h3>responseBody</h3>
 
-<p>Sets the type of response returned by the page request. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">MDN docs XMLHttpRequest.responseType</a>.</p>
+<p>Sets the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Response#Body_Interface_Methods">Response body interface method</a>, on the response returned from <code>fetch</code> request. Default <code><span class="comment">responseBody: 'text'</span></code></p>
 
-``` js
-// responseType: 'document'
-// default, return next page's DOM
-```
-
-<p>Set <code>responseType: <span class="string">'text'</span></code> to return flat text for loading JSON.</p>
+<p>Set <code>responseBody: <span class="string">'json'</span></code> to return JSON.</p>
 
 ``` js
 $container.infiniteScroll({
   path: '/api/page\{{#}}.json',
   append: false,
-  responseType: 'text',
+  responseBody: 'json',
 });
 
-$container.on( 'load.infiniteScroll', function( event, response ) {
-  // parse JSON
-  var data = JSON.parse( response );
-  // do something with JSON...
+$container.on( 'load.infiniteScroll', function( event, data ) {
+  // data is JSON
 });
 ```
 
@@ -209,6 +202,58 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
   <li><a href="https://codepen.io/desandro/pen/QgMWzV/">Loading JSON with Masonry</a></li>
   <li><a href="https://codepen.io/desandro/pen/LLyeJB/">Loading JSON with Masonry, vanilla JS</a></li>
 </ul>
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>domParseResponse</h3>
+
+<p>When enabled parses the response body into a DOM. Enabled by default <code><span class="comment">domParseResponse: true</span></code></p>
+
+<p>Disable to load flat text.</p>
+
+``` js
+$container.infiniteScroll({
+  path: '/api/page\{{#}}.yml',
+  append: false,
+  domParseResponse: false,
+});
+
+$container.on( 'load.infiniteScroll', function( event, body ) {
+  // body is text
+});
+```
+
+{{! ----------------------------------------------------------------- }}
+
+<h3>fetchOptions</h3>
+
+<p>Sets <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options">options for the <code>fetch</code> request</a>.</p>
+
+``` js
+fetchOptions: {
+  mode: 'cors',
+  cache: 'no-cache',
+  credentials: 'same-origin',
+  headers: {
+    'X-Session-Id': '33vscths658h7996d324rqft1s',
+  },
+},
+```
+
+<p>Set <code>fetchOptions</code> to a function that returns an object to dynamically set fetch request options for each request.</p>
+
+``` js
+fetchOptions: function() {
+  return {
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'X-Session-Id': getSessionId(),
+    },
+  };
+},
+```
 
 {{! ----------------------------------------------------------------- }}
 
@@ -233,7 +278,7 @@ outlayer: instance
     // init Masonry
     var $grid = $('.grid').masonry({
       // Masonry options...
-      itemSelector: '.grid__item', 
+      itemSelector: '.grid__item',
     });
 
     // get Masonry instance
@@ -258,7 +303,7 @@ outlayer: instance
 // init Masonry
 var msnry = new Masonry( '.grid', {
   // Masonry options...
-  itemSelector: '.grid__item', 
+  itemSelector: '.grid__item',
 });
 
 // init Infinite Scroll
@@ -282,7 +327,7 @@ var infScroll = new InfiniteScroll( '.grid', {
     // init Isotope
     var $grid = $('.grid').isotope({
       // Isotope options...
-      itemSelector: '.grid__item', 
+      itemSelector: '.grid__item',
     });
 
     // get Isotope instance
@@ -303,7 +348,7 @@ var infScroll = new InfiniteScroll( '.grid', {
     // init Isotope
     var iso = new Isotope( '.grid', {
       // Isotope options...
-      itemSelector: '.grid__item', 
+      itemSelector: '.grid__item',
     });
 
     var infScroll = new InfiniteScroll( '.grid', {
@@ -324,7 +369,7 @@ var infScroll = new InfiniteScroll( '.grid', {
     // init Packery
     var $grid = $('.grid').packery({
       // Packery options...
-      itemSelector: '.grid__item', 
+      itemSelector: '.grid__item',
     });
 
     // get Packery instance
@@ -344,7 +389,7 @@ var infScroll = new InfiniteScroll( '.grid', {
     // init Packery
     var pckry = new Packery( '.grid', {
       // Packery options...
-      itemSelector: '.grid__item', 
+      itemSelector: '.grid__item',
     });
 
     var infScroll = new InfiniteScroll( '.grid', {
