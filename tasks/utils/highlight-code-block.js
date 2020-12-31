@@ -17,34 +17,42 @@ hljsJavascript.contains.push({
   begin: /\$container/,
 });
 
-let reFirstLine = /.*\n/;
-
-function replaceCodeBlock( match, leadingWhiteSpace, block ) {
-  let langMatch = block.match( reFirstLine );
-  let language = langMatch && langMatch[0];
-  // remove first line
-  block = block.replace( reFirstLine, '' );
-  if ( language ) {
-    language = language.trim();
+function replaceCodeBlock( whiteSpace, block ) {
+  if ( !block ) {
+    return '';
   }
+  let langMatch = block.match( /^ *([\w]+)\n/ );
+  let language = langMatch && langMatch[1];
+  // remove first line
+  block = block.replace( /.*\n/, '' );
   // remove leading whitespace from code block
-  if ( leadingWhiteSpace && leadingWhiteSpace.length ) {
-    let reLeadingWhiteSpace = new RegExp( '^' + leadingWhiteSpace, 'gim' );
-    block = block.replace( reLeadingWhiteSpace, '' );
+  if ( whiteSpace && whiteSpace.length ) {
+    let reWhiteSpace = new RegExp( '^' + whiteSpace, 'gim' );
+    block = block.replace( reWhiteSpace, '' );
   }
   // highlight code
-  let highlighted = language ? highlightjs.highlight( language, block, true ).value :
-    block;
-  // wrap in <pre><code>
-  let classAttr = language ? `class="${language}"` : '';
-  return `\n<pre><code ${classAttr}>${highlighted}</code></pre>`;
+  let highlighted = block;
+  if ( language ) {
+    highlighted = highlightjs.highlight( language, block, true ).value;
+  }
+  let codeAttr = language ? `class="${language}"` : '';
+  return `<pre><code ${codeAttr}>${highlighted}</code></pre>\n`;
 }
 
 module.exports = function() {
   return transfob( function( file, enc, next ) {
     let contents = file.contents.toString();
-    contents = contents.replace( /\n( *)```([^```]+)```/gi, replaceCodeBlock );
-    file.contents = Buffer.from( contents );
+    // split contents by ```, get leading white space
+    let blocks = contents.split( /\n( *)```/ );
+    let hiContent = '';
+    for ( let i = 0; i < blocks.length; i += 4 ) {
+      let normBlock = blocks[i];
+      let whitespace = blocks[ i + 1 ] || '';
+      let codeBlock = blocks[ i + 2 ] || '';
+      codeBlock = replaceCodeBlock( whitespace, codeBlock );
+      hiContent += `${normBlock}\n${codeBlock}`;
+    }
+    file.contents = Buffer.from( hiContent );
     next( null, file );
   } );
 };

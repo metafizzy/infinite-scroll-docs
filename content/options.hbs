@@ -40,8 +40,8 @@ path: 'news/blog-p\{{#}}.html'
 
 ``` js
 path: function() {
-  var pageNumber = ( this.loadCount + 1 ) * 10;
-  return '/articles/P' + pageNumber;
+  let pageNumber = ( this.loadCount + 1 ) * 10;
+  return `/articles/P${pageNumber}`;
 }
 // => /articles/P10, /articles/P20, /articles/P30 ...
 ```
@@ -49,7 +49,7 @@ path: function() {
 <p>For another example, this documentation site uses a function to get the next URL from an array.</p>
 
 ``` js
-var nextPages = [
+let nextPages = [
   'index',
   'options',
   'api',
@@ -135,8 +135,8 @@ checkLastPage: '.pagination__next',
 path: function() {
   // no value returned after 4th loaded page
   if ( this.loadCount < 4 ) {
-    var nextIndex = this.loadCount + 2;
-    return 'news/blog-p' + nextIndex + '.html';
+    let nextIndex = this.loadCount + 2;
+    return `news/blog-p${nextIndex}.html`;
   }
 }
 ```
@@ -276,13 +276,13 @@ outlayer: instance
     ``` js
     // with Masonry & jQuery
     // init Masonry
-    var $grid = $('.grid').masonry({
+    let $grid = $('.grid').masonry({
       // Masonry options...
       itemSelector: '.grid__item',
     });
 
     // get Masonry instance
-    var msnry = $grid.data('masonry');
+    let msnry = $grid.data('masonry');
 
     // init Infinite Scroll
     $grid.infiniteScroll({
@@ -301,13 +301,13 @@ outlayer: instance
 ``` js
 // with Masonry & vanilla JS
 // init Masonry
-var msnry = new Masonry( '.grid', {
+let msnry = new Masonry( '.grid', {
   // Masonry options...
   itemSelector: '.grid__item',
 });
 
 // init Infinite Scroll
-var infScroll = new InfiniteScroll( '.grid', {
+let infScroll = new InfiniteScroll( '.grid', {
   // Infinite Scroll options...
   append: '.grid__item',
   outlayer: msnry,
@@ -325,13 +325,13 @@ var infScroll = new InfiniteScroll( '.grid', {
     ``` js
     // with Isotope & jQuery
     // init Isotope
-    var $grid = $('.grid').isotope({
+    let $grid = $('.grid').isotope({
       // Isotope options...
       itemSelector: '.grid__item',
     });
 
     // get Isotope instance
-    var iso = $grid.data('isotope');
+    let iso = $grid.data('isotope');
 
     // init Infinite Scroll
     $grid.infiniteScroll({
@@ -346,12 +346,12 @@ var infScroll = new InfiniteScroll( '.grid', {
     ``` js
     // with Isotope & vanilla JS
     // init Isotope
-    var iso = new Isotope( '.grid', {
+    let iso = new Isotope( '.grid', {
       // Isotope options...
       itemSelector: '.grid__item',
     });
 
-    var infScroll = new InfiniteScroll( '.grid', {
+    let infScroll = new InfiniteScroll( '.grid', {
       // Infinite Scroll options...
       append: '.grid__item',
       outlayer: iso,
@@ -367,13 +367,13 @@ var infScroll = new InfiniteScroll( '.grid', {
     ``` js
     // with Packery & jQuery
     // init Packery
-    var $grid = $('.grid').packery({
+    let $grid = $('.grid').packery({
       // Packery options...
       itemSelector: '.grid__item',
     });
 
     // get Packery instance
-    var pckry = $grid.data('packery');
+    let pckry = $grid.data('packery');
 
     // init Infinite Scroll
     $grid.infiniteScroll({
@@ -387,12 +387,12 @@ var infScroll = new InfiniteScroll( '.grid', {
     ``` js
     // with Packery & vanilla JS
     // init Packery
-    var pckry = new Packery( '.grid', {
+    let pckry = new Packery( '.grid', {
       // Packery options...
       itemSelector: '.grid__item',
     });
 
-    var infScroll = new InfiniteScroll( '.grid', {
+    let infScroll = new InfiniteScroll( '.grid', {
       // Infinite Scroll options...
       append: '.grid__item',
       outlayer: pckry,

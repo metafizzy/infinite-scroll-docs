@@ -17,7 +17,7 @@ $container.infiniteScroll( 'methodName' /*, arguments */ )
 ```
 
 ``` js
-var $container = $('.container').infiniteScroll({ /* options... */ })
+let $container = $('.container').infiniteScroll({ /* options... */ })
   .infiniteScroll('loadNextPage');
 ```
 
@@ -35,7 +35,7 @@ infScroll.methodName( /* arguments */ )
 
 ``` js
 // vanilla JS
-var infScroll = new InfiniteScroll('.container', {
+let infScroll = new InfiniteScroll('.container', {
   // options...
 });
 infScroll.loadNextPage();
@@ -111,13 +111,13 @@ infScroll.appendItems( items )
 <p>Use <code>appendItems</code> to manually append items on <a href="events.html#load"><code>load</code></a>.</p>
 
 ``` js
-var $container = $('.container').infiniteScroll({
+let $container = $('.container').infiniteScroll({
   append: false, // disable automatic appending
 });
 
 $container.on( 'load.infiniteScroll', function( event, response ) {
   // get posts from response
-  var $posts = $( response ).find('.post');
+  let $posts = $( response ).find('.post');
   // append posts after images loaded
   $posts.imagesLoaded( function() {
     $container.infiniteScroll( 'appendItems', $posts );
@@ -133,9 +133,9 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 
 ``` js
 // jQuery
-var path = $container.infiniteScroll('getPath')
+let path = $container.infiniteScroll('getPath')
 // vanilla JS
-var path = infScroll.getPath()
+let path = infScroll.getPath()
 ```
 
 <p class="argument">
@@ -144,7 +144,7 @@ var path = infScroll.getPath()
 </p>
 
 ``` js
-var $container = $('.container').infiniteScroll({
+let $container = $('.container').infiniteScroll({
   path: 'page/\{{#}}',
   // options...
 });
@@ -161,9 +161,9 @@ $container.infiniteScroll('getPath');
 
 ``` js
 // jQuery
-var path = $container.infiniteScroll('getAbsolutePath')
+let path = $container.infiniteScroll('getAbsolutePath')
 // vanilla JS
-var path = infScroll.getAbsolutePath()
+let path = infScroll.getAbsolutePath()
 ```
 
 <p class="argument">
@@ -172,7 +172,7 @@ var path = infScroll.getAbsolutePath()
 </p>
 
 ``` js
-var $container = $('.container').infiniteScroll({
+let $container = $('.container').infiniteScroll({
   path: 'page/\{{#}}',
   // options...
 });
@@ -201,7 +201,7 @@ infScroll.option( options )
 </p>
 
 ``` js
-var $container = $('.container').infiniteScroll({
+let $container = $('.container').infiniteScroll({
   // initial options...
   // disable loading on scroll
   loadOnScroll: false,
@@ -239,9 +239,9 @@ infScroll.destroy()
 <p>Get the Infinite Scroll instance from a jQuery object. Infinite Scroll instances are useful to access Infinite Scroll properties.</p>
 
 ``` js
-var infScroll = $('.container').data('infiniteScroll');
+let infScroll = $('.container').data('infiniteScroll');
 // access Infinite Scroll properties
-console.log( 'Infinite scroll at page' + infScroll.pageIndex );
+console.log(`Infinite scroll at page ${infScroll.pageIndex}`);
 ```
 
 
@@ -252,7 +252,7 @@ console.log( 'Infinite scroll at page' + infScroll.pageIndex );
 <p>Get the Infinite Scroll instance via its element. <code>InfiniteScroll.data()</code> is useful for getting the Infinite Scroll instance in JavaScript, after it has been initalized in HTML.</p>
 
 ``` js
-var infScroll = InfiniteScroll.data( element )
+let infScroll = InfiniteScroll.data( element )
 ```
 
 <p class="argument">
@@ -274,15 +274,15 @@ var infScroll = InfiniteScroll.data( element )
 
     ``` js
     // using a selector string
-    var infScroll = InfiniteScroll.data('.container')
+    let infScroll = InfiniteScroll.data('.container')
 
     // jQuery with element
     // pass in the element, $element[0], not the jQuery object
-    var infScroll = InfiniteScroll.data( $('.container')[0] )
+    let infScroll = InfiniteScroll.data( $('.container')[0] )
 
     // vanilla JS with element
-    var container = document.querySelector('.container')
-    var infScroll = InfiniteScroll.data( container )
+    let container = document.querySelector('.container')
+    let infScroll = InfiniteScroll.data( container )
     ```
   </div>
 </div>
@@ -296,9 +296,9 @@ var infScroll = InfiniteScroll.data( element )
 
   ``` js
   // init Flickity with jQuery
-  var $container = $('.container').infiniteScroll({...});
+  let $container = $('.container').infiniteScroll({...});
   // get instance
-  var infScroll = $container.data('infiniteScroll');
+  let infScroll = $container.data('infiniteScroll');
   // access properties
   console.log( infScroll.pageIndex );
   ```
@@ -318,7 +318,7 @@ infScroll.pageIndex
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    var infScroll = $container.data('infiniteScroll');
+    let infScroll = $container.data('infiniteScroll');
 
     $container.on( 'load.infiniteScroll', function() {
       $demoStatus.text( 'Loaded page: ' +
@@ -366,7 +366,7 @@ infScroll.loadCount
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    var infScroll = $container.data('infiniteScroll');
+    let infScroll = $container.data('infiniteScroll');
 
     $container.on( 'load.infiniteScroll', function() {
       $demoStatus.text( infScroll.loadCount +

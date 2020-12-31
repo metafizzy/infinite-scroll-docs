@@ -6,8 +6,9 @@ module.exports = function() {
     let contents = file.contents.toString();
     // use layout set in YAML front matter
     let layout = file.data.page.layout;
-    contents = '{{#extend "' + layout + '"}}{{#content "main"}}' +
-      contents + '{{/content}}{{/extend}}';
+    contents = `{{#extend "${layout}"}}{{#content "main"}}
+      ${contents}
+    {{/content}}{{/extend}}`;
     file.contents = Buffer.from( contents );
     next( null, file );
   } );

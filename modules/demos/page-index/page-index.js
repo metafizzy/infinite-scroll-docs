@@ -14,7 +14,7 @@ InfiniteScrollDocs['page-index'] = function( elem ) {
   } );
 
   infScroll.on( 'load', function() {
-    demoStatus.textContent = 'Loaded page: ' + this.pageIndex;
+    demoStatus.textContent = `Loaded page: ${infScroll.pageIndex}`;
   } );
 
 };

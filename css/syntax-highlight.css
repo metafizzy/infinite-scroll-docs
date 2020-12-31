@@ -15,7 +15,8 @@ code .title { color: #39A; }
 code .params { color: #98D; }
 code .p { color: #EDB; } /* punctuation */
 code .o { color: #F63; }   /* operator */
-code .nb { color: #AA97AC; } /* support */
+code .nb { color: #A9A; } /* support */
+code .subst { color: #A58; } /* template string substring */
 
 /* comment */
 code .comment {

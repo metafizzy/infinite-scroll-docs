@@ -34,9 +34,9 @@ description: "Everything else about Infinite Scroll: module loaders, loading JSO
 
 ``` js
 // main.js
-var InfiniteScroll = require('infinite-scroll');
+let InfiniteScroll = require('infinite-scroll');
 
-var infScroll = new InfiniteScroll( '.container', {
+let infScroll = new InfiniteScroll( '.container', {
   // options...
 });
 ```
@@ -77,9 +77,9 @@ var infScroll = new InfiniteScroll( '.container', {
 
 ``` js
 // main.js
-var $ = require('jquery');
-var jQueryBridget = require('jquery-bridget');
-var InfiniteScroll = require('infinite-scroll');
+let $ = require('jquery');
+let jQueryBridget = require('jquery-bridget');
+let InfiniteScroll = require('infinite-scroll');
 
 // make Infinite Scroll a jQuery plugin
 jQueryBridget( 'infiniteScroll', InfiniteScroll, $ );
@@ -106,18 +106,18 @@ $('.container').infiniteScroll({...});
 
 ``` js
 // main.js
-var Masonry = require('masonry-layout');
-var InfiniteScroll = require('infinite-scroll');
-var imagesLoaded = require('imagesloaded');
+let Masonry = require('masonry-layout');
+let InfiniteScroll = require('infinite-scroll');
+let imagesLoaded = require('imagesloaded');
 
 // init Masonry
-var msnry = new Masonry( '.container', {...});
+let msnry = new Masonry( '.container', {...});
 
 // make imagesLoaded available for InfiniteScroll
 InfiniteScroll.imagesLoaded = imagesLoaded;
 
 // now you can use outlayer option
-var infScroll = new InfiniteScroll( '.container', {
+let infScroll = new InfiniteScroll( '.container', {
   // options...
   outlayer: msnry,
 });
@@ -135,7 +135,7 @@ var infScroll = new InfiniteScroll( '.container', {
 requirejs( [
   'path/to/infinite-scroll.pkgd.js',
 ], function( InfiniteScroll ) {
-  var infScroll = new InfiniteScroll( '.container', {...});
+  let infScroll = new InfiniteScroll( '.container', {...});
 });
 ```
 
@@ -170,7 +170,7 @@ requirejs( [
   'infinite-scroll/js/index',
   'app/my-component.js',
 ], function( InfiniteScroll, myComp ) {
-  var infScroll = new InfiniteScroll( '.container', {...});
+  let infScroll = new InfiniteScroll( '.container', {...});
 });
 ```
 
@@ -214,13 +214,13 @@ requirejs( [
   'app/my-component.js',
 ], function( Masonry, imagsLoaded InfiniteScroll, myComp ) {
   // init Masonry
-  var msnry = new Masonry( '.container', {...});
+  let msnry = new Masonry( '.container', {...});
 
   // make imagesLoaded available for Infinite Scroll
   InfiniteScroll.imagesLoaded = imagesLoaded;
 
   // now you can use outlayer option
-  var infScroll = new InfiniteScroll( '.container', {
+  let infScroll = new InfiniteScroll( '.container', {
     // options...
     outlayer: msnry,
   });
@@ -234,7 +234,7 @@ requirejs( [
 <p>Here is one example of how to use Infinite Scroll to load JSON data and append content. We'll use the Unsplash API to load pages of photos.</p>
 
 ``` js
-var $container = $('.container').infiniteScroll({
+let $container = $('.container').infiniteScroll({
   path: function() {
     return 'https://api.unsplash.com/photos?client_id=...&page=' + this.pageIndex;
   },
@@ -246,11 +246,11 @@ var $container = $('.container').infiniteScroll({
 
 $container.on( 'load.infiniteScroll', function( event, response ) {
   // parse response text into JSON data
-  var data = JSON.parse( response );
+  let data = JSON.parse( response );
   // put that data into template
-  var itemsHTML = template.compile( data );
+  let itemsHTML = template.compile( data );
   // convert to jQuery object
-  var $items = $( itemsHTML );
+  let $items = $( itemsHTML );
   // append items
   $container.infiniteScroll( 'appendItems', $items );
 });
@@ -276,13 +276,13 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    var $container = $('.container').infiniteScroll({
+    let $container = $('.container').infiniteScroll({
       // options...
       // disable loading on scroll
       loadOnScroll: false,
     });
 
-    var $viewMoreButton = $('.view-more-button');
+    let $viewMoreButton = $('.view-more-button');
     $viewMoreButton.on( 'click', function() {
       // load next page
       $container.infiniteScroll('loadNextPage');
@@ -307,16 +307,16 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 <div class="duo example">
   <div class="duo__cell example__code">
     ``` js
-    var $container = $('.container').infiniteScroll({
+    let $container = $('.container').infiniteScroll({
       // options...
       // enable button
       button: '.view-more-button',
     });
 
-    var $viewMoreButton = $('.view-more-button');
+    let $viewMoreButton = $('.view-more-button');
 
     // get Infinite Scroll instance
-    var infScroll = $container.data('infiniteScroll');
+    let infScroll = $container.data('infiniteScroll');
 
     $container.on( 'load.infiniteScroll', onPageLoad );
 
@@ -349,7 +349,7 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 <p>To do so, you can use a <code>nextURL</code> variable and update it on <a href="events.html#load"><code>load</code></a>, then set <a href="options.html#path"><code>path</code></a> to a function to return <code>nextURL</code>.</p>
 
 ``` js
-var nextURL;
+let nextURL;
 
 function updateNextURL( doc ) {
   nextURL = $( doc ).find('.pagination__next').attr('href');
@@ -358,7 +358,7 @@ function updateNextURL( doc ) {
 updateNextURL( document );
 
 // init Infinite Scroll
-var $container = $('.container').infiniteScroll({
+let $container = $('.container').infiniteScroll({
   // use function to set custom URLs
   path: function() {
     return nextURL;
@@ -512,7 +512,7 @@ $container.on( 'history.infiniteScroll', function() {
 
 ``` js
 // link used to get absolute path, beginning with /
-var link = document.createElement('a');
+let link = document.createElement('a');
 
 $container.on( 'append.infiniteScroll', function( event, response, path ) {
   link.href = path;
@@ -632,7 +632,7 @@ $container.on( 'append.infiniteScroll', function( event, response, path ) {
   <div class="duo__cell example__code">
     ``` js
     // Infinite Scroll v3
-    var $container = $('.container').infiniteScroll({
+    let $container = $('.container').infiniteScroll({
       append: '.post',
       path: '.pagination__next',
       status: '.page-load-status',

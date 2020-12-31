@@ -129,8 +129,8 @@ $('.container').infiniteScroll({
 <p>You can use Infinite Scroll with vanilla JS: <code><span class="keyword">new</span> InfiniteScroll( elem )</code>. The <code>InfiniteScroll()</code> constructor accepts two arguments: the container element and an options object.</p>
 
 ``` js
-var elem = document.querySelector('.container');
-var infScroll = new InfiniteScroll( elem, {
+let elem = document.querySelector('.container');
+let infScroll = new InfiniteScroll( elem, {
   // options
   path: '.pagination__next',
   append: '.post',
@@ -139,7 +139,7 @@ var infScroll = new InfiniteScroll( elem, {
 
 // element argument can be a selector string
 //   for an individual element
-var infScroll = new InfiniteScroll( '.container', {
+let infScroll = new InfiniteScroll( '.container', {
   // options
 });
 ```

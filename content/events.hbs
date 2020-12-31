@@ -83,7 +83,7 @@ infScroll.on( 'scrollThreshold', function() {...});
 ``` js
 // jQuery
 $container.on( 'request.infiniteScroll', function( event, path ) {
-  console.log( 'Loading page: ' + path );
+  console.log(`Loading page: ${path}`);
 });
 
 // vanilla JS
@@ -105,7 +105,7 @@ infScroll.on( 'request', function( path ) {...})
 ``` js
 // jQuery
 $container.on( 'load.infiniteScroll', function( event, response, path ) {
-  console.log( 'Loaded: ' + path );
+  console.log(`Loaded: ${path}`);
 });
 
 // vanilla JS
@@ -124,12 +124,12 @@ infScroll.on( 'load', function( response, path ) {...});
 </p>
 
 ``` js
-var infScroll = $container.data('infiniteScroll');
+let infScroll = $container.data('infiniteScroll');
 
 $container.on( 'load.infiniteScroll', function( event, response, path ) {
-  console.log( 'Loaded: ' + path,
-    'Current page: ' + infScroll.pageIndex,
-    infScroll.loadCount + ' pages loaded'
+  console.log(`Loaded: ${path}`,
+    `Current page: ${infScroll.pageIndex}`,
+    `${infScroll.loadCount} pages loaded'
   );
 });
 ```
@@ -143,7 +143,7 @@ $container.on( 'load.infiniteScroll', function( event, response, path ) {
 ``` js
 // jQuery
 $container.on( 'append.infiniteScroll', function( event, response, path, items ) {
-  console.log( 'Loaded: ' + path );
+  console.log(`Appended ${items.length} items on ${path}`);
 });
 
 // vanilla JS
@@ -166,12 +166,6 @@ infScroll.on( 'append', function( response, path, items ) {...});
   <span class="argument__description">Appended item elements</span>
 </p>
 
-``` js
-$container.on( 'append.infiniteScroll', function( event, response, path, items ) {
-  console.log( items.length + ' items appended' );
-});
-```
-
 {{! ----------------------------------------------------------------- }}
 
 <h3>error</h3>
@@ -181,7 +175,7 @@ $container.on( 'append.infiniteScroll', function( event, response, path, items )
 ``` js
 // jQuery
 $container.on( 'error.infiniteScroll', function( event, error, path ) {
-  console.log( 'Could not load: ' + path )
+  console.log(`Could not load: ${path}`);
 })
 
 // vanilla JS
@@ -209,7 +203,7 @@ infScroll.on( 'error', function( error, path ) {...})
 ``` js
 // jQuery
 $container.on( 'last.infiniteScroll', function( event, response, path ) {
-  console.log( 'Loaded: ' + path );
+  console.log(`Last page hit on ${path}`);
 });
 
 // vanilla JS
@@ -236,7 +230,7 @@ infScroll.on( 'last', function( response, path ) {...});
 ``` js
 // jQuery
 $container.on( 'history.infiniteScroll', function( event, title, path ) {
-  console.log( 'History changed to: ' + path );
+  console.log(`History changed to: ${path}`);
 });
 
 // vanilla JS
