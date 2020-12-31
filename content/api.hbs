@@ -49,10 +49,44 @@ infScroll.loadNextPage();
 
 ``` js
 // jQuery
-$container.infiniteScroll('loadNextPage')
+let promise = $container.infiniteScroll('loadNextPage')
 // vanilla JS
-infScroll.loadNextPage()
+let promise = infScroll.loadNextPage()
 ```
+
+<p class="argument">
+  <code class="argument__code">promise</code>
+  <span class="argument__type"><i>Promise</i></span>
+</p>
+
+<p><code>loadNextPage</code> returns a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises"><code>Promise</code></a>, allowing you to chain with <code>.then()</code>. The following <code>.then()</code> function is triggered after the page has loaded and after items have been appended.</p>
+
+``` js
+// vanilla JS
+infScroll.loadNextPage().then( function( loaded ) {
+  // next page has been loaded
+  let { response, body, items } = loaded;
+  console.log( response.path );
+  console.log( body );
+  console.log( items );
+} );
+```
+
+<p class="argument">
+  <code class="argument__code">response</code>
+  <span class="argument__type"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Response"><i>Response</i></a></span>
+  <span class="argument__description">response returned from fetch request</span>
+</p>
+<p class="argument">
+  <code class="argument__code">body</code>
+  <span class="argument__type"><i>Document</i>, JSON <i>Object</i>, or <i>String</i></span>
+  <span class="argument__description">the operative content loaded from the fetch request. </span>
+</p>
+<p class="argument">
+  <code class="argument__code">items</code>
+  <span class="argument__type"><i>NodeList</i></span>
+  <span class="argument__description">appended elements. Requires <a href="http://local/infinite-scroll-docs/build/options.html#append"><code>append</code></a></span>
+</p>
 
 {{! ----------------------------------------------------------------- }}
 
