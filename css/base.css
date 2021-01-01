@@ -146,6 +146,10 @@ tr:nth-child(2) td {
   border-top: none;
 }
 
+.main li {
+  margin: 4px 0;
+}
+
 /* ---- data-license-property ---- */
 
 *[data-license-property] {
