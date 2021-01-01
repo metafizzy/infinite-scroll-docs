@@ -133,17 +133,15 @@ let $container = $('.container').infiniteScroll({
   path: function() {
     return 'https://api.unsplash.com/photos?client_id=...&page=' + this.pageIndex;
   },
-  // load page as text
-  responseType: 'text',
+  // load page as JSON
+  responseBody: 'json',
   // disable history
   history: false,
 });
 
-$container.on( 'load.infiniteScroll', function( event, response ) {
-  // parse response text into JSON data
-  let data = JSON.parse( response );
-  // put that data into template
-  let itemsHTML = template.compile( data );
+$container.on( 'load.infiniteScroll', function( event, body ) {
+  // body is JSON, put that data into template
+  let itemsHTML = template.compile( body );
   // convert to jQuery object
   let $items = $( itemsHTML );
   // append items
@@ -151,12 +149,12 @@ $container.on( 'load.infiniteScroll', function( event, response ) {
 });
 ```
 
-{{> edit-demo default="LLjYgG" vanillaJS="JJNNqP" }}
+{{> edit-demo default="ZEprdYX" vanillaJS="JJNNqP" }}
 
 <p>See additional demos:</p>
 
 <ul>
-  <li><a href="https://codepen.io/desandro/pen/QgMWzV/">Loading JSON with Masonry</a></li>
+  <li><a href="https://codepen.io/desandro/pen/abmqgWQ/">Loading JSON with Masonry</a></li>
   <li><a href="https://codepen.io/desandro/pen/LLyeJB/">Loading JSON with Masonry, vanilla JS</a></li>
 </ul>
 
