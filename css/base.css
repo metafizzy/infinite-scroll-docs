@@ -140,6 +140,12 @@ tr:nth-child(2) td {
   text-decoration: underline;
 }
 
+.main .call-out h2:first-child {
+  margin-top: 0.5rem;
+  padding-top: 0;
+  border-top: none;
+}
+
 /* ---- data-license-property ---- */
 
 *[data-license-property] {
