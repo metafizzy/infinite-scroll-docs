@@ -82,18 +82,23 @@ infScroll.on( 'scrollThreshold', function() {...});
 
 ``` js
 // jQuery
-$container.on( 'request.infiniteScroll', function( event, path ) {
+$container.on( 'request.infiniteScroll', function( event, path, fetchPromise ) {
   console.log(`Loading page: ${path}`);
 });
 
 // vanilla JS
-infScroll.on( 'request', function( path ) {...})
+infScroll.on( 'request', function( path, fetchPromise ) {...})
 ```
 
 <p class="argument">
   <code class="argument__code">path</code>
   <span class="argument__type"><i>String</i></span>
   <span class="argument__description">Requested page URL path</span>
+</p>
+<p class="argument">
+  <code class="argument__code">fetchPromise</code>
+  <span class="argument__type"><i>Promise</i></span>
+  <span class="argument__description"><a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Return_value"> Promise that resolves to a Response object</a> returned by the fetch request</span>
 </p>
 
 {{! ----------------------------------------------------------------- }}
