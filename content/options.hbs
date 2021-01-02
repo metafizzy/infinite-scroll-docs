@@ -83,7 +83,7 @@ $('.container').infiniteScroll({
   </div>
   <div class="duo__cell example__demo">
     {{> append}}
-    {{> edit-demo default="WOjqNM" vanillaJS="WOpjMM"}}
+    {{> edit-demo default="yLaKLop" vanillaJS="vYXRYeY"}}
   </div>
 </div>
 
@@ -170,7 +170,7 @@ path: function() {
   </div>
   <div class="duo__cell example__demo">
     {{> prefill}}
-    {{> edit-demo default="VWWVyj" vanillaJS="WOjxKP"}}
+    {{> edit-demo default="QWKmWoa" vanillaJS="vYXRYMG"}}
   </div>
 </div>
 
@@ -197,10 +197,10 @@ $container.on( 'load.infiniteScroll', function( event, data ) {
 <p>See demos on CodePen:</p>
 
 <ul>
-  <li><a href="https://codepen.io/desandro/pen/LLjYgG/">Loading JSON</a></li>
-  <li><a href="https://codepen.io/desandro/pen/JJNNqP/">Loading JSON, vanilla JS</a></li>
-  <li><a href="https://codepen.io/desandro/pen/QgMWzV/">Loading JSON with Masonry</a></li>
-  <li><a href="https://codepen.io/desandro/pen/LLyeJB/">Loading JSON with Masonry, vanilla JS</a></li>
+  <li><a href="https://codepen.io/desandro/pen/abmYbxr/">Loading JSON</a></li>
+  <li><a href="https://codepen.io/desandro/pen/YzGazmq/">Loading JSON, vanilla JS</a></li>
+  <li><a href="https://codepen.io/desandro/pen/rNMdaNR/">Loading JSON with Masonry</a></li>
+  <li><a href="https://codepen.io/desandro/pen/ExgEaaB/">Loading JSON with Masonry, vanilla JS</a></li>
 </ul>
 
 {{! ----------------------------------------------------------------- }}
@@ -227,7 +227,7 @@ $container.on( 'load.infiniteScroll', function( event, body ) {
 
 <h3>fetchOptions</h3>
 
-<p>Sets <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options">options for the <code>fetch</code> request</a>.</p>
+<p>Sets method, headers, CORS mode, and other options for the <code>fetch</code> request. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options">Supplying request options on MDN</a> for more details.</p>
 
 ``` js
 fetchOptions: {
@@ -485,7 +485,7 @@ scrollThreshold: false
   </div>
   <div class="duo__cell example__demo">
     {{> append}}
-    {{> edit-demo default="Kqqrrb" vanillaJS="MomexY"}}
+    {{> edit-demo default="QWKmgLE" vanillaJS="eYdMROE"}}
    </div>
 </div>
 
@@ -548,7 +548,7 @@ scrollThreshold: false
 
 <p>Changes page URL and browser history.</p>
 
-<p>Enabled by default <code><span class="comment">history: 'replace'</span></code> will use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method"><code>history.replaceState()</code></a> to change the current history entry. Going back in the browser will return the user to previous site.</p>
+<p>Enabled by default <code><span class="comment">history: 'replace'</span></code> will use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History#Methods"><code>history.replaceState()</code></a> to change the current history entry. Going back in the browser will return the user to previous site.</p>
 
 <p><a href="demo/full-page">View full page demo with <code>history: 'replace'</code></a>.</p>
 
@@ -559,7 +559,7 @@ history: false
 // disable changing URL and browser history
 ```
 
-<p>Set <code>history: <span class="string">'push'</span></code> to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method"><code>history.pushState()</code></a> to create new history entries for each page change. Going back in the browser will load the previous page.</p>
+<p>Set <code>history: <span class="string">'push'</span></code> to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/History#Methods"><code>history.pushState()</code></a> to create new history entries for each page change. Going back in the browser will load the previous page.</p>
 
 
 ``` js
@@ -606,7 +606,7 @@ historyTitle: false
 hideNav: '.pagination'
 ```
 
-{{> edit-demo default="vZZQoJ" vanillaJS="qjmaNV"}}
+{{> edit-demo default="JjRLJoB" vanillaJS="gOweRpY"}}
 
 {{! ----------------------------------------------------------------- }}
 
@@ -641,7 +641,7 @@ hideNav: '.pagination'
   </div>
   <div class="duo__cell example__demo">
     {{> status}}
-    {{> edit-demo default="WOjqNM" vanillaJS="WOpjMM"}}
+    {{> edit-demo default="yLaKLop" vanillaJS="vYXRYeY"}}
   </div>
 </div>
 
@@ -649,7 +649,7 @@ hideNav: '.pagination'
 
 <h3>button</h3>
 
-<p>Enables a button to load pages on click. The button will state will be hooked in to Infinite Scroll events:</p>
+<p>Enables a button to load pages on click. The button state is changed by Infinite Scroll events:</p>
 
 <ul>
   <li>Disabled while loading on <a href="events.html#request"><code>request</code></a></li>
@@ -668,7 +668,6 @@ hideNav: '.pagination'
   </div>
   <div class="duo__cell example__demo">
     {{> button-option }}
-    {{> edit-demo default="VWWqYW" vanillaJS="xrdERX" }}
   </div>
 </div>
 

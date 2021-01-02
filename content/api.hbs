@@ -321,8 +321,7 @@ infScroll.pageIndex
     let infScroll = $container.data('infiniteScroll');
 
     $container.on( 'load.infiniteScroll', function() {
-      $demoStatus.text( 'Loaded page: ' +
-        infScroll.pageIndex );
+      $demoStatus.text(`Loaded page: `${infScroll.pageIndex}`);
     });
     ```
   </div>

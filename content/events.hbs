@@ -217,9 +217,15 @@ infScroll.on( 'error', function( error, path, response ) {...})
 
 <h3>last</h3>
 
-<p>Triggered when the last page has been loaded.</p>
+<p>Triggered when the last page has been loaded. <code>last</code> is triggered with several conditions.</p>
 
-<p>Requires <a href="options.html#checklastpage"><code>checkLastPage</code></a> enabled, and <a href="options.html#path"><code>path</code></a> to be set to a next link.</p>
+<ul>
+  <li>Anytime the loaded page returns with <code>204</code> status.</li>
+  <li>With <a href="options.html#append"><code>append</code></a> set, if the loaded page has 0 items to append.</li>
+  <li>With <a href="options.html#path"><code>path</code></a> to be set to a next link and <a href="options.html#checklastpage"><code>checkLastPage</code></a> enabled, if the next link is not found on the loaded page.</li>
+  <li>With <code>checkLastPage</code> set to a selector string, if the selector is not found on the loaded page.</li>
+  <li>With <code>path</code> set to a function and <code>checkLastPage</code> enabled, if the next link is not found on the loaded page.</li>
+</ul>
 
 ``` js
 // jQuery

@@ -29,7 +29,7 @@ description: "Everything else about Infinite Scroll: module loaders, loading JSO
   </div>
 </div>
 
-<p>You can then <code><span class="built_in">require</span>(<span class="string">'infiniteScroll'</span>)</code>.</p>
+<p>You can then <code><span class="built_in">require</span>(<span class="string">'infinite-scroll'</span>)</code>.</p>
 
 ``` js
 // main.js
@@ -145,17 +145,17 @@ $container.on( 'load.infiniteScroll', function( event, body ) {
   // convert to jQuery object
   let $items = $( itemsHTML );
   // append items
-  $container.infiniteScroll( 'appendItems', $items );
+  $container.append( $items );
 });
 ```
 
-{{> edit-demo default="ZEprdYX" vanillaJS="JJNNqP" }}
+{{> edit-demo default="abmYbxr" vanillaJS="YzGazmq" }}
 
 <p>See additional demos:</p>
 
 <ul>
-  <li><a href="https://codepen.io/desandro/pen/abmqgWQ/">Loading JSON with Masonry</a></li>
-  <li><a href="https://codepen.io/desandro/pen/LLyeJB/">Loading JSON with Masonry, vanilla JS</a></li>
+  <li><a href="https://codepen.io/desandro/pen/rNMdaNR/">Loading JSON with Masonry</a></li>
+  <li><a href="https://codepen.io/desandro/pen/ExgEaaB/">Loading JSON with Masonry, vanilla JS</a></li>
 </ul>
 
 {{! ----------------------------------------------------------------- }}
@@ -499,7 +499,7 @@ $container.on( 'append.infiniteScroll', function( event, response, path ) {
 
 <p>Creating a reduced test case is the best way to debug problems and report issues. Read <a href="https://css-tricks.com/reduced-test-cases/">CSS Tricks</a> on why they&rsquo;re so great.</p>
 
-<p>Create a reduced test case for Infinite Scroll by forking any one of the <a href="https://codepen.io/desandro/pens/tags/?selected_tag=infinite-scroll-v4-docs">CodePen demos</a> from these docs.</p>
+<p>Create a reduced test case for Infinite Scroll by forking any one of the <a href="https://codepen.io/collection/DZejqa?grid_type=list&sort_by=item_created_at">CodePen demos</a> from these docs.</p>
 
 <ul>
   <li>A reduced test case clearly demonstrates the bug or issue.</li>
