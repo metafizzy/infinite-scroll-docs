@@ -6,17 +6,21 @@ Documentation for Infinite Scroll, the JavaScript library for automatically addi
 
 ## Install
 
-Building these docs requires [npm](https://npmjs.com) and [Bower](https://bower.io).
+Building these docs requires [npm](https://npmjs.com).
 
 ``` bash
 npm install
-bower install
 ```
 
-## Tasks
+## Scripts
 
-+ `gulp` - build the production site, concatenate CSS and JS, minify JS
-+ `gulp dev` - build the site, but use separate CSS and JS files for debugging
+Run with npm: `npm run dev`.
+
+- `build` - build production version of site
+- `dev` - built development version of site
+- `lint` - lint JS and CSS "npm run lint:js && npm run lint:css",
+- `lint:js` - lint JS. Run `npm run lint:js -- --fix` to make automatic fixes
+- `lint:js` - lint CSS. Run `npm run lint:css -- --fix` to make automatic fixes
 
 ## Structure
 
